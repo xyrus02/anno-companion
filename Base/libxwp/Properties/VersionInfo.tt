@@ -1,0 +1,75 @@
+﻿<#@ template debug="true" hostspecific="true" language="C#" #>
+<#@ output extension=".cs" #>
+<#@ assembly name="System.Windows.Forms" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ import namespace="System.Text.RegularExpressions" #>
+using System.Reflection;
+<#
+	var bigBang = new DateTime(2012, 05, 21, 09, 00, 00);
+	var increaseStep = new Dictionary<string,int> 
+	{
+		["major"]		=  0,
+		["minor"]		=  0,
+		["revision"]	=  0,
+		["build"]   	= -1       // negative values: sets output to <(now - bigbang) in hours> * <input>
+	};
+
+	try 
+	{ 
+		foreach(var key in increaseStep.Keys) 
+		{
+			try 
+			{
+				increaseStep[key] = Convert.ToInt32(this.Host.ResolveParameterValue("","", key));
+			}
+			catch 
+			{
+				// https://social.msdn.microsoft.com/Forums/vstudio/en-US/44ba0014-6dd5-4dfe-b25e-7c65bdca8f49/hostresolveparametervalue-throws-argumentnullexception-vs2010?forum=vsx
+			}
+		}
+
+		var versionFile = File.ReadAllText(Path.Combine(Path.GetDirectoryName(Host.TemplateFile), Path.GetFileNameWithoutExtension(Host.TemplateFile) + ".cs"));
+
+		var pattern = new Regex("Assembly(?:File)?Version\\(\"(?<major>\\d+)\\.(?<minor>\\d+)\\.(?<revision>\\d+)\\.(?<build>\\d+)\"\\)");
+		var matches = pattern.Matches(versionFile);
+
+		foreach(var key in increaseStep.Keys) 
+		{
+			var step = increaseStep[key];
+			var value =  Math.Max(0, Convert.ToInt32(matches[0].Groups[key].Value));
+
+			if (step < 0)
+			{
+				value = (int)(DateTime.Now.Subtract(bigBang).TotalHours * (-step));
+			}
+			else 
+			{
+				value += step;
+			}
+
+			if (versionNumber.ContainsKey(key)) 
+			{
+				versionNumber[key] = value;
+			}
+			else 
+			{
+				versionNumber.Add(key, value);
+			}
+		}
+	}
+	catch( Exception ) 
+	{ 
+	}
+#>
+
+[assembly: AssemblyVersion("<#= this.versionNumber["major"] #>.<#= this.versionNumber["minor"] #>.<#= this.versionNumber["revision"] #>.<#= this.versionNumber["build"] #>")]
+[assembly: AssemblyFileVersion("<#= this.versionNumber["major"] #>.<#= this.versionNumber["minor"] #>.<#= this.versionNumber["revision"] #>.<#= this.versionNumber["build"] #>")]
+<#+
+	Dictionary<string, int> versionNumber = new Dictionary<string, int> {
+		["major"]		=  0,
+		["minor"]		=  0,
+		["revision"]	=  0,
+		["build"]   	=  0
+	};
+#>

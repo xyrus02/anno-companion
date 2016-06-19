@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>14.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{FB434B5C-DADE-4CF8-90D4-22D9EC6E21CB}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>XW</RootNamespace>
+    <AssemblyName>libxwp</AssemblyName>
+    <DefaultLanguage>de-DE</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="project.json" />
+    <!-- A reference to the entire .NET Framework is automatically included -->
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Annotations.cs" />
+    <Compile Include="BatchResponse.cs" />
+    <Compile Include="CalculationUtils.cs" />
+    <Compile Include="CollectionUtils.cs" />
+    <Compile Include="CommonUtils.cs" />
+    <Compile Include="Configuration\ConfigurationProviderSection.cs" />
+    <Compile Include="Configuration\Constraint.cs" />
+    <Compile Include="Configuration\DatabaseConfiguration.cs" />
+    <Compile Include="Configuration\DefaultPropertyImplementationAttribute.cs" />
+    <Compile Include="Configuration\DictionaryConfigurationProvider.cs" />
+    <Compile Include="Configuration\EmptyConfigurationProvider.cs" />
+    <Compile Include="Configuration\EmptyStorage.cs" />
+    <Compile Include="Configuration\FloatConstraint.cs" />
+    <Compile Include="Configuration\IDatabaseAuthentication.cs" />
+    <Compile Include="Configuration\IKeyedDomainStorage.cs" />
+    <Compile Include="Configuration\IKeyedConfigurationProvider.cs" />
+    <Compile Include="Configuration\ImmutableServiceConfiguration.cs" />
+    <Compile Include="Configuration\IntConstraint.cs" />
+    <Compile Include="Configuration\IntegratedSecurityAuthentication.cs" />
+    <Compile Include="Configuration\KeyedConfigurationProvider.cs" />
+    <Compile Include="Configuration\ReadOnlyDictionaryConfigurationProvider.cs" />
+    <Compile Include="Configuration\ServiceConfiguration.cs" />
+    <Compile Include="Configuration\ServiceProtocol.cs" />
+    <Compile Include="Configuration\Setting.cs" />
+    <Compile Include="Configuration\SettingChoice.cs" />
+    <Compile Include="Configuration\SettingDataType.cs" />
+    <Compile Include="Configuration\UserIdAuthentication.cs" />
+    <Compile Include="Configuration\XmlConfigurationProvider.cs" />
+    <Compile Include="CoreLogScope.cs" />
+    <Compile Include="DataResponse.cs" />
+    <Compile Include="DelayQueue.cs" />
+    <Compile Include="Diagnostics\ConcurrentQueueLogProvider.cs" />
+    <Compile Include="Diagnostics\CsvFileLogProvider.cs" />
+    <Compile Include="Diagnostics\FileLogProvider.cs" />
+    <Compile Include="Diagnostics\HumanReadableFileLogProvider.cs" />
+    <Compile Include="Diagnostics\InteractiveLogProvider.cs" />
+    <Compile Include="Diagnostics\IScopedLogProvider.cs" />
+    <Compile Include="Diagnostics\LogItem.cs" />
+    <Compile Include="Diagnostics\LogItemType.cs" />
+    <Compile Include="Diagnostics\LogProvider.cs" />
+    <Compile Include="Diagnostics\LogWrittenEventArgs.cs" />
+    <Compile Include="Diagnostics\LogWrittenEventHandler.cs" />
+    <Compile Include="Diagnostics\MachineReadableLogProvider.cs" />
+    <Compile Include="Diagnostics\TraceLogProvider.cs" />
+    <Compile Include="ErrorDetails.cs" />
+    <Compile Include="ExpressionComparer.cs" />
+    <Compile Include="IApplicationDomain.cs" />
+    <Compile Include="IVersionInfo.cs" />
+    <Compile Include="ListResult.cs" />
+    <Compile Include="MD5.cs" />
+    <Compile Include="PaginationRequest.cs" />
+    <Compile Include="PaginationResult.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\VersionInfo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>VersionInfo.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Request.cs" />
+    <Compile Include="Messages.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Messages.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Result.cs" />
+    <Compile Include="Scope.cs" />
+    <Compile Include="SimpleObservableList.cs" />
+    <Compile Include="StringUtils.cs" />
+    <Compile Include="TryParseFunc.cs" />
+    <Compile Include="Types\Byte2.cs" />
+    <Compile Include="Types\Byte3.cs" />
+    <Compile Include="Types\Byte4.cs" />
+    <Compile Include="Types\Float2.cs" />
+    <Compile Include="Types\Float3.cs" />
+    <Compile Include="Types\Float3x2.cs" />
+    <Compile Include="Types\Float3x3.cs" />
+    <Compile Include="Types\Float4.cs" />
+    <Compile Include="Types\FloatExtensions.cs" />
+    <Compile Include="Types\IMatrixType.cs" />
+    <Compile Include="Types\Int2.cs" />
+    <Compile Include="Types\Int3.cs" />
+    <Compile Include="Types\Int4.cs" />
+    <Compile Include="Types\IntrinsicMath.cs" />
+    <Compile Include="Types\IVectorType.cs" />
+    <Compile Include="Types\Uint2.cs" />
+    <Compile Include="Types\Uint3.cs" />
+    <Compile Include="Types\Uint4.cs" />
+    <Compile Include="UncleanShutdownEventArgs.cs" />
+    <Compile Include="UncleanShutdownEventHandler.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Properties\VersionInfo.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>VersionInfo.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Messages.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>Messages.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

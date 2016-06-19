@@ -1,0 +1,358 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ErrConfigurationProviderWriteNotSupported" xml:space="preserve">
+    <value>Das Schreiben in einen Provider vom Typ "{0}" wird nicht unterstützt.</value>
+  </data>
+  <data name="ErrContainerKeyNotFound" xml:space="preserve">
+    <value>Der angegebene Containerschlüssel wurde nicht gefunden.</value>
+  </data>
+  <data name="ErrFailedToReadXmlConfiguration" xml:space="preserve">
+    <value>Beim Lesen der XML-Konfiguration "{0}" ist ein Fehler aufgetreten. Möglicherweise ist die Konfiguration fehlerhaft. {1}</value>
+  </data>
+  <data name="ErrFailedToWriteXmlConfiguration" xml:space="preserve">
+    <value>Beim Schreiben der XML-Konfiguration "{0}" ist ein Fehler aufgetreten. {1}</value>
+  </data>
+  <data name="ErrInvalidAuthenticationMethodInConfiguration" xml:space="preserve">
+    <value>Die angegebene Authentifizierungsmethode wird nicht unterstützt.</value>
+  </data>
+  <data name="ErrInvalidConfigurationValue" xml:space="preserve">
+    <value>Ungültiger Wert für "{0}".</value>
+  </data>
+  <data name="ErrInvalidContainerKeyCharacter" xml:space="preserve">
+    <value>Ungültiges Zeichen im Containerschlüssel</value>
+  </data>
+  <data name="ErrInvalidDatabaseInstanceInConfiguration" xml:space="preserve">
+    <value>Die angegebene Datenbankinstanz ist ungültig.</value>
+  </data>
+  <data name="ErrInvalidDatabaseNameInConfiguration" xml:space="preserve">
+    <value>Der angegebene Datenbankname ist ungültig.</value>
+  </data>
+  <data name="ErrInvalidHostnameInConfiguration" xml:space="preserve">
+    <value>Der angegebene Hostname ist ungültig.</value>
+  </data>
+  <data name="ErrInvalidPortInConfiguration" xml:space="preserve">
+    <value>Der angegebene Port ist ungültig.</value>
+  </data>
+  <data name="ErrLogfileWriteFailed" xml:space="preserve">
+    <value>Fehler beim Schreiben in die Logdatei "{0}": {1}</value>
+  </data>
+  <data name="ErrXmlConfigurationHasMismatchingContainerNode" xml:space="preserve">
+    <value>Das Bereichselement der Konfiguration entspricht nicht dem erwarteten Element.</value>
+  </data>
+  <data name="ErrXmlConfigurationHasMismatchingRootNode" xml:space="preserve">
+    <value>Das Root-Element der Konfiguration entspricht nicht dem erwarteten Element.</value>
+  </data>
+  <data name="UiPressAnyKeyToContinue" xml:space="preserve">
+    <value>Drücken Sie eine beliebige Taste, um fortzufahren . . .</value>
+  </data>
+  <data name="ErrNotAMemberExpression" xml:space="preserve">
+    <value>Im angegebenen Ausdruck kann kein Member von "{0}" gefunden werden: {1}</value>
+  </data>
+  <data name="ErrStorageKeyConflictsWithContainer" xml:space="preserve">
+    <value>Es kann kein untergeordneter Speicher erzeugt werden, da bereits ein Container mit diesem Namen vorhanden ist.</value>
+  </data>
+  <data name="ErrDatabaseAccessOutsideMigrationContext" xml:space="preserve">
+    <value>Außerhalb eines Updatekontextes kann nicht auf die Datenbankverbindung zugegriffen werden.</value>
+  </data>
+  <data name="ErrMigrationAttributeMissing" xml:space="preserve">
+    <value>Dem Update "{0}" fehlt ein Attribut vom Typ "{1}"</value>
+  </data>
+  <data name="ErrMigrationDownNotSupported" xml:space="preserve">
+    <value>Ein Rollback kann nicht durchgeführt werden. Der Updateschritt "{0}" unterstützt den "{1}"-Aufruf nicht.</value>
+  </data>
+  <data name="LogDatabaseCreateWarning" xml:space="preserve">
+    <value>Die angegebene Datenbank existiert nicht. Sie wird automatisch angelegt. Bitte stellen Sie sicher, dass die Datenbank nach dem Update korrekt konfiguriert wird.</value>
+  </data>
+  <data name="LogIntialDatabaseMigrationNotice" xml:space="preserve">
+    <value>Keine Protokolltabelle gefunden. Es wird von einer Erstinstallation ausgegangen.</value>
+  </data>
+  <data name="LogMigrationCanceled" xml:space="preserve">
+    <value>Das Update wurde aufgrund von Fehlern abgebrochen.</value>
+  </data>
+  <data name="LogMigrationStepIntro" xml:space="preserve">
+    <value>Start der Ausführung des Updates "{0}" auf Version {1}</value>
+  </data>
+  <data name="LogSqlErrorDuringMigration" xml:space="preserve">
+    <value>SQL-Fehler bei Zeile {0}: {1} - das Update "{2}" auf Version {3} ist fehlgeschlagen.</value>
+  </data>
+  <data name="LogTargetDatabaseVersionGreaterThanCurrent" xml:space="preserve">
+    <value>Die angegebene Zielversion ist größer als die aktuelle Datenbankversion. Es wurden keine Aktionen ausgeführt.</value>
+  </data>
+  <data name="LogTargetDatabaseVersionLowerThanCurrent" xml:space="preserve">
+    <value>Die angegebene Zielversion ist kleiner als die aktuelle Datenbankversion. Es werden keine Aktionen ausgeführt.</value>
+  </data>
+  <data name="ErrValueRequiredValidationError" xml:space="preserve">
+    <value>Bitte geben Sie einen Wert ein.</value>
+  </data>
+  <data name="ErrPropertyIsInvalidSingular" xml:space="preserve">
+    <value>Eine Eigenschaft hat einen ungültigen oder fehlenden Wert.</value>
+  </data>
+  <data name="ErrPropertiesAreInvalidPlural" xml:space="preserve">
+    <value>{0} Eigenschaften haben ungültige oder fehlende Werte.</value>
+  </data>
+  <data name="ErrSynchronizationContextMessageLoopException" xml:space="preserve">
+    <value>Ein Fehler ist in einem {0} aufgetreten.</value>
+  </data>
+  <data name="UiNoSearchResults" xml:space="preserve">
+    <value>Es wurden keine Suchergebnisse gefunden.</value>
+  </data>
+  <data name="ErrValueCantBeEmpty" xml:space="preserve">
+    <value>Der Wert darf nicht leer sein.</value>
+  </data>
+  <data name="ErrMemberIsNotAProperty" xml:space="preserve">
+    <value>Der angegebene Member ist keine Eigenschaft.</value>
+  </data>
+  <data name="ErrPropertyNotAssignableToRequestedType" xml:space="preserve">
+    <value>Die angegebene Eigenschaft ist dem Typ "{0}" nicht zuweisbar.</value>
+  </data>
+  <data name="ErrRequiredAttributeNotFound" xml:space="preserve">
+    <value>Das Attribut "{0}" wurde am Typ "{1}" nicht gefunden.</value>
+  </data>
+  <data name="ErrValueInRangeRequiredValidationError" xml:space="preserve">
+    <value>Es ist ein Wert zwischen {0} und {1} erforderlich.</value>
+  </data>
+  <data name="ErrValueInvalidDecimalValidationError" xml:space="preserve">
+    <value>Der angegebene Wert ist kein gültiger numerischer Wert.</value>
+  </data>
+  <data name="ErrorExecutingScheduledAction" xml:space="preserve">
+    <value>Bei der Ausführung der Aufgabe "{0}" sind ein oder mehrere Fehler aufgetreten.</value>
+  </data>
+  <data name="ExceptionExecutingScheduledAction" xml:space="preserve">
+    <value>Bei der Ausführung der Aufgabe "{0}" ist ein Fehler aufgetreten.</value>
+  </data>
+  <data name="NoInstanceOfTypeRegisteredInContainer" xml:space="preserve">
+    <value>Es wurde keine Instanz vom Typ "{0}" registriert.</value>
+  </data>
+  <data name="ErrDuplicatePluginIdWarning" xml:space="preserve">
+    <value>Das Plugin mit der ID "{0}" ({2}) wurde bereits geladen. Mehrere Instanzen eines Plugins sind zwar zulässig, jedoch kann nicht die vom Plugin angegebene ID verwendet werden. Daher wird eine neue, für die Instanz einmalig generierte ID verwendet. Sollte die Plugininstanz neu installiert werden, so kann nicht garantiert werden, dass danach die gleiche ID gilt. Die generierte ID lautet: "{1}".</value>
+  </data>
+  <data name="ErrPluginLoadException" xml:space="preserve">
+    <value>Schwerwiegender Fehler bei der Initialisierung eines Moduls. {0}</value>
+  </data>
+  <data name="ErrPluginIsImplicitSingleton" xml:space="preserve">
+    <value>Die Instanzierung des Typs "{0}" ist nur einmal pro AppDomain erlaubt.</value>
+  </data>
+  <data name="LogPluginInitializationMessage" xml:space="preserve">
+    <value>Plugin wurde erfolgreich initialisiert:
+  Id:             	{0}
+  Name:     	{1}
+  Version: 	{2}</value>
+  </data>
+  <data name="LogFaultMessageMoreInformation" xml:space="preserve">
+    <value>Folgende Informationen stehen zum Fehler zur Verfügung:
+{0}
+{1}</value>
+  </data>
+  <data name="ErrPluginFaulted" xml:space="preserve">
+    <value>Schwerwiegender Fehler innerhalb eines Plugins:
+  Id:      	{0}
+  Name:   	{1}  
+  Version: 	{2}
+Weitere Informationen wurden in folgende Datei geschrieben: {3}</value>
+  </data>
+  <data name="LogPluginLoadingFaultRtleBanner" xml:space="preserve">
+    <value>Laden von {0}: {1}</value>
+  </data>
+  <data name="ErrCouldNotFindFilesInPluginDirectory" xml:space="preserve">
+    <value>Im angegebenen Verzeichnis wurden keine Dateien gefunden.</value>
+  </data>
+  <data name="LogPluginLoadingFaultTypesBanner" xml:space="preserve">
+    <value>In registrierten RTLEs aufgeführte Typen:</value>
+  </data>
+  <data name="LogPluginLoadingFaultExceptionsBanner" xml:space="preserve">
+    <value>In registrierten RTLEs aufgeführte Ausnahmen:</value>
+  </data>
+  <data name="ErrCouldNotFindValidPluginAssembly" xml:space="preserve">
+    <value>Im angegebenen Verzeichnis "{0}" konnte keine gültige Pluginassembly gefunden werden. Weitere Informationen befinden sich in der Datei "{1}".</value>
+  </data>
+  <data name="ErrFailedToCreateInstanceOfPluginType" xml:space="preserve">
+    <value>Es konnte keine Instanz des gefundenen Typs "{0}" erzeugt werden. Weitere Informationen befinden sich in der inneren Ausnahme.</value>
+  </data>
+  <data name="ErrFailedToLocatePluginType" xml:space="preserve">
+    <value>Die angegebene Bibliothek enthält keine unterstützten Typen.</value>
+  </data>
+  <data name="LogUsingHostVersionOfSharedAssembly" xml:space="preserve">
+    <value>Gemeinsame Assembly "{0}" wird durch die Hostumgebung bereitgestellt.</value>
+  </data>
+  <data name="LogUsingClientVersionOfSharedAssembly" xml:space="preserve">
+    <value>Gemeinsame Assembly "{0}" wird durch die Pluginumgebung bereitgestellt.</value>
+  </data>
+  <data name="ErrFailedTouseClientVersionOfSharedAssembly" xml:space="preserve">
+    <value>Die vom System gewählte Auflösung der gemeinsam genutzten Assembly "{0}" ist fehlgeschlagen. Es wird der Fallback-Mechanismus verwendet. Möglicherweise funktioniert das Plugin "{1}" nicht korrekt. Der Fehler lautet: {2}</value>
+  </data>
+  <data name="LogStartingAction" xml:space="preserve">
+    <value>Beginne Aufgabe "{0}"</value>
+  </data>
+  <data name="LogStoppingAction" xml:space="preserve">
+    <value>Beende Aufgabe "{0}"</value>
+  </data>
+  <data name="ErrDetectedCircularReference" xml:space="preserve">
+    <value>Zirkuläre Abhängigkeit erkannt. Folgende Elemente konnte nicht erfolgreich verarbeitet werden:
+{0}</value>
+  </data>
+  <data name="ErrCantSaveUsingIdConstructedOneToManyPersister" xml:space="preserve">
+    <value>Das Speichern ist in der aktuellen Instanz von "{0}" nicht unterstützt.</value>
+  </data>
+  <data name="ErrDatabaseConnectionError" xml:space="preserve">
+    <value>Bei der Verbindung mit der Datenbank ist ein Fehler aufgetreten. Bitte stellen Sie sicher, dass die Datenbank "{1}" an "{0}" erreichbar und aktuell ist und dass der Benutzer "{2}" berechtigt ist, sich an der Datenbank anzumelden.</value>
+  </data>
+  <data name="ErrDatabaseConnectionNotAssignedBeforeCreatingCommand" xml:space="preserve">
+    <value>Die Datenbankverbindung muss zugewiesen sein, bevor ein SQL-Kommando ausgeführt werden kann.</value>
+  </data>
+  <data name="ErrSqlError" xml:space="preserve">
+    <value>Eine Datenbankabfrage konnte nicht ausgeführt werden. Möglicherweise ist die Datenbank beschädigt oder nicht kompatibel mit der aktuellen Version von LEXolution.Erweiterungsdienst. Folgende Abfrage wurde versucht auszuführen: 
+{0}
+Sofern weitere Informationen zur Verfügung stehen, werden sie in Folge dieser Ausgabe angegeben.
+  </value>
+  </data>
+  <data name="LogDatabaseConnectionErrorWithRetryPending" xml:space="preserve">
+    <value>Beim Verbinden zur Datenbank "{1}" an "{0}" mit der Anmeldung "{2}" ist ein Problem aufgetreten. Neuer Versuch in {4} Sekunden ({5} Versuche verbleibend)...</value>
+  </data>
+  <data name="ErrMismatchingBufferSizes" xml:space="preserve">
+    <value>Mismatching buffer sizes.</value>
+  </data>
+  <data name="ErrDuplicatePropertyKey" xml:space="preserve">
+    <value>Duplicate property key</value>
+  </data>
+  <data name="ErrInvalidExpressionForExpressionProperty" xml:space="preserve">
+    <value>Expression is not valid: must be a property of type {0}</value>
+  </data>
+  <data name="ErrDomainActivationFailed" xml:space="preserve">
+    <value>Instance failed to activate. Perhaps there was an error while calling the constructor of the plugin class.</value>
+  </data>
+  <data name="ErrPluginCollectionNotInitialized" xml:space="preserve">
+    <value>The {0} must be initialized before.</value>
+  </data>
+  <data name="ErrMultipleApplicationHostsInstanced" xml:space="preserve">
+    <value>Es ist nur ein Anwendungshost pro AppDomain zulässig.</value>
+  </data>
+  <data name="ErrReadonlyStorage" xml:space="preserve">
+    <value>The storage is read-only.</value>
+  </data>
+  <data name="LogAppShuttingDown" xml:space="preserve">
+    <value>Anwendung wird beendet</value>
+  </data>
+  <data name="LogAppStarting" xml:space="preserve">
+    <value>Anwendung wird gestartet</value>
+  </data>
+  <data name="LogAppVersion" xml:space="preserve">
+    <value>Version: {0}</value>
+  </data>
+</root>

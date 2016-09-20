@@ -1,0 +1,25 @@
+﻿<runtime:ApplicationDefinition 
+	x:Class="XyrusWorx.Gaming.AnnoCompanion.App"
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:runtime="clr-namespace:XyrusWorx.Windows.Runtime;assembly=XyrusWorx.Foundation.Windows"
+	xmlns:controllers="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Controllers"
+	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
+	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views">
+
+	<runtime:ApplicationDefinition.Resources>
+		<ResourceDictionary Source="pack://application:,,,/XyrusWorx.Foundation.UserExperience;component/Themes/XyrusWorxV5.xaml" />
+	</runtime:ApplicationDefinition.Resources>
+
+	<runtime:ApplicationDefinition.ControllerType>
+		<x:Type TypeName="controllers:MainController" />
+	</runtime:ApplicationDefinition.ControllerType>
+
+	<runtime:ApplicationDefinition.ViewModelType>
+		<x:Type TypeName="viewModels:MainViewModel" />
+	</runtime:ApplicationDefinition.ViewModelType>
+
+	<runtime:ApplicationDefinition.ViewType>
+		<x:Type TypeName="views:MainView" />
+	</runtime:ApplicationDefinition.ViewType>
+</runtime:ApplicationDefinition>

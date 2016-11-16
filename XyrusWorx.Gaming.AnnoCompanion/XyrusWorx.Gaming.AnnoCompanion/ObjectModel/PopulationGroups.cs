@@ -15,9 +15,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly PopulationGroup Envoys = new PopulationGroup { Key = "Envoys", DisplayName = "Gesandte", Tier = 2, Faction = Factions.Orient };
 
 		[CanBeNull]
-		public static PopulationGroup GetByName(string name)
+		public static PopulationGroup GetByKey(string key)
 		{
-			var field = typeof(PopulationGroups).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			if (string.IsNullOrWhiteSpace(key))
+			{
+				return null;
+			}
+
+			var field = typeof(PopulationGroups).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
 			if (field == null)
 			{
 				return null;

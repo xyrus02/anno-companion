@@ -2,7 +2,7 @@
 {
 	class ProductionChain : IndexedObject
 	{
-		public ConsumableGood OutputGood { get; set; }
+		public Good OutputGood { get; set; }
 
 		public ProductionChainComponent[] Components { get; set; }
 

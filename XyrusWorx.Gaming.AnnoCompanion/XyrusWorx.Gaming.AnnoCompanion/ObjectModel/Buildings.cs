@@ -31,7 +31,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly Building Mill = new Building { Key = "Mill", DisplayName = "Mühle" };
 		public static readonly Building CropFarm = new Building { Key = "CropFarm", DisplayName = "Weizenfarm" };
 		public static readonly Building CattleFarm = new Building { Key = "CattleFarm", DisplayName = "Rindefarm" };
-		public static readonly Building MonestaryGarden = new Building { Key = "MonestaryGarden", DisplayName = "Klostergarten" };
+		public static readonly Building MonasteryGarden = new Building { Key = "MonasteryGarden", DisplayName = "Klostergarten" };
 		public static readonly Building Vineyard = new Building { Key = "Vineyard", DisplayName = "Weingut" };
 		public static readonly Building BarrelCooperage = new Building { Key = "BarrelCooperage", DisplayName = "Fassküferei" };
 		public static readonly Building HempPlantation = new Building { Key = "HempPlantation", DisplayName = "Hanfplantage" };
@@ -64,9 +64,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly Building PearlFishersHut = new Building { Key = "PearlFishersHut", DisplayName = "Perlentaucher", Location = BuildingLocation.Coast };
 
 		[CanBeNull]
-		public static Building GetByName(string name)
+		public static Building GetByKey(string key)
 		{
-			var field = typeof(Buildings).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			if (string.IsNullOrWhiteSpace(key))
+			{
+				return null;
+			}
+
+			var field = typeof(Buildings).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
 			if (field == null)
 			{
 				return null;

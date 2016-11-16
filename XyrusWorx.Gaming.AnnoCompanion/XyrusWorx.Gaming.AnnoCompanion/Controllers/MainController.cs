@@ -14,5 +14,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 
 		public MainView View => GetView<MainView>();
 		public MainViewModel ViewModel => GetViewModel<MainViewModel>();
+
+		protected override void OnInitialize()
+		{
+			ViewModel.Load();
+		}
 	}
 }

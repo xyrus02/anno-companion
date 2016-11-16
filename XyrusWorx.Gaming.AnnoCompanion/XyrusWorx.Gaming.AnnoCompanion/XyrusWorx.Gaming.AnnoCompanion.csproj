@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XyrusWorx.Gaming.AnnoCompanion</RootNamespace>
-    <AssemblyName>XyrusWorx.Gaming.AnnoCompanion</AssemblyName>
+    <AssemblyName>annocomp</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -33,6 +33,9 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>App.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.DotNet.InternalAbstractions, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
@@ -100,6 +103,21 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="IconKeyConverter.cs" />
+    <Compile Include="PopulationGroupConverter.cs" />
+    <Compile Include="ViewModels\ProductionChainComponentListViewModel.cs" />
+    <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
+    <Compile Include="ViewModels\ProductionChainListViewModel.cs" />
+    <Compile Include="ViewModels\ProductionChainViewModel.cs" />
+    <Compile Include="Views\PopulationCalculatorPageView.xaml.cs">
+      <DependentUpon>PopulationCalculatorPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductionChainOverviewPageView.xaml.cs">
+      <DependentUpon>ProductionChainOverviewPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProductionChainView.xaml.cs">
+      <DependentUpon>ProductionChainView.xaml</DependentUpon>
+    </Compile>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -125,34 +143,32 @@
     <Compile Include="ObjectModel\ProductionChains.cs" />
     <Compile Include="ObjectModel\ProvisionCapacity.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
+    <Compile Include="ViewModels\PageListViewModel.cs" />
+    <Compile Include="ViewModels\PageViewModel.cs" />
+    <Compile Include="ViewModels\PopulationCalculatorPageViewModel.cs" />
+    <Compile Include="ViewModels\ProductionChainOverviewPageViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PopulationCalculatorPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductionChainOverviewPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\ProductionChainView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Resources.resx</DependentUpon>
-    </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Settings.settings</DependentUpon>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-    </Compile>
-    <EmbeddedResource Include="Properties\Resources.resx">
-      <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
-    </EmbeddedResource>
     <None Include="packages.config" />
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
     <AppDesigner Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
@@ -185,8 +201,8 @@
     <Resource Include="Resources\Icons\Buildings\IronSmelter.png" />
     <Resource Include="Resources\Icons\Buildings\LumberjacksHut.png" />
     <Resource Include="Resources\Icons\Buildings\Mill.png" />
-    <Resource Include="Resources\Icons\Buildings\MonestaryBrewery.png" />
-    <Resource Include="Resources\Icons\Buildings\MonestaryGarden.png" />
+    <Resource Include="Resources\Icons\Buildings\MonasteryBrewery.png" />
+    <Resource Include="Resources\Icons\Buildings\MonasteryGarden.png" />
     <Resource Include="Resources\Icons\Buildings\OpticiansWorkshop.png" />
     <Resource Include="Resources\Icons\Buildings\OreMine.png" />
     <Resource Include="Resources\Icons\Buildings\PaperMill.png" />
@@ -232,13 +248,6 @@
     <Resource Include="Resources\Icons\Goods\Perfume.png" />
     <Resource Include="Resources\Icons\Goods\Spices.png" />
     <Resource Include="Resources\Icons\Goods\Wine.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_197.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_198.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_199.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_200.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_201.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_202.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\gui_icon_map_anno4_sorted_203.png" />
     <Resource Include="Resources\Icons\ProductionChains\Beer.png" />
     <Resource Include="Resources\Icons\ProductionChains\Books.png" />
     <Resource Include="Resources\Icons\ProductionChains\Bread.png" />
@@ -260,6 +269,18 @@
     <Resource Include="Resources\Icons\ProductionChains\Perfume.png" />
     <Resource Include="Resources\Icons\ProductionChains\Spices.png" />
     <Resource Include="Resources\Icons\ProductionChains\Wine.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\PopulationGroups\Beggars.png" />
+    <Resource Include="Resources\Icons\PopulationGroups\Citizens.png" />
+    <Resource Include="Resources\Icons\PopulationGroups\Envoys.png" />
+    <Resource Include="Resources\Icons\PopulationGroups\Noblemen.png" />
+    <Resource Include="Resources\Icons\PopulationGroups\Nomads.png" />
+    <Resource Include="Resources\Icons\PopulationGroups\Patricians.png" />
+    <Resource Include="Resources\Icons\PopulationGroups\Peasants.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="App.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

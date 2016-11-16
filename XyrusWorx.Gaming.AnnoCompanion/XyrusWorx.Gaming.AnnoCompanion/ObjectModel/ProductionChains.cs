@@ -33,7 +33,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			Fish = new ProductionChain
 			{
 				Key = "Fish",
-				OutputGood = ConsumableGoods.Fish,
+				OutputGood = ConsumableGoods.Fishes,
 				Components = new[]
 				{
 					new ProductionChainComponent(1, Buildings.FishermansHut)
@@ -129,7 +129,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Components = new[]
 				{
 					new ProductionChainComponent(1, Buildings.MonasteryBrewery),
-					new ProductionChainComponent(1, Buildings.MonestaryGarden),
+					new ProductionChainComponent(1, Buildings.MonasteryGarden),
 					new ProductionChainComponent(1, Buildings.CropFarm)
 				},
 
@@ -416,9 +416,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		}
 
 		[CanBeNull]
-		public static ProductionChain GetByName(string name)
+		public static ProductionChain GetByKey(string key)
 		{
-			var field = typeof(ProductionChains).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			if (string.IsNullOrWhiteSpace(key))
+			{
+				return null;
+			}
+
+			var field = typeof(ProductionChains).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
 			if (field == null)
 			{
 				return null;

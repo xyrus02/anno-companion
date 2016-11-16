@@ -6,7 +6,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	static class ConsumableGoods
 	{
-		public static readonly ConsumableGood Fish;
+		public static readonly ConsumableGood Fishes;
 		public static readonly ConsumableGood Spices;
 		public static readonly ConsumableGood Bread;
 		public static readonly ConsumableGood Meat;
@@ -30,9 +30,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 
 		static ConsumableGoods()
 		{
-			Fish = new ConsumableGood
+			Fishes = new ConsumableGood
 			{
-				Key = "Fish",
+				Key = "Fishes",
 				DisplayName = "Fische",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants),
@@ -192,7 +192,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 
 			Candlesticks = new ConsumableGood
 			{
-				Key = "Candlestick",
+				Key = "Candlesticks",
 				DisplayName = "Kerzenleuchter",
 
 				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
@@ -304,9 +304,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		}
 
 		[CanBeNull]
-		public static ConsumableGood GetByName(string name)
+		public static ConsumableGood GetByKey(string key)
 		{
-			var field = typeof(ConsumableGoods).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			if (string.IsNullOrWhiteSpace(key))
+			{
+				return null;
+			}
+
+			var field = typeof(ConsumableGoods).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
 			if (field == null)
 			{
 				return null;

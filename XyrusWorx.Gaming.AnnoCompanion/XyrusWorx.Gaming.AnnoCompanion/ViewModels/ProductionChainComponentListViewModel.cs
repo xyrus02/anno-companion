@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using XyrusWorx.Collections;
@@ -49,7 +50,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				item.UpdateMultiplicator(value);
 			}
 
-			mMultiplicator = value;
+			mMultiplicator = Math.Round(value, 2);
 			OnPropertyChanged(nameof(Multiplicator));
 		}
 	}

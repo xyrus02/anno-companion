@@ -1,6 +1,6 @@
 ﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	class ProductionChain
+	class ProductionChain : IndexedObject
 	{
 		public ConsumableGood OutputGood { get; set; }
 

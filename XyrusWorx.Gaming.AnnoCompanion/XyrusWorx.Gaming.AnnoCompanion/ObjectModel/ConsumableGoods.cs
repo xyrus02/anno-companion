@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using JetBrains.Annotations;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
@@ -35,7 +36,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Fische",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants),
-				RequiredBy = new []
+				ConsumingPopulationGroups = new []
 				{
 					PopulationGroups.Beggars,
 					PopulationGroups.Peasants,
@@ -51,7 +52,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Gewürze",
 
 				UnlockThreshold = new PopulationRequirement(145, PopulationGroups.Nomads),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Citizens,
 					PopulationGroups.Patricians,
@@ -65,7 +66,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Brot",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
@@ -78,7 +79,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Fleisch",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
 				}
@@ -90,7 +91,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Most",
 
 				UnlockThreshold = new PopulationRequirement(60, PopulationGroups.Peasants),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Beggars,
 					PopulationGroups.Peasants,
@@ -106,7 +107,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Bier",
 
 				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
@@ -119,7 +120,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Wein",
 
 				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
 				}
@@ -131,7 +132,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Leinenkutten",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Citizens),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Citizens,
 					PopulationGroups.Patricians,
@@ -145,7 +146,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Lederwämser",
 
 				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
@@ -158,7 +159,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Pelzmäntel",
 
 				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
 				}
@@ -170,7 +171,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Brokatgewänder",
 
 				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
 				}
@@ -182,7 +183,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Bücher",
 
 				UnlockThreshold = new PopulationRequirement(940, PopulationGroups.Patricians),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
@@ -195,7 +196,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kerzenleuchter",
 
 				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
@@ -208,7 +209,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Brillen",
 
 				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
 				}
@@ -220,7 +221,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Datteln",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Nomads),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Nomads,
 					PopulationGroups.Envoys
@@ -233,7 +234,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Milch",
 
 				UnlockThreshold = new PopulationRequirement(145, PopulationGroups.Nomads),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Nomads,
 					PopulationGroups.Envoys
@@ -246,7 +247,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Teppiche",
 
 				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Nomads,
 					PopulationGroups.Envoys
@@ -259,7 +260,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kaffee",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Envoys),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
 				}
@@ -271,7 +272,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Perlenketten",
 
 				UnlockThreshold = new PopulationRequirement(1040, PopulationGroups.Envoys),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
 				}
@@ -283,7 +284,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Parfüm",
 
 				UnlockThreshold = new PopulationRequirement(2600, PopulationGroups.Envoys),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
 				}
@@ -295,7 +296,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Marzipan",
 
 				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
-				RequiredBy = new[]
+				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
 				}
@@ -312,6 +313,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			}
 
 			return (ConsumableGood) field.GetValue(null);
+		}
+
+		[NotNull]
+		public static IEnumerable<ConsumableGood> GetAll()
+		{
+			foreach (var field in typeof(ConsumableGoods).GetFields(BindingFlags.Public | BindingFlags.Static))
+			{
+				yield return (ConsumableGood)field.GetValue(null);
+			}
 		}
 	}
 }

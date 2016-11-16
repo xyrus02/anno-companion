@@ -1,9 +1,9 @@
 ﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	class Building : IndexedObject
+	abstract class Good : IndexedObject
 	{
 		public string DisplayName { get; set; }
 
-		public BuildingLocation Location { get; set; }
+		public PopulationRequirement UnlockThreshold { get; set; }
 	}
 }

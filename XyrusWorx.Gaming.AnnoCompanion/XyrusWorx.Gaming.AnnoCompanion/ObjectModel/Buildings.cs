@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using JetBrains.Annotations;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
@@ -63,15 +64,24 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly Building PearlFishersHut = new Building { Key = "PearlFishersHut", DisplayName = "Perlentaucher", Location = BuildingLocation.Coast };
 
 		[CanBeNull]
-		public static ConsumableGood GetByName(string name)
+		public static Building GetByName(string name)
 		{
-			var field = typeof(ConsumableGoods).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			var field = typeof(Buildings).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
 			if (field == null)
 			{
 				return null;
 			}
 
-			return (ConsumableGood)field.GetValue(null);
+			return (Building)field.GetValue(null);
+		}
+
+		[NotNull]
+		public static IEnumerable<Building> GetAll()
+		{
+			foreach (var field in typeof(Buildings).GetFields(BindingFlags.Public | BindingFlags.Static))
+			{
+				yield return (Building)field.GetValue(null);
+			}
 		}
 	}
 }

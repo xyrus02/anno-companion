@@ -1,4 +1,5 @@
-﻿using System.Reflection;
+﻿using System.Collections.Generic;
+using System.Reflection;
 using JetBrains.Annotations;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
@@ -14,15 +15,24 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly PopulationGroup Envoys = new PopulationGroup { Key = "Envoys", DisplayName = "Gesandte", Tier = 2, Faction = Factions.Orient };
 
 		[CanBeNull]
-		public static ConsumableGood GetByName(string name)
+		public static PopulationGroup GetByName(string name)
 		{
-			var field = typeof(ConsumableGoods).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			var field = typeof(PopulationGroups).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
 			if (field == null)
 			{
 				return null;
 			}
 
-			return (ConsumableGood)field.GetValue(null);
+			return (PopulationGroup)field.GetValue(null);
+		}
+
+		[NotNull]
+		public static IEnumerable<PopulationGroup> GetAll()
+		{
+			foreach (var field in typeof(PopulationGroups).GetFields(BindingFlags.Public | BindingFlags.Static))
+			{
+				yield return (PopulationGroup)field.GetValue(null);
+			}
 		}
 	}
 }

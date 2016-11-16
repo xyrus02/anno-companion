@@ -1,4 +1,8 @@
-﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+﻿using System.Collections.Generic;
+using System.Reflection;
+using JetBrains.Annotations;
+
+namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	static class ProductionChains
 	{
@@ -28,6 +32,7 @@
 		{
 			Fish = new ProductionChain
 			{
+				Key = "Fish",
 				OutputGood = ConsumableGoods.Fish,
 				Components = new[]
 				{
@@ -46,6 +51,7 @@
 
 			Cider = new ProductionChain
 			{
+				Key = "Cider",
 				OutputGood = ConsumableGoods.Cider,
 				Components = new[]
 				{
@@ -64,6 +70,7 @@
 
 			LinenGarments = new ProductionChain
 			{
+				Key = "LinenGarments",
 				OutputGood = ConsumableGoods.LinenGarments,
 				Components = new[]
 				{
@@ -81,6 +88,7 @@
 
 			Spices = new ProductionChain
 			{
+				Key = "Spices",
 				OutputGood = ConsumableGoods.Spices,
 				Components = new[]
 				{
@@ -98,6 +106,7 @@
 
 			Bread = new ProductionChain
 			{
+				Key = "Bread",
 				OutputGood = ConsumableGoods.Bread,
 				Components = new[]
 				{
@@ -115,6 +124,7 @@
 
 			Beer = new ProductionChain
 			{
+				Key = "Beer",
 				OutputGood = ConsumableGoods.Beer,
 				Components = new[]
 				{
@@ -132,6 +142,7 @@
 
 			LeatherJerkins = new ProductionChain
 			{
+				Key = "LeatherJerkins",
 				OutputGood = ConsumableGoods.LeatherJerkins,
 				Components = new[]
 				{
@@ -151,6 +162,7 @@
 
 			Books = new ProductionChain
 			{
+				Key = "Books",
 				OutputGood = ConsumableGoods.Books,
 				Components = new[]
 				{
@@ -169,6 +181,7 @@
 
 			Candlesticks = new ProductionChain
 			{
+				Key = "Candlesticks",
 				OutputGood = ConsumableGoods.Candlesticks,
 				Components = new[]
 				{
@@ -190,6 +203,7 @@
 
 			Meat = new ProductionChain
 			{
+				Key = "Meat",
 				OutputGood = ConsumableGoods.Meat,
 				Components = new[]
 				{
@@ -208,6 +222,7 @@
 
 			Wine = new ProductionChain
 			{
+				Key = "Wine",
 				OutputGood = ConsumableGoods.Wine,
 				Components = new[]
 				{
@@ -228,6 +243,7 @@
 
 			Glasses = new ProductionChain
 			{
+				Key = "Glasses",
 				OutputGood = ConsumableGoods.Glasses,
 				Components = new[]
 				{
@@ -246,6 +262,7 @@
 
 			FurCoats = new ProductionChain
 			{
+				Key = "FurCoats",
 				OutputGood = ConsumableGoods.FurCoats,
 				Components = new[]
 				{
@@ -264,6 +281,7 @@
 
 			BrocadeCoats = new ProductionChain
 			{
+				Key = "BrocadeCoats",
 				OutputGood = ConsumableGoods.BrocadeCoats,
 				Components = new[]
 				{
@@ -282,6 +300,7 @@
 
 			Dates = new ProductionChain
 			{
+				Key = "Dates",
 				OutputGood = ConsumableGoods.Dates,
 				Components = new[]
 				{
@@ -297,6 +316,7 @@
 
 			Milk = new ProductionChain
 			{
+				Key = "Milk",
 				OutputGood = ConsumableGoods.Milk,
 				Components = new[]
 				{
@@ -312,6 +332,7 @@
 
 			Carpets = new ProductionChain
 			{
+				Key = "Carpets",
 				OutputGood = ConsumableGoods.Carpets,
 				Components = new[]
 				{
@@ -329,6 +350,7 @@
 
 			Coffee = new ProductionChain
 			{
+				Key = "Coffee",
 				OutputGood = ConsumableGoods.Coffee,
 				Components = new[]
 				{
@@ -344,6 +366,7 @@
 
 			PearlNecklaces = new ProductionChain
 			{
+				Key = "PearlNecklaces",
 				OutputGood = ConsumableGoods.PearlNecklaces,
 				Components = new[]
 				{
@@ -359,6 +382,7 @@
 
 			Perfume = new ProductionChain
 			{
+				Key = "Perfume",
 				OutputGood = ConsumableGoods.Perfume,
 				Components = new[]
 				{
@@ -374,6 +398,7 @@
 
 			Marzipan = new ProductionChain
 			{
+				Key = "Marzipan",
 				OutputGood = ConsumableGoods.Marzipan,
 				Components = new[]
 				{
@@ -388,6 +413,27 @@
 					new ProvisionCapacity(2453, PopulationGroups.Envoys)
 				}
 			};
+		}
+
+		[CanBeNull]
+		public static ProductionChain GetByName(string name)
+		{
+			var field = typeof(ProductionChains).GetField(name, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
+			if (field == null)
+			{
+				return null;
+			}
+
+			return (ProductionChain)field.GetValue(null);
+		}
+
+		[NotNull]
+		public static IEnumerable<ProductionChain> GetAll()
+		{
+			foreach (var field in typeof(ProductionChains).GetFields(BindingFlags.Public | BindingFlags.Static))
+			{
+				yield return (ProductionChain) field.GetValue(null);
+			}
 		}
 	}
 }

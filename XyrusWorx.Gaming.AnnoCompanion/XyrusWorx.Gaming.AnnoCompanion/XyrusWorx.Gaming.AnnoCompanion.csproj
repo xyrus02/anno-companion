@@ -108,7 +108,20 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="ObjectModel\Building.cs" />
+    <Compile Include="ObjectModel\BuildingLocation.cs" />
+    <Compile Include="ObjectModel\Buildings.cs" />
+    <Compile Include="ObjectModel\ConsumableGood.cs" />
+    <Compile Include="ObjectModel\ConsumableGoods.cs" />
+    <Compile Include="ObjectModel\Factions.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="ObjectModel\PopulationGroup.cs" />
+    <Compile Include="ObjectModel\PopulationGroups.cs" />
+    <Compile Include="ObjectModel\PopulationRequirement.cs" />
+    <Compile Include="ObjectModel\ProductionChain.cs" />
+    <Compile Include="ObjectModel\ProductionChainComponent.cs" />
+    <Compile Include="ObjectModel\ProductionChains.cs" />
+    <Compile Include="ObjectModel\ProvisionCapacity.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="Views\MainView.xaml.cs">
       <DependentUpon>MainView.xaml</DependentUpon>

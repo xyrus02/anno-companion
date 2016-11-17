@@ -1,4 +1,6 @@
-﻿using XyrusWorx.Runtime;
+﻿using System.Linq;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+using XyrusWorx.Runtime;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {

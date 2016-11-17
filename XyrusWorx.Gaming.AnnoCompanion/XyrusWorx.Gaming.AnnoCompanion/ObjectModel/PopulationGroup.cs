@@ -1,5 +1,8 @@
-﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+﻿using System.Diagnostics;
+
+namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
+	[DebuggerDisplay("{Faction} tier {Tier}")]
 	class PopulationGroup : IndexedObject
 	{
 		public string DisplayName { get; set; }

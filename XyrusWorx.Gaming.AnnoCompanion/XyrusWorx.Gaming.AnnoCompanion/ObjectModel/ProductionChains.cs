@@ -27,6 +27,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly ProductionChain PearlNecklaces;
 		public static readonly ProductionChain Perfume;
 		public static readonly ProductionChain Marzipan;
+		public static readonly ProductionChain Cannons;
+		public static readonly ProductionChain Ropes;
+		public static readonly ProductionChain Stone;
+		public static readonly ProductionChain Tools;
+		public static readonly ProductionChain WarMachines;
+		public static readonly ProductionChain Weapons;
+		public static readonly ProductionChain Wood;
 
 		static ProductionChains()
 		{
@@ -413,6 +420,91 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					new ProvisionCapacity(2453, PopulationGroups.Envoys)
 				}
 			};
+
+			Cannons = new ProductionChain
+			{
+				Key = "Cannons",
+				OutputGood = WarfareMaterials.Cannons,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.CannonFoundry), 
+					new ProductionChainComponent(1, Buildings.IronSmelter), 
+					new ProductionChainComponent(1, Buildings.OreMine), 
+					new ProductionChainComponent(1, Buildings.CharcoalBurnersHut), 
+					new ProductionChainComponent(2, Buildings.LumberjacksHut)
+				}
+			};
+
+			Ropes = new ProductionChain
+			{
+				Key = "Ropes",
+				OutputGood = RawMaterials.Ropes,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.Ropeyard), 
+					new ProductionChainComponent(1, Buildings.HempPlantation)
+				}
+			};
+
+			Stone = new ProductionChain
+			{
+				Key = "Stone",
+				OutputGood = ConstructionMaterials.Stone,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.StonemasonsHut)
+				}
+			};
+
+			Tools = new ProductionChain
+			{
+				Key = "Tools",
+				OutputGood = ConstructionMaterials.Tools,
+				Components = new[]
+				{
+					new ProductionChainComponent(2, Buildings.ToolmakersWorkshop),
+					new ProductionChainComponent(1, Buildings.IronSmelter),
+					new ProductionChainComponent(1, Buildings.OreMine),
+					new ProductionChainComponent(1, Buildings.CharcoalBurnersHut)
+				}
+			};
+
+			WarMachines = new ProductionChain
+			{
+				Key = "WarMachines",
+				OutputGood = WarfareMaterials.WarMachines,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.WarMachinesWorkshop),
+					new ProductionChainComponent(2, Buildings.Ropeyard),
+					new ProductionChainComponent(2, Buildings.HempPlantation),
+					new ProductionChainComponent(2, Buildings.LumberjacksHut)
+				}
+			};
+
+			Weapons = new ProductionChain
+			{
+				Key = "Weapons",
+				OutputGood = WarfareMaterials.Weapons,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.WeaponSmithy),
+					new ProductionChainComponent(1, Buildings.IronSmelter),
+					new ProductionChainComponent(1, Buildings.OreMine),
+					new ProductionChainComponent(1, Buildings.CharcoalBurnersHut)
+				}
+			};
+
+			Wood = new ProductionChain
+			{
+				Key = "Wood",
+				OutputGood = ConstructionMaterials.Wood,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.LumberjacksHut)
+				}
+			};
+
 		}
 
 		[CanBeNull]

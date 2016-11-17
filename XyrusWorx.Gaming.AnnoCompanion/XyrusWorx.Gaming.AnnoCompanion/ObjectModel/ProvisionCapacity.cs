@@ -1,5 +1,8 @@
-﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+﻿using System.Diagnostics;
+
+namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
+	[DebuggerDisplay("{Count} citizen(s) of {PopulationGroup}")]
 	class ProvisionCapacity
 	{
 		public ProvisionCapacity()

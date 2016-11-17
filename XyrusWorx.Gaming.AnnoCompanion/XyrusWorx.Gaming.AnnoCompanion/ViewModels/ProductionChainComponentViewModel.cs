@@ -47,6 +47,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			}
 		}
 
+		public double ProductivityRatio => Math.Round(Model?.Ratio * 100 ?? 0);
+
 		public void UpdateMultiplicator(double value)
 		{
 			mCount = Math.Round(Math.Max(1, Model?.Count ?? 1) * value, 2);

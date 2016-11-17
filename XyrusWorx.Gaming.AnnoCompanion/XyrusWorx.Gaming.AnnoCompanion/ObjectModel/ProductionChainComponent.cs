@@ -4,7 +4,6 @@
 	{
 		public ProductionChainComponent()
 		{
-			
 		}
 		public ProductionChainComponent(int count, Building building, double ratio = 1.0) : this()
 		{

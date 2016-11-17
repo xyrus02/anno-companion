@@ -5,70 +5,61 @@
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
     xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
-    xmlns:annoCompanion="clr-namespace:XyrusWorx.Gaming.AnnoCompanion"
+    xmlns:root="clr-namespace:XyrusWorx.Gaming.AnnoCompanion"
     xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
     xmlns:components="clr-namespace:XyrusWorx.UserExperience.Components;assembly=XyrusWorx.Foundation.UserExperience"
     mc:Ignorable="d" d:DataContext="{d:DesignInstance d:Type=viewModels:ProductionChainViewModel}"
     d:DesignHeight="300" d:DesignWidth="300">
 
-	<Border BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="1" HorizontalAlignment="Left">
-		<Grid Margin="5">
+	<Border BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="0,0,0,1" Margin="0,-1,0,0">
+		<Grid Margin="0">
 			<Grid.ColumnDefinitions>
-				<ColumnDefinition Width="Auto" />
-				<ColumnDefinition Width="20" />
+				<ColumnDefinition MinWidth="120" Width="Auto" SharedSizeGroup="ColumnHeader" />
+				<ColumnDefinition Width="1" />
 				<ColumnDefinition Width="Auto"/>
 			</Grid.ColumnDefinitions>
 			
-			<Border Grid.Column="1" HorizontalAlignment="Center" Margin="0,-5" Width="1" Background="{DynamicResource LightBorderBrush}" />
+			<Border Grid.Column="0" Background="{DynamicResource NormalBackgroundBrush}">
+				<StackPanel VerticalAlignment="Center">
+					<Border BorderBrush="{DynamicResource LightBorderBrush}" BorderThickness="0" HorizontalAlignment="Right" Margin="0,0,5,0">
+						<Grid Margin="3">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition MinWidth="5" Width="Auto" />
+								<ColumnDefinition Width="0" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
 
-			<StackPanel VerticalAlignment="Center" Grid.Column="0">
-				<Image Width="32" Height="32" Margin="0,0,0,10">
-					<Image.Source>
-						<Binding Path="OutputGood.Key" ConverterParameter="Goods">
-							<Binding.Converter>
-								<annoCompanion:IconKeyConverter />
-							</Binding.Converter>
-						</Binding>
-					</Image.Source>
-				</Image>
+							<TextBox TextAlignment="Center" BorderThickness="0" Padding="0" VerticalContentAlignment="Center" FontWeight="Bold" MaxLength="10" Background="Transparent">
+								<TextBox.Text>
+									<Binding Path="Components.Multiplicator" Mode="TwoWay" ConverterCulture="{x:Static globalization:CultureInfo.InvariantCulture}" UpdateSourceTrigger="PropertyChanged" />
+								</TextBox.Text>
+								<Validation.ErrorTemplate>
+									<ControlTemplate>
+										<Border BorderThickness="0,0,0,3" Margin="0,5" BorderBrush="{DynamicResource FaultBrush}">
+											<AdornedElementPlaceholder />
+										</Border>
+									</ControlTemplate>
+								</Validation.ErrorTemplate>
+							</TextBox>
 
-				<Border BorderBrush="{DynamicResource LightBorderBrush}" BorderThickness="1" HorizontalAlignment="Center">
-					<Grid Margin="3">
-						<Grid.ColumnDefinitions>
-							<ColumnDefinition MinWidth="5" Width="Auto" />
-							<ColumnDefinition Width="0" />
-							<ColumnDefinition Width="Auto" />
-						</Grid.ColumnDefinitions>
+							<Label HorizontalAlignment="Left" Grid.Column="2">
+								<Label.Content>
+									<MultiBinding>
+										<MultiBinding.Converter>
+											<components:StringConcatenationConverter />
+										</MultiBinding.Converter>
+										<Binding Source="x " />
+										<Binding Path="DisplayName" />
+									</MultiBinding>
+								</Label.Content>
+							</Label>
+						</Grid>
+					</Border>
+				</StackPanel>
+			</Border>
+			<Border Grid.Column="1" Background="{DynamicResource LightBorderBrush}" />
 
-						<TextBox TextAlignment="Center" BorderThickness="0" Padding="0" VerticalContentAlignment="Center" FontWeight="Bold">
-							<TextBox.Text>
-								<Binding Path="Components.Multiplicator" Mode="TwoWay" ConverterCulture="{x:Static globalization:CultureInfo.InvariantCulture}" UpdateSourceTrigger="PropertyChanged" />
-							</TextBox.Text>
-							<Validation.ErrorTemplate>
-								<ControlTemplate>
-									<Border BorderThickness="0,0,0,3" Margin="0,5" BorderBrush="{DynamicResource FaultBrush}">
-										<AdornedElementPlaceholder />
-									</Border>
-								</ControlTemplate>
-							</Validation.ErrorTemplate>
-						</TextBox>
-
-						<Label HorizontalAlignment="Left" Grid.Column="2">
-							<Label.Content>
-								<MultiBinding>
-									<MultiBinding.Converter>
-										<components:StringConcatenationConverter />
-									</MultiBinding.Converter>
-									<Binding Source="x " />
-									<Binding Path="DisplayName" />
-								</MultiBinding>
-							</Label.Content>
-						</Label>
-					</Grid>
-				</Border>
-			</StackPanel>
-
-			<ItemsControl Grid.Column="2" ItemsSource="{Binding Components.Items}">
+			<ItemsControl Grid.Column="2" ItemsSource="{Binding Components.Items}" VerticalAlignment="Top" Margin="10">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
 						<StackPanel Orientation="Horizontal" />
@@ -76,17 +67,16 @@
 				</ItemsControl.ItemsPanel>
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="{x:Type viewModels:ProductionChainComponentViewModel}">
-						<StackPanel Margin="0,0,5,0">
+						<StackPanel Margin="0,0,10,0">
 							<Image Width="32" Height="32" Margin="0,0,0,10">
 								<Image.Source>
 									<Binding Path="ProductionBuildingKey" ConverterParameter="Buildings">
 										<Binding.Converter>
-											<annoCompanion:IconKeyConverter />
+											<root:IconKeyConverter />
 										</Binding.Converter>
 									</Binding>
 								</Image.Source>
 							</Image>
-
 							<Border BorderBrush="{DynamicResource LightBorderBrush}" BorderThickness="1" HorizontalAlignment="Center">
 								<Grid Margin="3">
 									<Grid.ColumnDefinitions>
@@ -107,11 +97,26 @@
 											</ControlTemplate>
 										</Validation.ErrorTemplate>
 									</TextBox>
-
-									<Label Content="{Binding ProductionBuildingDisplayName}" HorizontalAlignment="Left" Grid.Column="2" />
+									<Label Content="{Binding ProductionBuildingDisplayName}" HorizontalAlignment="Left" Grid.Column="2" Margin="0,0,3,0" />
 								</Grid>
 							</Border>
+							<Label HorizontalAlignment="Center" Opacity="0.77" Padding="0,5" x:Name="productivity">
+								<Label.Content>
+									<MultiBinding>
+										<MultiBinding.Converter>
+											<components:StringConcatenationConverter />
+										</MultiBinding.Converter>
+										<Binding Path="ProductivityRatio" />
+										<Binding Source="%" />
+									</MultiBinding>
+								</Label.Content>
+							</Label>
 						</StackPanel>
+						<DataTemplate.Triggers>
+							<DataTrigger Binding="{Binding Path=ProductivityRatio}" Value="100">
+								<Setter TargetName="productivity" Property="Visibility" Value="Collapsed" />
+							</DataTrigger>
+						</DataTemplate.Triggers>
 					</DataTemplate>
 				</ItemsControl.ItemTemplate>
 			</ItemsControl>

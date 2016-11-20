@@ -111,12 +111,20 @@
     <Compile Include="ObjectModel\WarfareMaterial.cs" />
     <Compile Include="ObjectModel\WarfareMaterials.cs" />
     <Compile Include="PopulationGroupConverter.cs" />
+    <Compile Include="ViewModels\FactionViewModel.cs" />
+    <Compile Include="ViewModels\PopulationGroupViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainViewModel.cs" />
     <Compile Include="Views\PopulationCalculatorPageView.xaml.cs">
       <DependentUpon>PopulationCalculatorPageView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopulationGroupCountEditorView.xaml.cs">
+      <DependentUpon>PopulationGroupCountEditorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PopulationGroupListView.xaml.cs">
+      <DependentUpon>PopulationGroupListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductionChainOverviewPageView.xaml.cs">
       <DependentUpon>ProductionChainOverviewPageView.xaml</DependentUpon>
@@ -158,6 +166,14 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="Views\PopulationCalculatorPageView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopulationGroupCountEditorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\PopulationGroupListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

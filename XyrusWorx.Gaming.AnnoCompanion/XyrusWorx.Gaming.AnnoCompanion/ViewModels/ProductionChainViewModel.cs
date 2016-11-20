@@ -7,6 +7,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
 	class ProductionChainViewModel : ViewModel<ProductionChain>, IHideable
 	{
+		private int mCount;
+
 		public ProductionChainViewModel()
 		{
 			Components = new ProductionChainComponentListViewModel();
@@ -47,6 +49,17 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			{
 				base.Model = value;
 				Components?.Reset(value);
+			}
+		}
+
+		public int Count
+		{
+			get { return mCount; }
+			set
+			{
+				if (value == mCount) return;
+				mCount = value;
+				OnPropertyChanged();
 			}
 		}
 	}

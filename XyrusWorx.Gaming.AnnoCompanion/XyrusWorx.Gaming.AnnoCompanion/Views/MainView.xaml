@@ -91,7 +91,7 @@
 							<views:ProductionChainOverviewPageView />
 						</DataTemplate>
 						<DataTemplate DataType="{x:Type viewModels:PopulationCalculatorPageViewModel}">
-							
+							<views:PopulationCalculatorPageView />
 						</DataTemplate>
 					</components:DictionaryTemplateSelector>
 				</ContentControl.ContentTemplateSelector>

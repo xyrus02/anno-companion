@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion
+namespace XyrusWorx.Gaming.AnnoCompanion.Components
 {
 	class PopulationGroupConverter : IValueConverter
 	{

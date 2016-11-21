@@ -5,138 +5,99 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
 	xmlns:components="clr-namespace:XyrusWorx.UserExperience.Components;assembly=XyrusWorx.Foundation.UserExperience"
-	xmlns:root="clr-namespace:XyrusWorx.Gaming.AnnoCompanion"
-	xmlns:objectModel="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ObjectModel"
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
-	xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:input="clr-namespace:XyrusWorx.Windows.Input;assembly=XyrusWorx.Foundation.Windows"
 	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.ProductionChainOverviewPageView"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:ProductionChainOverviewPageViewModel}"
 	mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="800">
 
 	<Grid>
-		<Grid.Resources>
-			<CollectionViewSource x:Key="Items" Source="{Binding ProductionChains.VisibleItems}" Filter="OnFilterCollectionViewSource">
-				<CollectionViewSource.GroupDescriptions>
-					<PropertyGroupDescription PropertyName="PrincipalPopulationGroup"/>
-				</CollectionViewSource.GroupDescriptions>
-				<CollectionViewSource.SortDescriptions>
-					<componentModel:SortDescription PropertyName="SortIndex" Direction="Ascending" />
-				</CollectionViewSource.SortDescriptions>
-			</CollectionViewSource>
-		</Grid.Resources>
-		
-		<ListView
-			Background="Transparent" BorderThickness="0" Padding="0" 
-			SelectedItem="{Binding ProductionChains.Selection.SelectedItem, Mode=TwoWay}"
-			ItemsSource="{Binding Source={StaticResource Items}}"
-			ScrollViewer.HorizontalScrollBarVisibility="Auto"
-			ScrollViewer.VerticalScrollBarVisibility="Auto"
-			Focusable="False" Margin="0,0,0,0"
-			Grid.IsSharedSizeScope="True">
+		<FrameworkElement.Resources>
+			<BooleanToVisibilityConverter x:Key="VisibleWhenTrue" />
+			<components:BooleanToInvisibilityConverter x:Key="VisibleWhenFalse" />
+		</FrameworkElement.Resources>
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
 
-			<ListView.View>
-				<GridView>
-					<GridView.ColumnHeaderContainerStyle>
-						<Style>
-							<Setter Property="FrameworkElement.Visibility" Value="Collapsed" />
-						</Style>
-					</GridView.ColumnHeaderContainerStyle>
-				</GridView>
-			</ListView.View>
-			
-			<ListView.GroupStyle>
-				<GroupStyle>
-					<GroupStyle.ContainerStyle>
-						<Style TargetType="{x:Type GroupItem}">
-							<Setter Property="Template">
-								<Setter.Value>
-									<ControlTemplate TargetType="{x:Type GroupItem}">
-										<Grid d:DataContext="{d:DesignInstance d:Type=objectModel:PopulationGroup}">
-											<Grid.DataContext>
-												<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
-												<Binding Path="Name">
-													<Binding.Converter>
-														<root:PopulationGroupConverter />
-													</Binding.Converter>
-												</Binding>
-											</Grid.DataContext>
+		<Border Background="{DynamicResource DimBackgroundBrush}" Panel.ZIndex="9999">
+			<StackPanel Orientation="Horizontal" Margin="5,5">
+				<StackPanel.Resources>
+					<Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+						<Setter Property="BorderThickness" Value="0,1,1,1" />
+						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
+					</Style>
 
-											<Grid.ColumnDefinitions>
-												<ColumnDefinition Width="Auto" />
-												<ColumnDefinition />
-											</Grid.ColumnDefinitions>
-											<Grid.RowDefinitions>
-												<RowDefinition Height="10"/>
-												<RowDefinition Height="32"/>
-												<RowDefinition Height="Auto"/>
-											</Grid.RowDefinitions>
-											
-											<Image Grid.Row="1" Grid.Column="0" Stretch="Uniform" Width="32" x:Name="image" Margin="5,0,10,10">
-												<Image.Source>
-													<Binding Path="Key" ConverterParameter="PopulationGroups">
-														<Binding.Converter>
-															<root:IconKeyConverter />
-														</Binding.Converter>
-													</Binding>
-												</Image.Source>
-											</Image>
+					<Style TargetType="ToggleButton" BasedOn="{StaticResource {x:Type ToggleButton}}">
+						<Setter Property="BorderThickness" Value="0,1,1,1" />
+						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
+					</Style>
+				</StackPanel.Resources>
+				
+				<Button BorderThickness="1" Command="{Binding ResetAllCommand}">
+					<Button.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/ResetSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Alle zurücksetzen" Grid.Column="1" />
+						</Grid>
+					</Button.Content>
+				</Button>
+				<ToggleButton IsChecked="{Binding IsGrouped, Mode=TwoWay}">
+					<ToggleButton.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/GroupSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Gruppieren" Grid.Column="1" />
+						</Grid>
+					</ToggleButton.Content>
+				</ToggleButton>
+				
+				<TextBox Margin="5,0,0,0" Height="30" VerticalContentAlignment="Center" Text="{Binding ProductionChains.SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="PreviewKeyUp">
+							<i:EventTrigger.Actions>
+								<input:EventToCommand Command="{Binding ProductionChains.SearchBoxKeyPressCommand}" PassEventArgsToCommand="True" />
+							</i:EventTrigger.Actions>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</TextBox>
+				<Button BorderThickness="0,1,1,1" Command="{Binding ProductionChains.TriggerSearchCommand}">
+					<Button.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/SearchSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Suche" Grid.Column="1" />
+						</Grid>
+					</Button.Content>
+				</Button>
+				
+				<CheckBox Margin="5,0,0,0" Content="Produktionskettengebäude durchsuchen" IsChecked="{Binding ProductionChains.SearchComponents, Mode=TwoWay}" VerticalAlignment="Center" />
+			</StackPanel>
+		</Border>
 
-											<Label Grid.Row="1" Grid.Column="1" Padding="0" Margin="0,6,0,10" VerticalAlignment="Center">
-												<Label.Content>
-													<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
-													<Binding Path="DisplayName" FallbackValue="ALLGEMEIN" Mode="OneWay">
-														<Binding.Converter>
-															<components:UppercaseConverter />
-														</Binding.Converter>
-													</Binding>
-												</Label.Content>
-											</Label>
+		<Border Grid.Row="1" Grid.Column="0" Panel.ZIndex="9998" Background="{DynamicResource NormalBorderBrush}" VerticalAlignment="Top" Height="1">
+			<Border.Effect>
+				<DropShadowEffect Direction="270" Color="#000000" Opacity="0.44" BlurRadius="10" ShadowDepth="2" />
+			</Border.Effect>
+		</Border>
 
-											<Border 
-												BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="0,0,0,1"
-												Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" />
-
-											<DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ClipToBounds="True">
-												<ItemsPresenter Margin="0,0,0,10" />
-											</DockPanel>
-										</Grid>
-										<ControlTemplate.Triggers>
-											<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
-											<DataTrigger Binding="{Binding Name}" Value="{x:Null}">
-												<Setter TargetName="image" Property="Source" Value="/Resources/Icons/CommonGoods.png"/>
-											</DataTrigger>
-										</ControlTemplate.Triggers>
-									</ControlTemplate>
-								</Setter.Value>
-							</Setter>
-						</Style>
-					</GroupStyle.ContainerStyle>
-				</GroupStyle>
-			</ListView.GroupStyle>
-			
-			<ItemsControl.ItemTemplate>
-				<DataTemplate DataType="viewModels:ProductionChainViewModel">
-					<views:ProductionChainView />
-				</DataTemplate>
-			</ItemsControl.ItemTemplate>
-			
-			<ItemsControl.ItemContainerStyle>
-				<Style TargetType="ListViewItem">
-					<Setter Property="Template">
-						<Setter.Value>
-							<ControlTemplate TargetType="ListViewItem">
-								<ContentPresenter />
-							</ControlTemplate>
-						</Setter.Value>
-					</Setter>
-				</Style>
-			</ItemsControl.ItemContainerStyle>
-			
-			<ItemsControl.ItemsPanel>
-				<ItemsPanelTemplate>
-					<StackPanel Orientation="Vertical" />
-				</ItemsPanelTemplate>
-			</ItemsControl.ItemsPanel>
-		</ListView>
+		<Border Grid.Row="1" Visibility="{Binding IsGrouped, Mode=OneWay, Converter={StaticResource VisibleWhenFalse}}">
+			<views:PlainProductionChainListView DataContext="{Binding ProductionChains}" />
+		</Border>
+		<Border Grid.Row="1" Visibility="{Binding IsGrouped, Mode=OneWay, Converter={StaticResource VisibleWhenTrue}}">
+			<views:GroupedProductionChainListView DataContext="{Binding ProductionChains}" />
+		</Border>
 	</Grid>
 </UserControl>

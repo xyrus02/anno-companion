@@ -6,7 +6,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	static class PopulationGroups
 	{
-		public static readonly PopulationGroup Beggars = new PopulationGroup { Key = "Beggars", DisplayName = "Bettler", Tier = 0, Faction = Factions.Occident };
+		public static readonly PopulationGroup Beggars = new PopulationGroup { Key = "Beggars", DisplayName = "Bettler", Tier = 1, Faction = Factions.Lawless };
 		public static readonly PopulationGroup Peasants = new PopulationGroup { Key = "Peasants", DisplayName = "Bauern", Tier = 1, Faction = Factions.Occident };
 		public static readonly PopulationGroup Citizens = new PopulationGroup { Key = "Citizens", DisplayName = "Bürger", Tier = 2, Faction = Factions.Occident };
 		public static readonly PopulationGroup Patricians = new PopulationGroup { Key = "Patricians", DisplayName = "Patrizier", Tier = 3, Faction = Factions.Occident };

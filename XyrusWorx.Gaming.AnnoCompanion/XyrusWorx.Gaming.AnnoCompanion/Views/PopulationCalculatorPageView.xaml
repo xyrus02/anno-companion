@@ -5,9 +5,9 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
-	xmlns:annoCompanion="clr-namespace:XyrusWorx.Gaming.AnnoCompanion"
 	xmlns:components="clr-namespace:XyrusWorx.UserExperience.Components;assembly=XyrusWorx.Foundation.UserExperience"
 	xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+	xmlns:components1="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Components"
 	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.PopulationCalculatorPageView"
 	mc:Ignorable="d" d:DesignHeight="600" d:DesignWidth="800" 
 	d:DataContext="{d:DesignInstance d:Type=viewModels:PopulationCalculatorPageViewModel}">
@@ -19,55 +19,71 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 		
-		<Grid.Resources>
-			<CollectionViewSource x:Key="Items" Source="{Binding RequiredProductionChainComponents}">
-				<CollectionViewSource.GroupDescriptions>
-					<PropertyGroupDescription PropertyName="ProductionChainDisplayName"/>
-				</CollectionViewSource.GroupDescriptions>
-				<CollectionViewSource.SortDescriptions>
-					<componentModel:SortDescription PropertyName="SortIndex" Direction="Ascending" />
-				</CollectionViewSource.SortDescriptions>
-			</CollectionViewSource>
-		</Grid.Resources>
-		
 		<Border Grid.Row="0" VerticalAlignment="Top" Height="30" Background="{DynamicResource NormalBackgroundBrush}" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource NormalBorderBrush}" />
 		<Border Grid.Row="1" VerticalAlignment="Top" Height="1" Background="{DynamicResource NormalBorderBrush}" />
 		
 		<ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-			<Grid>
-				<Grid.Resources>
-					<Style x:Key="HeaderStyle" TargetType="Label">
-						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
-						<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
-						<Setter Property="BorderThickness" Value="0,0,1,1" />
-						<Setter Property="HorizontalContentAlignment" Value="Center" />
-						<Setter Property="VerticalContentAlignment" Value="Center" />
-						<Setter Property="Padding" Value="5" />
-						<Setter Property="Height" Value="30" />
-					</Style>
-				</Grid.Resources>
+			<ItemsControl ItemsSource="{Binding Factions}" Focusable="False">
+				<ItemsControl.ItemsPanel>
+					<ItemsPanelTemplate>
+						<StackPanel Orientation="Horizontal" />
+					</ItemsPanelTemplate>
+				</ItemsControl.ItemsPanel>
+				<ItemsControl.ItemTemplate>
+					<DataTemplate DataType="viewModels:FactionViewModel">
+						<DataTemplate.Resources>
+							<Style x:Key="HeaderStyle" TargetType="Label">
+								<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
+								<Setter Property="BorderBrush" Value="{DynamicResource NormalBorderBrush}" />
+								<Setter Property="BorderThickness" Value="0,0,1,1" />
+								<Setter Property="HorizontalContentAlignment" Value="Center" />
+								<Setter Property="VerticalContentAlignment" Value="Center" />
+								<Setter Property="Padding" Value="5" />
+								<Setter Property="Height" Value="30" />
+							</Style>
+						</DataTemplate.Resources>
+						<Grid>
+							<Grid.RowDefinitions>
+								<RowDefinition Height="Auto" />
+								<RowDefinition Height="Auto" />
+							</Grid.RowDefinitions>
 
-				<Grid.ColumnDefinitions>
-					<ColumnDefinition Width="Auto" />
-					<ColumnDefinition Width="Auto" />
-				</Grid.ColumnDefinitions>
-
-				<Grid.RowDefinitions>
-					<RowDefinition Height="Auto" />
-					<RowDefinition Height="Auto" />
-				</Grid.RowDefinitions>
-
-				<Label Content="OKZIDENT" Style="{StaticResource HeaderStyle}" Grid.Row="0" Grid.Column="0"/>
-				<Label Content="ORIENT" Style="{StaticResource HeaderStyle}" Grid.Row="0" Grid.Column="1"/>
-
-				<views:PopulationGroupListView DataContext="{Binding Occident}" Grid.Row="1" Grid.Column="0" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource NormalBorderBrush}" />
-				<views:PopulationGroupListView DataContext="{Binding Orient}" Grid.Row="1" Grid.Column="1" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource NormalBorderBrush}" />
-			</Grid>
+							<Label Style="{StaticResource HeaderStyle}" Grid.Row="0">
+								<Label.Content>
+									<Binding Path="DisplayName" FallbackValue="SONSTIGE">
+										<Binding.Converter>
+											<components:UppercaseConverter />
+										</Binding.Converter>
+									</Binding>
+								</Label.Content>
+							</Label>
+							<views:FactionPopulationGroupCountEditorListView Grid.Row="1" Grid.Column="0" BorderThickness="0,0,1,0" BorderBrush="{DynamicResource NormalBorderBrush}" />
+						</Grid>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
 		</ScrollViewer>
 
-		<ListView Grid.Row="2" ItemsSource="{Binding Source={StaticResource Items}}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ScrollViewer.VerticalScrollBarVisibility="Auto"
-				  Background="Transparent" BorderThickness="0" BorderBrush="Transparent" Margin="0" Padding="0">
-			
+		<ListView 
+			Grid.Row="2"
+			ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+			ScrollViewer.VerticalScrollBarVisibility="Auto"
+			Background="Transparent" BorderThickness="0" 
+			BorderBrush="Transparent" Margin="0" Padding="0">
+
+			<ListView.Resources>
+				<CollectionViewSource x:Key="RequiredProductionChainComponents" Source="{Binding RequiredProductionChainComponents}">
+					<CollectionViewSource.GroupDescriptions>
+						<PropertyGroupDescription PropertyName="ProductionChainDisplayName"/>
+					</CollectionViewSource.GroupDescriptions>
+					<CollectionViewSource.SortDescriptions>
+						<componentModel:SortDescription PropertyName="SortIndex" Direction="Ascending" />
+					</CollectionViewSource.SortDescriptions>
+				</CollectionViewSource>
+			</ListView.Resources>
+			<ListView.ItemsSource>
+				<Binding Source="{StaticResource RequiredProductionChainComponents}" />
+			</ListView.ItemsSource>
 			<ListView.View>
 				<GridView>
 					<GridView.ColumnHeaderContainerStyle>
@@ -146,7 +162,7 @@
 								<Image.Source>
 									<Binding Path="ProductionBuildingKey" ConverterParameter="Buildings">
 										<Binding.Converter>
-											<annoCompanion:IconKeyConverter />
+											<components1:IconKeyConverter />
 										</Binding.Converter>
 									</Binding>
 								</Image.Source>

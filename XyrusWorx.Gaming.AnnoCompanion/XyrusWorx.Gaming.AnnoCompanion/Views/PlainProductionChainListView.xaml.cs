@@ -1,8 +1,8 @@
 ﻿namespace XyrusWorx.Gaming.AnnoCompanion.Views
 {
-	public partial class PopulationGroupListView
+	public partial class PlainProductionChainListView
 	{
-		public PopulationGroupListView()
+		public PlainProductionChainListView()
 		{
 			InitializeComponent();
 		}

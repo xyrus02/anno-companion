@@ -1,0 +1,138 @@
+﻿<UserControl 
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
+	xmlns:components="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Components"
+	xmlns:objectModel="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ObjectModel"
+	xmlns:components1="clr-namespace:XyrusWorx.UserExperience.Components;assembly=XyrusWorx.Foundation.UserExperience"
+	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
+	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
+	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.GroupedProductionChainListView"
+	d:DataContext="{d:DesignInstance d:Type=viewModels:ProductionChainListViewModel}"
+	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
+
+	<ListView
+		Background="Transparent" BorderThickness="0" Padding="0" 
+		SelectedItem="{Binding Selection.SelectedItem, Mode=TwoWay}"
+		ScrollViewer.HorizontalScrollBarVisibility="Auto"
+		ScrollViewer.VerticalScrollBarVisibility="Auto"
+		Focusable="False" Margin="0,0,0,0"
+		Grid.IsSharedSizeScope="True">
+
+		<FrameworkElement.Resources>
+			<CollectionViewSource x:Key="VisibleItems" Source="{Binding VisibleItems}" Filter="OnFilterCollectionViewSource">
+				<CollectionViewSource.GroupDescriptions>
+					<PropertyGroupDescription PropertyName="PrincipalPopulationGroup" />
+				</CollectionViewSource.GroupDescriptions>
+				<CollectionViewSource.SortDescriptions>
+					<componentModel:SortDescription PropertyName="SortIndex" Direction="Ascending" />
+				</CollectionViewSource.SortDescriptions>
+			</CollectionViewSource>
+		</FrameworkElement.Resources>
+
+		<ListView.View>
+			<GridView>
+				<GridView.ColumnHeaderContainerStyle>
+					<Style>
+						<Setter Property="FrameworkElement.Visibility" Value="Collapsed" />
+					</Style>
+				</GridView.ColumnHeaderContainerStyle>
+			</GridView>
+		</ListView.View>
+		<ListView.GroupStyle>
+			<GroupStyle>
+				<GroupStyle.ContainerStyle>
+					<Style TargetType="{x:Type GroupItem}">
+						<Setter Property="Template">
+							<Setter.Value>
+								<ControlTemplate TargetType="{x:Type GroupItem}">
+									<Border>
+										<FrameworkElement.DataContext>
+											<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+											<Binding Path="Name">
+												<Binding.Converter>
+													<components:PopulationGroupConverter />
+												</Binding.Converter>
+											</Binding>
+										</FrameworkElement.DataContext>
+
+										<Grid d:DataContext="{d:DesignInstance d:Type=objectModel:PopulationGroup}">
+											<Grid.ColumnDefinitions>
+												<ColumnDefinition Width="Auto" />
+												<ColumnDefinition />
+											</Grid.ColumnDefinitions>
+											<Grid.RowDefinitions>
+												<RowDefinition Height="10"/>
+												<RowDefinition Height="32"/>
+												<RowDefinition Height="Auto"/>
+											</Grid.RowDefinitions>
+
+											<Image Grid.Row="1" Grid.Column="0" Stretch="Uniform" Width="32" x:Name="image" Margin="5,0,10,10">
+												<Image.Source>
+													<Binding Path="Key" ConverterParameter="PopulationGroups">
+														<Binding.Converter>
+															<components:IconKeyConverter />
+														</Binding.Converter>
+													</Binding>
+												</Image.Source>
+											</Image>
+											<Label Grid.Row="1" Grid.Column="1" Padding="0" Margin="0,6,0,10" VerticalAlignment="Center">
+												<Label.Content>
+													<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+													<Binding Path="DisplayName" FallbackValue="ALLGEMEIN" Mode="OneWay">
+														<Binding.Converter>
+															<components1:UppercaseConverter />
+														</Binding.Converter>
+													</Binding>
+												</Label.Content>
+											</Label>
+											<Border Grid.Row="1" Grid.Column="0" Grid.ColumnSpan="2" BorderBrush="{DynamicResource NormalBorderBrush}" BorderThickness="0,0,0,1" />
+
+											<DockPanel Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" ClipToBounds="True">
+												<ItemsPresenter Margin="0,0,0,10" />
+											</DockPanel>
+										</Grid>
+									</Border>
+
+									<ControlTemplate.Triggers>
+										<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
+										<DataTrigger Binding="{Binding Name}" Value="{x:Null}">
+											<Setter TargetName="image" Property="Source" Value="/Resources/Icons/CommonGoods.png"/>
+										</DataTrigger>
+									</ControlTemplate.Triggers>
+								</ControlTemplate>
+							</Setter.Value>
+						</Setter>
+					</Style>
+				</GroupStyle.ContainerStyle>
+			</GroupStyle>
+		</ListView.GroupStyle>
+
+		<ItemsControl.ItemsSource>
+			<Binding Source="{StaticResource VisibleItems}" />
+		</ItemsControl.ItemsSource>
+		<ItemsControl.ItemTemplate>
+			<DataTemplate DataType="viewModels:ProductionChainViewModel">
+				<views:ProductionChainComponentCalculatorView Margin="0,-1,0,0" />
+			</DataTemplate>
+		</ItemsControl.ItemTemplate>
+		<ItemsControl.ItemContainerStyle>
+			<Style TargetType="ListViewItem">
+				<Setter Property="Template">
+					<Setter.Value>
+						<ControlTemplate TargetType="ListViewItem">
+							<ContentPresenter />
+						</ControlTemplate>
+					</Setter.Value>
+				</Setter>
+			</Style>
+		</ItemsControl.ItemContainerStyle>
+		<ItemsControl.ItemsPanel>
+			<ItemsPanelTemplate>
+				<StackPanel Orientation="Vertical" />
+			</ItemsPanelTemplate>
+		</ItemsControl.ItemsPanel>
+	</ListView>
+</UserControl>

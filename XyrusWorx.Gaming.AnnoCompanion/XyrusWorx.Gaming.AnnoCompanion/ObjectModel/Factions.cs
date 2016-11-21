@@ -3,6 +3,7 @@
 	enum Factions
 	{
 		Occident,
-		Orient
+		Orient,
+		Lawless
 	}
 }

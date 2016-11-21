@@ -3,7 +3,7 @@ using System.Globalization;
 using System.Windows.Data;
 using System.Windows.Media;
 
-namespace XyrusWorx.Gaming.AnnoCompanion
+namespace XyrusWorx.Gaming.AnnoCompanion.Components
 {
 	class IconKeyConverter : IValueConverter
 	{

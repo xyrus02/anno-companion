@@ -103,35 +103,45 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="IconKeyConverter.cs" />
+    <Compile Include="Components\IconKeyConverter.cs" />
     <Compile Include="ObjectModel\ConstructionMaterial.cs" />
     <Compile Include="ObjectModel\ConstructionMaterials.cs" />
     <Compile Include="ObjectModel\RawMaterial.cs" />
     <Compile Include="ObjectModel\RawMaterials.cs" />
     <Compile Include="ObjectModel\WarfareMaterial.cs" />
     <Compile Include="ObjectModel\WarfareMaterials.cs" />
-    <Compile Include="PopulationGroupConverter.cs" />
+    <Compile Include="Components\PopulationGroupConverter.cs" />
     <Compile Include="ViewModels\FactionViewModel.cs" />
     <Compile Include="ViewModels\PopulationGroupViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainViewModel.cs" />
+    <Compile Include="Views\GroupedProductionChainListView.xaml.cs">
+      <DependentUpon>GroupedProductionChainListView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\PlainProductionChainListView.xaml.cs">
+      <DependentUpon>PlainProductionChainListView.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\PopulationCalculatorPageView.xaml.cs">
       <DependentUpon>PopulationCalculatorPageView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\PopulationGroupCountEditorView.xaml.cs">
       <DependentUpon>PopulationGroupCountEditorView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\PopulationGroupListView.xaml.cs">
-      <DependentUpon>PopulationGroupListView.xaml</DependentUpon>
+    <Compile Include="Views\FactionPopulationGroupCountEditorListView.xaml.cs">
+      <DependentUpon>FactionPopulationGroupCountEditorListView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\ProductionChainOverviewPageView.xaml.cs">
       <DependentUpon>ProductionChainOverviewPageView.xaml</DependentUpon>
     </Compile>
-    <Compile Include="Views\ProductionChainView.xaml.cs">
-      <DependentUpon>ProductionChainView.xaml</DependentUpon>
+    <Compile Include="Views\ProductionChainComponentCalculatorView.xaml.cs">
+      <DependentUpon>ProductionChainComponentCalculatorView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Views\GroupedProductionChainListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\MainView.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -165,6 +175,10 @@
       <DependentUpon>MainView.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="Views\PlainProductionChainListView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\PopulationCalculatorPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -173,7 +187,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\PopulationGroupListView.xaml">
+    <Page Include="Views\FactionPopulationGroupCountEditorListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -181,7 +195,7 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
-    <Page Include="Views\ProductionChainView.xaml">
+    <Page Include="Views\ProductionChainComponentCalculatorView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -386,6 +400,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\CommonGoods.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ResetSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\GroupSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SearchSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

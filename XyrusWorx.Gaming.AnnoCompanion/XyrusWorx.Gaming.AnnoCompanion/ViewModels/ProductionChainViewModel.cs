@@ -7,8 +7,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
 	class ProductionChainViewModel : ViewModel<ProductionChain>, IHideable
 	{
-		private int mCount;
-
 		public ProductionChainViewModel()
 		{
 			Components = new ProductionChainComponentListViewModel();
@@ -27,13 +25,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			.CastTo<ConsumableGood>()?
 			.ConsumingPopulationGroups?
 			.OrderBy(x => x.Tier)
-			.FirstOrDefault(x => x.Tier > 0)?
+			.FirstOrDefault()?
 			.Key;
 
 		public int SortIndex =>
 			10000 * (Model?.OutputGood?.CastTo<ConsumableGood>() == null ? 1 : 2) +
 			1000 * ((int) (Model?.OutputGood?.UnlockThreshold?.PopulationGroup?.Faction ?? Factions.Occident) + 1) +
-			100 * ((int) (Model?.OutputGood?.UnlockThreshold?.PopulationGroup?.Tier ?? 1)) +
+			100 * (Model?.OutputGood?.UnlockThreshold?.PopulationGroup?.Tier ?? 1) +
 			10 * (Model?.OutputGood?.UnlockThreshold?.Count ?? 0);
 
 		public Good OutputGood => Model?.OutputGood;
@@ -54,11 +52,11 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 		public int Count
 		{
-			get { return mCount; }
+			get { return (int)Components.Multiplicator; }
 			set
 			{
-				if (value == mCount) return;
-				mCount = value;
+				if (value == Count) return;
+				Components.Multiplicator = value;
 				OnPropertyChanged();
 			}
 		}

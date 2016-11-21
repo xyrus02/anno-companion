@@ -8,8 +8,9 @@
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
 	mc:Ignorable="d" x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.MainView"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:MainViewModel}"
-	Title="Anno 1404 Companion" Height="600" Width="800" MinWidth="500" MinHeight="240"
+	Title="Anno 1404 Companion" Height="600" Width="800" MinWidth="720" MinHeight="240"
 	Icon="/App.ico">
+	
     <Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>

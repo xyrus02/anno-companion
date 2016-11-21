@@ -5,7 +5,7 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
-	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.PopulationGroupListView"
+	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.FactionPopulationGroupCountEditorListView"
 	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:FactionViewModel}">
 

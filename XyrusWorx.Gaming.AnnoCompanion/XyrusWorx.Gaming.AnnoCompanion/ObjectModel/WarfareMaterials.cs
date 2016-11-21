@@ -19,8 +19,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Waffen",
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 
-				CommonTradeValue = 52,
-				CommonProductionCost = 40
+				TradeValue = 52,
+				ProductionCost = 40
 			};
 
 			WarMachines = new WarfareMaterial()
@@ -29,8 +29,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kriegsmaschinen",
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 119,
-				CommonProductionCost = 106.66
+				TradeValue = 119,
+				ProductionCost = 106.66
 			};
 
 			Cannons = new WarfareMaterial()
@@ -39,8 +39,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kanonen",
 				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 169,
-				CommonProductionCost = 155
+				TradeValue = 169,
+				ProductionCost = 155
 			};
 
 			Provisions = new WarfareMaterial()
@@ -49,8 +49,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Proviant",
 				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 168,
-				CommonProductionCost = 150 // Production I,II,III = 150,100,148.5 => 112%,168%,113%
+				TradeValue = 168,
+				ProductionCost = 150 // Production I,II,III = 150,100,148.5 => 112%,168%,113%
 			};
 		}
 

@@ -104,8 +104,16 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Components\IconKeyConverter.cs" />
+    <Compile Include="ObjectModel\BuildingInput.cs" />
+    <Compile Include="ObjectModel\BuildingOutput.cs" />
     <Compile Include="ObjectModel\ConstructionMaterial.cs" />
     <Compile Include="ObjectModel\ConstructionMaterials.cs" />
+    <Compile Include="ObjectModel\JsonBuildingInputConverter.cs" />
+    <Compile Include="ObjectModel\JsonBuildingOutputConverter.cs" />
+    <Compile Include="ObjectModel\JsonBuildingRestrictionsConverter.cs" />
+    <Compile Include="ObjectModel\JsonFactionConverter.cs" />
+    <Compile Include="ObjectModel\JsonIndexedObjectConverter.cs" />
+    <Compile Include="ObjectModel\JsonReferenceResolver.cs" />
     <Compile Include="ObjectModel\RawMaterial.cs" />
     <Compile Include="ObjectModel\RawMaterials.cs" />
     <Compile Include="ObjectModel\WarfareMaterial.cs" />
@@ -156,7 +164,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="ObjectModel\Building.cs" />
-    <Compile Include="ObjectModel\BuildingLocation.cs" />
+    <Compile Include="ObjectModel\BuildingRestrictions.cs" />
     <Compile Include="ObjectModel\Buildings.cs" />
     <Compile Include="ObjectModel\ConsumableGood.cs" />
     <Compile Include="ObjectModel\ConsumableGoods.cs" />
@@ -293,27 +301,6 @@
     <Resource Include="Resources\Icons\Goods\Perfume.png" />
     <Resource Include="Resources\Icons\Goods\Spices.png" />
     <Resource Include="Resources\Icons\Goods\Wine.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Beer.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Books.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Bread.png" />
-    <Resource Include="Resources\Icons\ProductionChains\BrocadeCoats.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Candlesticks.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Carpets.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Cider.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Coffee.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Dates.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Fishes.png" />
-    <Resource Include="Resources\Icons\ProductionChains\FurCoats.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Glasses.png" />
-    <Resource Include="Resources\Icons\ProductionChains\LeatherJerkins.png" />
-    <Resource Include="Resources\Icons\ProductionChains\LinenGarments.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Marzipan.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Meat.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Milk.png" />
-    <Resource Include="Resources\Icons\ProductionChains\PearlNecklaces.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Perfume.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Spices.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Wine.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\PopulationGroups\Beggars.png" />
@@ -395,19 +382,6 @@
     <Resource Include="Resources\Icons\Goods\Wood.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\ProductionChains\Cannons.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\ProductionChains\Ropes.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\ProductionChains\Stone.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Tools.png" />
-    <Resource Include="Resources\Icons\ProductionChains\WarMachines.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Weapons.png" />
-    <Resource Include="Resources\Icons\ProductionChains\Wood.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="Resources\Icons\CommonGoods.png" />
   </ItemGroup>
   <ItemGroup>
@@ -418,6 +392,36 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\SearchSmall.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\ProductionChains\BeerProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\BookProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\BreadProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\BrocadeCoatProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\CandlestickProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\CannonProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\CarpetProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\CiderProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\CoffeeProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\DateProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\FishProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\FurCoatProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\GlassesProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\LeatherJerkinProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\LinenGarmentProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\MarzipanProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\MeatProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\MilkProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\PearlNecklaceProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\PerfumeProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\RopeProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\SpiceProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\StoneProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\ToolProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\WarMachineProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\WeaponProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\WineProduction.png" />
+    <Resource Include="Resources\Icons\ProductionChains\WoodProduction.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

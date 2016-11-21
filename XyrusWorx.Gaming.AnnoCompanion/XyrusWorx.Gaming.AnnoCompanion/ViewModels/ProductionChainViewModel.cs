@@ -23,7 +23,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public string PrincipalPopulationGroup => Model?
 			.OutputGood?
 			.CastTo<ConsumableGood>()?
-			.ConsumingPopulationGroups?
+			.ProvisionCapacities?
+			.Select(x => x.PopulationGroup)
 			.OrderBy(x => x.Tier)
 			.FirstOrDefault()?
 			.Key;

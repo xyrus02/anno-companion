@@ -80,13 +80,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 					from chain in allProductionChains
 
 					let consumable = chain.OutputGood as ConsumableGood where consumable != null
-					let consumingGroups = consumable.ConsumingPopulationGroups where consumingGroups != null
+					let consumingGroups = consumable.ProvisionCapacities where consumingGroups != null
 
 					let orderedConsumerGroups = 
 						from consumingGroup in consumingGroups
-						where consumingGroup.Faction == Faction
-						orderby consumingGroup.Tier
-						select consumingGroup
+						where consumingGroup.PopulationGroup.Faction == Faction
+						orderby consumingGroup.PopulationGroup.Tier
+						select consumingGroup.PopulationGroup
 
 					let principalGroup = orderedConsumerGroups.FirstOrDefault() where principalGroup != null
 					where principalGroup == populationGroup
@@ -95,7 +95,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				let provisionCapacities = 
 					from chain in groupChains
 
-					let provisionCapacities = chain.Model?.ProvisionCapacities where provisionCapacities != null
+					let consumable = chain.OutputGood as ConsumableGood where consumable != null
+					let provisionCapacities = consumable.ProvisionCapacities where provisionCapacities != null
 
 					from provisionCapacity in provisionCapacities
 					select new
@@ -138,9 +139,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			var chains =
 				from chain in ProductionChains.GetAll()
 
-				let goodIsConsumable = chain.OutputGood is ConsumableGood
+				let consumable = chain.OutputGood as ConsumableGood where consumable != null
 
-				let isProvisionedToCurrentTier = chain.ProvisionCapacities != null && chain.ProvisionCapacities.Any(x =>
+				let isProvisionedToCurrentTier = consumable.ProvisionCapacities != null && consumable.ProvisionCapacities.Any(x =>
 					x.PopulationGroup.Tier <= maximumTier &&
 					x.PopulationGroup.Faction == Faction)
 
@@ -152,10 +153,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				let isUnlockedImplicitly = Faction == Factions.Lawless
 
-				where (goodIsConsumable && isProvisionedToCurrentTier)
-				where (isUnlockedWithCurrentPopulationCount || wasUnlockedWithLowerThanCurrentTier || isUnlockedImplicitly)
+				where isProvisionedToCurrentTier
+				where isUnlockedWithCurrentPopulationCount || wasUnlockedWithLowerThanCurrentTier || isUnlockedImplicitly
 
-				orderby chain.Components.Min(x => x.Building.Output.UnlockThreshold.PopulationGroup.Tier)
+				orderby chain.Components.Min(x => x.Building.Output.Good.UnlockThreshold.PopulationGroup.Tier)
 
 				select chain;
 
@@ -171,7 +172,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				chainSortIndex += 100;
 
-				foreach (var groupCapacity in chain.ProvisionCapacities)
+				var consumable = chain.OutputGood as ConsumableGood;
+				if (consumable == null)
+				{
+					continue;
+				}
+
+				foreach (var groupCapacity in consumable.ProvisionCapacities)
 				{
 					chainCount += (int)Math.Ceiling(groupCounts.GetValueByKeyOrDefault(groupCapacity.PopulationGroup.Key) / (double)groupCapacity.Count);
 				}

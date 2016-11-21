@@ -7,16 +7,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 	{
 		public string DisplayName { get; set; }
 
-		public BuildingLocation Location { get; set; }
+		public BuildingRestrictions Restrictions { get; set; } = BuildingRestrictions.None;
 
-		public Good[] Input { get; set; }
-
-		public Good Output { get; set; }
+		public BuildingInput[] Input { get; set; }
+		public BuildingOutput Output { get; set; }
 
 		public double ActiveCostPerMinute { get; set; }
-
 		public double InactiveCostPerMinute { get; set; }
-
 		public double ProductionPerMinute { get; set; }
 	}
 }

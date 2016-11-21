@@ -36,17 +36,17 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Fische",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants),
-				ConsumingPopulationGroups = new []
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Beggars,
-					PopulationGroups.Peasants,
-					PopulationGroups.Citizens,
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(285, PopulationGroups.Beggars),
+					new ProvisionCapacity(200, PopulationGroups.Peasants),
+					new ProvisionCapacity(500, PopulationGroups.Citizens),
+					new ProvisionCapacity(909, PopulationGroups.Patricians),
+					new ProvisionCapacity(1250, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 9,
-				CommonProductionCost = 7.5
+				TradeValue = 9,
+				ProductionCost = 7.5
 			};
 
 			Spices = new ConsumableGood
@@ -55,15 +55,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Gewürze",
 
 				UnlockThreshold = new PopulationRequirement(145, PopulationGroups.Nomads),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Citizens,
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(500, PopulationGroups.Citizens),
+					new ProvisionCapacity(909, PopulationGroups.Patricians),
+					new ProvisionCapacity(1250, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 18,
-				CommonProductionCost = 15
+				TradeValue = 18,
+				ProductionCost = 15
 			};
 
 			Bread = new ConsumableGood
@@ -72,14 +72,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Brot",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(727, PopulationGroups.Patricians),
+					new ProvisionCapacity(1025, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 26,
-				CommonProductionCost = 17.5
+				TradeValue = 26,
+				ProductionCost = 17.5
 			};
 
 			Meat = new ConsumableGood
@@ -88,13 +88,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Fleisch",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(1136, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 50,
-				CommonProductionCost = 51
+				TradeValue = 50,
+				ProductionCost = 51
 			};
 
 			Cider = new ConsumableGood
@@ -103,17 +103,17 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Most",
 
 				UnlockThreshold = new PopulationRequirement(60, PopulationGroups.Peasants),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Beggars,
-					PopulationGroups.Peasants,
-					PopulationGroups.Citizens,
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(500, PopulationGroups.Beggars),
+					new ProvisionCapacity(340, PopulationGroups.Peasants),
+					new ProvisionCapacity(340, PopulationGroups.Citizens),
+					new ProvisionCapacity(652, PopulationGroups.Patricians),
+					new ProvisionCapacity(1153, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 12,
-				CommonProductionCost = 10
+				TradeValue = 12,
+				ProductionCost = 10
 			};
 
 			Beer = new ConsumableGood
@@ -122,14 +122,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Bier",
 
 				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(625, PopulationGroups.Patricians),
+					new ProvisionCapacity(1071, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 39,
-				CommonProductionCost = 30
+				TradeValue = 39,
+				ProductionCost = 30
 			};
 
 			Wine = new ConsumableGood
@@ -138,13 +138,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Wein",
 
 				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(1000, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 120,
-				CommonProductionCost =91.66
+				TradeValue = 120,
+				ProductionCost =91.66
 			};
 
 			LinenGarments = new ConsumableGood
@@ -153,15 +153,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Leinenkutten",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Citizens),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Citizens,
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(476, PopulationGroups.Citizens),
+					new ProvisionCapacity(1052, PopulationGroups.Patricians),
+					new ProvisionCapacity(2500, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 46,
-				CommonProductionCost = 32.5
+				TradeValue = 46,
+				ProductionCost = 32.5
 			};
 
 			LeatherJerkins = new ConsumableGood
@@ -170,14 +170,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Lederwämser",
 
 				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(1428, PopulationGroups.Patricians),
+					new ProvisionCapacity(2500, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 41,
-				CommonProductionCost = 19.38
+				TradeValue = 41,
+				ProductionCost = 19.38
 			};
 
 			FurCoats = new ConsumableGood
@@ -186,13 +186,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Pelzmäntel",
 
 				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(1562, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 77,
-				CommonProductionCost = 55.33
+				TradeValue = 77,
+				ProductionCost = 55.33
 			};
 
 			BrocadeCoats = new ConsumableGood
@@ -201,13 +201,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Brokatgewänder",
 
 				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(2112, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 108,
-				CommonProductionCost = 72.5
+				TradeValue = 108,
+				ProductionCost = 72.5
 			};
 
 			Books = new ConsumableGood
@@ -216,14 +216,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Bücher",
 
 				UnlockThreshold = new PopulationRequirement(940, PopulationGroups.Patricians),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(1875, PopulationGroups.Patricians),
+					new ProvisionCapacity(3333, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 50,
-				CommonProductionCost = 40
+				TradeValue = 50,
+				ProductionCost = 40
 			};
 
 			Candlesticks = new ConsumableGood
@@ -232,14 +232,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kerzenleuchter",
 
 				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Patricians,
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(2500, PopulationGroups.Patricians),
+					new ProvisionCapacity(3333, PopulationGroups.Noblemen)
 				},
 
-				CommonTradeValue = 194,
-				CommonProductionCost = 130
+				TradeValue = 194,
+				ProductionCost = 130
 			};
 
 			Glasses = new ConsumableGood
@@ -248,13 +248,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Brillen",
 
 				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Noblemen
+					new ProvisionCapacity(1709, PopulationGroups.Noblemen)
 				},
 				
-				CommonTradeValue = 90,
-				CommonProductionCost = 60
+				TradeValue = 90,
+				ProductionCost = 60
 			};
 
 			Dates = new ConsumableGood
@@ -263,14 +263,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Datteln",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Nomads),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Nomads,
-					PopulationGroups.Envoys
+					new ProvisionCapacity(450, PopulationGroups.Nomads),
+					new ProvisionCapacity(600, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 4,
-				CommonProductionCost = 15
+				TradeValue = 4,
+				ProductionCost = 15
 			};
 
 			Milk = new ConsumableGood
@@ -279,14 +279,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Milch",
 
 				UnlockThreshold = new PopulationRequirement(145, PopulationGroups.Nomads),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Nomads,
-					PopulationGroups.Envoys
+					new ProvisionCapacity(436, PopulationGroups.Nomads),
+					new ProvisionCapacity(666, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 16,
-				CommonProductionCost = 13.33
+				TradeValue = 16,
+				ProductionCost = 13.33
 			};
 
 			Carpets = new ConsumableGood
@@ -295,14 +295,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Teppiche",
 
 				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Nomads,
-					PopulationGroups.Envoys
+					new ProvisionCapacity(909, PopulationGroups.Nomads),
+					new ProvisionCapacity(1500, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 107,
-				CommonProductionCost = 70
+				TradeValue = 107,
+				ProductionCost = 70
 			};
 
 			Coffee = new ConsumableGood
@@ -311,13 +311,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kaffee",
 
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Envoys),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Envoys
+					new ProvisionCapacity(1000, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 162,
-				CommonProductionCost = 85
+				TradeValue = 162,
+				ProductionCost = 85
 			};
 
 			PearlNecklaces = new ConsumableGood
@@ -326,13 +326,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Perlenketten",
 
 				UnlockThreshold = new PopulationRequirement(1040, PopulationGroups.Envoys),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Envoys
+					new ProvisionCapacity(751, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 165,
-				CommonProductionCost = 110
+				TradeValue = 165,
+				ProductionCost = 110
 			};
 
 			Perfume = new ConsumableGood
@@ -341,13 +341,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Parfüm",
 
 				UnlockThreshold = new PopulationRequirement(2600, PopulationGroups.Envoys),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Envoys
+					new ProvisionCapacity(1250, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 225,
-				CommonProductionCost = 150
+				TradeValue = 225,
+				ProductionCost = 150
 			};
 
 			Marzipan = new ConsumableGood
@@ -356,13 +356,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Marzipan",
 
 				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
-				ConsumingPopulationGroups = new[]
+				ProvisionCapacities = new[]
 				{
-					PopulationGroups.Envoys
+					new ProvisionCapacity(2453, PopulationGroups.Envoys)
 				},
 
-				CommonTradeValue = 78,
-				CommonProductionCost = 60
+				TradeValue = 78,
+				ProductionCost = 60
 			};
 		}
 

@@ -1,10 +1,12 @@
 ﻿using System.Diagnostics;
+using Newtonsoft.Json;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	[DebuggerDisplay("{Count} citizen(s) of {PopulationGroup}")]
 	class PopulationRequirement
 	{
+		[JsonConstructor]
 		public PopulationRequirement()
 		{
 			
@@ -15,8 +17,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			PopulationGroup = populationGroup;
 		}
 
+		[JsonRequired]
 		public int Count { get; set; }
 
+		[JsonRequired]
 		public PopulationGroup PopulationGroup { get; set; }
 	}
 }

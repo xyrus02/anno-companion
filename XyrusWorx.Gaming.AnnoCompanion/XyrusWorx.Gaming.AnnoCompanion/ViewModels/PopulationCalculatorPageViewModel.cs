@@ -33,7 +33,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		}
 		public IEnumerable<BuildingViewModel> Requirements
 		{
-			get { return mRequirements.Distinct(new ExpressionComparer<BuildingViewModel>(x => x.Model)); }
+			get { return mRequirements?.Distinct(new ExpressionComparer<BuildingViewModel>(x => x.Model)); }
 			private set
 			{
 				if (Equals(value, mRequirements)) return;

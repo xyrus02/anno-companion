@@ -48,8 +48,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Salz",
 				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 
-				CommonTradeValue = 9,
-				CommonProductionCost = 13.75
+				TradeValue = 9,
+				ProductionCost = 13.75
 			};
 
 			Hemp = new RawMaterial
@@ -58,8 +58,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Hemp",
 				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
-				CommonTradeValue = 24,
-				CommonProductionCost = 20
+				TradeValue = 24,
+				ProductionCost = 20
 			};
 
 			Brine = new RawMaterial
@@ -68,8 +68,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Sole",
 				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 
-				CommonTradeValue = 6,
-				CommonProductionCost = 5
+				TradeValue = 6,
+				ProductionCost = 5
 			};
 
 			IronOre = new RawMaterial
@@ -78,8 +78,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Eisenerz",
 				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
-				CommonTradeValue = 12,
-				CommonProductionCost = 10
+				TradeValue = 12,
+				ProductionCost = 10
 			};
 
 			Iron = new RawMaterial
@@ -88,8 +88,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Eisen",
 				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
-				CommonTradeValue = 33,
-				CommonProductionCost = 25
+				TradeValue = 33,
+				ProductionCost = 25
 			};
 
 			Flour = new RawMaterial
@@ -98,8 +98,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Mehl",
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 
-				CommonTradeValue = 16,
-				CommonProductionCost = 10
+				TradeValue = 16,
+				ProductionCost = 10
 			};
 
 			Coal = new RawMaterial
@@ -108,8 +108,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kohle",
 				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
-				CommonTradeValue = 9,
-				CommonProductionCost = 5
+				TradeValue = 9,
+				ProductionCost = 5
 			};
 
 			Wheat = new RawMaterial
@@ -118,8 +118,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Weizen",
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 
-				CommonTradeValue = 3,
-				CommonProductionCost = 2.5
+				TradeValue = 3,
+				ProductionCost = 2.5
 			};
 
 			Herbs = new RawMaterial
@@ -128,8 +128,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kräuter",
 				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
 
-				CommonTradeValue = 6,
-				CommonProductionCost = 5
+				TradeValue = 6,
+				ProductionCost = 5
 			};
 
 			Potash = new RawMaterial
@@ -138,8 +138,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Pottasche",
 				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
 
-				CommonTradeValue = 20,
-				CommonProductionCost = 15
+				TradeValue = 20,
+				ProductionCost = 15
 			};
 
 			Paper = new RawMaterial
@@ -148,8 +148,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Papier",
 				UnlockThreshold = new PopulationRequirement(940, PopulationGroups.Patricians),
 
-				CommonTradeValue = 24,
-				CommonProductionCost = 20
+				TradeValue = 24,
+				ProductionCost = 20
 			};
 
 			Furs = new RawMaterial
@@ -158,8 +158,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Pelze",
 				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 19,
-				CommonProductionCost = 12
+				TradeValue = 19,
+				ProductionCost = 12
 			};
 
 			Barrels = new RawMaterial
@@ -168,8 +168,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Fässer",
 				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 38,
-				CommonProductionCost = 29.17
+				TradeValue = 38,
+				ProductionCost = 29.17
 			};
 
 			CopperOre = new RawMaterial
@@ -178,8 +178,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kupfererz",
 				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 36,
-				CommonProductionCost = 30
+				TradeValue = 36,
+				ProductionCost = 30
 			};
 
 			Brass = new RawMaterial
@@ -188,8 +188,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Messing",
 				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 84,
-				CommonProductionCost = 65
+				TradeValue = 84,
+				ProductionCost = 65
 			};
 
 			Grapes = new RawMaterial
@@ -198,8 +198,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Weintrauben",
 				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 45,
-				CommonProductionCost = 37.5
+				TradeValue = 45,
+				ProductionCost = 37.5
 			};
 
 			Cattle = new RawMaterial
@@ -208,8 +208,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Rinder",
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 9,
-				CommonProductionCost = 20
+				TradeValue = 9,
+				ProductionCost = 20
 			};
 
 			RoseOil = new RawMaterial
@@ -218,8 +218,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Rosenöl",
 				UnlockThreshold = new PopulationRequirement(2600, PopulationGroups.Envoys),
 
-				CommonTradeValue = 75,
-				CommonProductionCost = 60
+				TradeValue = 75,
+				ProductionCost = 60
 			};
 
 			Beeswax = new RawMaterial
@@ -228,8 +228,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Bienenwachs",
 				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 27,
-				CommonProductionCost = 22.5
+				TradeValue = 27,
+				ProductionCost = 22.5
 			};
 
 			Candles = new RawMaterial
@@ -238,8 +238,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kerzen",
 				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 87,
-				CommonProductionCost = 97.5
+				TradeValue = 87,
+				ProductionCost = 97.5
 			};
 
 			CoffeeBeans = new RawMaterial
@@ -248,8 +248,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kaffeebohnen",
 				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Envoys),
 
-				CommonTradeValue = 50,
-				CommonProductionCost = 20
+				TradeValue = 50,
+				ProductionCost = 20
 			};
 
 			GoldOre = new RawMaterial
@@ -258,8 +258,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Golderz",
 				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 40,
-				CommonProductionCost = 37.5
+				TradeValue = 40,
+				ProductionCost = 37.5
 			};
 
 			Indigo = new RawMaterial
@@ -268,8 +268,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Indigo",
 				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
 
-				CommonTradeValue = 19,
-				CommonProductionCost = 13.33
+				TradeValue = 19,
+				ProductionCost = 13.33
 			};
 
 			Gold = new RawMaterial
@@ -278,8 +278,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Gold",
 				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
 
-				CommonTradeValue = 40,
-				CommonProductionCost = 58.33
+				TradeValue = 40,
+				ProductionCost = 58.33
 			};
 
 			Sugar = new RawMaterial
@@ -288,8 +288,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Zucker",
 				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 
-				CommonTradeValue = 26,
-				CommonProductionCost = 27.5
+				TradeValue = 26,
+				ProductionCost = 27.5
 			};
 
 			SugarCane = new RawMaterial
@@ -298,8 +298,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Zuckerrohr",
 				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 
-				CommonTradeValue = 13,
-				CommonProductionCost = 17.5
+				TradeValue = 13,
+				ProductionCost = 17.5
 			};
 
 			Almonds = new RawMaterial
@@ -308,8 +308,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Mandeln",
 				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 
-				CommonTradeValue = 9,
-				CommonProductionCost = 7.5
+				TradeValue = 9,
+				ProductionCost = 7.5
 			};
 
 			Clay = new RawMaterial
@@ -318,8 +318,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Ton",
 				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads),
 
-				CommonTradeValue = 18,
-				CommonProductionCost = 12.5
+				TradeValue = 18,
+				ProductionCost = 12.5
 			};
 
 			Silk = new RawMaterial
@@ -328,8 +328,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Seide",
 				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
 
-				CommonTradeValue = 21,
-				CommonProductionCost = 16.67
+				TradeValue = 21,
+				ProductionCost = 16.67
 			};
 
 			Pearls = new RawMaterial
@@ -338,8 +338,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Perlen",
 				UnlockThreshold = new PopulationRequirement(1040, PopulationGroups.Envoys),
 
-				CommonTradeValue = 48,
-				CommonProductionCost = 40
+				TradeValue = 48,
+				ProductionCost = 40
 			};
 
 			Quartz = new RawMaterial
@@ -348,8 +348,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Quarz",
 				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads),
 
-				CommonTradeValue = 18,
-				CommonProductionCost = 15
+				TradeValue = 18,
+				ProductionCost = 15
 			};
 
 			Ropes = new RawMaterial
@@ -358,8 +358,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Seile",
 				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
-				CommonTradeValue = 39,
-				CommonProductionCost = 30
+				TradeValue = 39,
+				ProductionCost = 30
 			};
 
 			AnimalHides = new RawMaterial
@@ -368,8 +368,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Tierhäute",
 				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 
-				CommonTradeValue = 24,
-				CommonProductionCost = 7.5
+				TradeValue = 24,
+				ProductionCost = 7.5
 			};
 		}
 

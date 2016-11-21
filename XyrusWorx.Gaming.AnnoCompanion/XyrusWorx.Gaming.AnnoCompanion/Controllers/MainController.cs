@@ -1,5 +1,7 @@
-﻿using XyrusWorx.Gaming.AnnoCompanion.ViewModels;
+﻿using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+using XyrusWorx.Gaming.AnnoCompanion.ViewModels;
 using XyrusWorx.Gaming.AnnoCompanion.Views;
+using XyrusWorx.IO;
 using XyrusWorx.Runtime;
 using XyrusWorx.Windows.Runtime;
 
@@ -10,6 +12,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 		public MainController()
 		{
 			ServiceLocator.Default.Register<ApplicationController>(this);
+			ServiceLocator.Default.Register(new Repository());
 		}
 
 		public MainView View => GetView<MainView>();
@@ -17,6 +20,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 
 		protected override void OnInitialize()
 		{
+			var repo = new Repository();
+
+			repo.Clear();
+			repo.LoadStatic();
+			//repo.Export(@"D:\Code\XyrusWorx Collaboration\AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\Data");
+
 			ViewModel.Load();
 		}
 	}

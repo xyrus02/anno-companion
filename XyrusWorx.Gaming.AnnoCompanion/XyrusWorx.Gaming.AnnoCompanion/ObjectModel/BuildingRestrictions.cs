@@ -1,8 +1,8 @@
 ﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	enum BuildingLocation
+	enum BuildingRestrictions
 	{
-		Land = 0,
+		None,
 		Coast,
 		Mountain,
 		River

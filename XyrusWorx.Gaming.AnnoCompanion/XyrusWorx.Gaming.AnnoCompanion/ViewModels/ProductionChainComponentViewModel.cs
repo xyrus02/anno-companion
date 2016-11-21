@@ -7,7 +7,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	class ProductionChainComponentViewModel : ViewModel<ProductionChainComponent>
 	{
 		private ProductionChainComponentListViewModel mOwner;
-		private ProductionChainViewModel mProductionChain;
 
 		private double mCount;
 		private int mSortIndex;
@@ -37,20 +36,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				base.Model = value;
 			}
 		}
-		public ProductionChainViewModel ProductionChain
-		{
-			get { return mProductionChain; }
-			set
-			{
-				if (Equals(value, mProductionChain)) return;
-				mProductionChain = value;
-				OnPropertyChanged();
-				OnPropertyChanged(nameof(ProductionChainDisplayName));
-			}
-		}
 
-		public string ProductionChainDisplayName => ProductionChain?.DisplayName;
-		
 		public double Count
 		{
 			get { return mCount; }

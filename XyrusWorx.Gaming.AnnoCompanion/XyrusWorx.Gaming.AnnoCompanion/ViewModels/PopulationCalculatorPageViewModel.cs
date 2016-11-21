@@ -5,7 +5,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
 	class PopulationCalculatorPageViewModel : PageViewModel
 	{
-		private IEnumerable<ProductionChainComponentViewModel> mRequiredProductionChainComponents;
+		private IEnumerable<BuildingViewModel> mRequirements;
 		private IEnumerable<FactionViewModel> mFactions;
 
 		public PopulationCalculatorPageViewModel()
@@ -31,27 +31,27 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				OnPropertyChanged();
 			}
 		}
-		public IEnumerable<ProductionChainComponentViewModel> RequiredProductionChainComponents
+		public IEnumerable<BuildingViewModel> Requirements
 		{
-			get { return mRequiredProductionChainComponents.Distinct(new ExpressionComparer<ProductionChainComponentViewModel>(x => x.Model.Building)); }
+			get { return mRequirements.Distinct(new ExpressionComparer<BuildingViewModel>(x => x.Model)); }
 			private set
 			{
-				if (Equals(value, mRequiredProductionChainComponents)) return;
-				mRequiredProductionChainComponents = value;
+				if (Equals(value, mRequirements)) return;
+				mRequirements = value;
 				OnPropertyChanged();
 			}
 		}
 
 		public void UpdateValues()
 		{
-			RequiredProductionChainComponents = Factions
-				.SelectMany(x => x.CollectRequiredProductionChainComponents())
+			Requirements = Factions
+				.SelectMany(x => x.CollectBuildingRequirements())
 				.OrderBy(x => x.SortIndex)
 				.ToArray();
 
 			foreach (var faction in Factions)
 			{
-				faction.UpdateTurnaroundThresholds(mRequiredProductionChainComponents);
+				faction.UpdateTurnaroundThresholds(mRequirements);
 			}
 		}
 	}

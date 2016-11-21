@@ -43,7 +43,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					PopulationGroups.Citizens,
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 9,
+				CommonProductionCost = 7.5
 			};
 
 			Spices = new ConsumableGood
@@ -57,7 +60,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					PopulationGroups.Citizens,
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 18,
+				CommonProductionCost = 15
 			};
 
 			Bread = new ConsumableGood
@@ -70,7 +76,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 26,
+				CommonProductionCost = 17.5
 			};
 
 			Meat = new ConsumableGood
@@ -82,7 +91,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 50,
+				CommonProductionCost = 51
 			};
 
 			Cider = new ConsumableGood
@@ -98,7 +110,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					PopulationGroups.Citizens,
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 12,
+				CommonProductionCost = 10
 			};
 
 			Beer = new ConsumableGood
@@ -111,7 +126,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 39,
+				CommonProductionCost = 30
 			};
 
 			Wine = new ConsumableGood
@@ -123,7 +141,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 120,
+				CommonProductionCost =91.66
 			};
 
 			LinenGarments = new ConsumableGood
@@ -137,7 +158,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					PopulationGroups.Citizens,
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 46,
+				CommonProductionCost = 32.5
 			};
 
 			LeatherJerkins = new ConsumableGood
@@ -150,7 +174,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 41,
+				CommonProductionCost = 19.38
 			};
 
 			FurCoats = new ConsumableGood
@@ -162,7 +189,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 77,
+				CommonProductionCost = 55.33
 			};
 
 			BrocadeCoats = new ConsumableGood
@@ -174,7 +204,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 108,
+				CommonProductionCost = 72.5
 			};
 
 			Books = new ConsumableGood
@@ -187,7 +220,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 50,
+				CommonProductionCost = 40
 			};
 
 			Candlesticks = new ConsumableGood
@@ -200,7 +236,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Patricians,
 					PopulationGroups.Noblemen
-				}
+				},
+
+				CommonTradeValue = 194,
+				CommonProductionCost = 130
 			};
 
 			Glasses = new ConsumableGood
@@ -212,7 +251,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Noblemen
-				}
+				},
+				
+				CommonTradeValue = 90,
+				CommonProductionCost = 60
 			};
 
 			Dates = new ConsumableGood
@@ -225,7 +267,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Nomads,
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 4,
+				CommonProductionCost = 15
 			};
 
 			Milk = new ConsumableGood
@@ -238,7 +283,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Nomads,
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 16,
+				CommonProductionCost = 13.33
 			};
 
 			Carpets = new ConsumableGood
@@ -251,7 +299,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					PopulationGroups.Nomads,
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 107,
+				CommonProductionCost = 70
 			};
 
 			Coffee = new ConsumableGood
@@ -263,7 +314,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 162,
+				CommonProductionCost = 85
 			};
 
 			PearlNecklaces = new ConsumableGood
@@ -275,7 +329,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 165,
+				CommonProductionCost = 110
 			};
 
 			Perfume = new ConsumableGood
@@ -287,7 +344,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 225,
+				CommonProductionCost = 150
 			};
 
 			Marzipan = new ConsumableGood
@@ -299,7 +359,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				ConsumingPopulationGroups = new[]
 				{
 					PopulationGroups.Envoys
-				}
+				},
+
+				CommonTradeValue = 78,
+				CommonProductionCost = 60
 			};
 		}
 

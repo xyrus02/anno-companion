@@ -10,7 +10,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Views
 			InitializeComponent();
 		}
 
-		// gk: todo in Behavior mit Conditons auslagern
+		// todo replace with behavior
 		private void OnFilterCollectionViewSource(object sender, FilterEventArgs e)
 		{
 			var item = e.Item as IHideable;

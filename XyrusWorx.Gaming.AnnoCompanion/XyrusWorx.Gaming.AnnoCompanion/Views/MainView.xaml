@@ -94,6 +94,9 @@
 						<DataTemplate DataType="{x:Type viewModels:PopulationCalculatorPageViewModel}">
 							<views:PopulationCalculatorPageView />
 						</DataTemplate>
+						<DataTemplate DataType="{x:Type viewModels:TradeCalculatorPageViewModel}">
+							<views:TradeCalculatorPageView />
+						</DataTemplate>
 					</components:DictionaryTemplateSelector>
 				</ContentControl.ContentTemplateSelector>
 			</ContentControl>

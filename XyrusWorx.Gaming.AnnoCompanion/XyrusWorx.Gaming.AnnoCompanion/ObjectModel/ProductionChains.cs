@@ -30,6 +30,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public static readonly ProductionChain Cannons;
 		public static readonly ProductionChain Ropes;
 		public static readonly ProductionChain Stone;
+		public static readonly ProductionChain Mosaic;
+		public static readonly ProductionChain Glass;
 		public static readonly ProductionChain Tools;
 		public static readonly ProductionChain WarMachines;
 		public static readonly ProductionChain Weapons;
@@ -453,6 +455,30 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Components = new[]
 				{
 					new ProductionChainComponent(1, Buildings.StonemasonsHut)
+				}
+			};
+
+			Glass = new ProductionChain
+			{
+				Key = "Glass",
+				OutputGood = ConstructionMaterials.Glass,
+				Components = new[]
+				{
+					new ProductionChainComponent(2, Buildings.GlassSmelter),
+					new ProductionChainComponent(1, Buildings.ForestGlassworks, 0.75),
+					new ProductionChainComponent(1, Buildings.QuartzQuarry)
+				}
+			};
+
+			Mosaic = new ProductionChain
+			{
+				Key = "Mosaic",
+				OutputGood = ConstructionMaterials.Mosaic,
+				Components = new[]
+				{
+					new ProductionChainComponent(1, Buildings.MosaicWorkshop),
+					new ProductionChainComponent(1, Buildings.QuartzQuarry, 0.90),
+					new ProductionChainComponent(2, Buildings.ClayPit)
 				}
 			};
 

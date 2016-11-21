@@ -8,5 +8,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public string DisplayName { get; set; }
 
 		public PopulationRequirement UnlockThreshold { get; set; }
+
+		public double CommonTradeValue { get; set; }
+
+		public double CommonProductionCost { get; set; }
 	}
 }

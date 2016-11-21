@@ -72,7 +72,7 @@
 			BorderBrush="Transparent" Margin="0" Padding="0">
 
 			<ListView.Resources>
-				<CollectionViewSource x:Key="RequiredProductionChainComponents" Source="{Binding RequiredProductionChainComponents}">
+				<CollectionViewSource x:Key="RequiredProductionChainComponents" Source="{Binding Requirements}">
 					<CollectionViewSource.GroupDescriptions>
 						<PropertyGroupDescription PropertyName="ProductionChainDisplayName"/>
 					</CollectionViewSource.GroupDescriptions>

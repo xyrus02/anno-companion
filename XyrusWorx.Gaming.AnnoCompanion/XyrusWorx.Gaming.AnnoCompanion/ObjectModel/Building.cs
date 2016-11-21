@@ -12,5 +12,11 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		public Good[] Input { get; set; }
 
 		public Good Output { get; set; }
+
+		public double ActiveCostPerMinute { get; set; }
+
+		public double InactiveCostPerMinute { get; set; }
+
+		public double ProductionPerMinute { get; set; }
 	}
 }

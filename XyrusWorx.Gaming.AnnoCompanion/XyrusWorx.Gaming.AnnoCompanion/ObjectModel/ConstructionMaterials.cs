@@ -18,35 +18,50 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			{
 				Key = "Wood",
 				DisplayName = "Holz",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants)
+				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants),
+
+				CommonTradeValue = 4,
+				CommonProductionCost = 3.33
 			};
 
 			Tools = new ConstructionMaterial
 			{
 				Key = "Tools",
 				DisplayName = "Werkzeug",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens)
+				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
+
+				CommonTradeValue = 36,
+				CommonProductionCost = 27.5
 			};
 
 			Stone = new ConstructionMaterial
 			{
 				Key = "Stone",
 				DisplayName = "Steine",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Citizens)
+				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Citizens),
+
+				CommonTradeValue = 8,
+				CommonProductionCost = 10
 			};
 
 			Glass = new ConstructionMaterial
 			{
 				Key = "Glass",
 				DisplayName = "Glas",
-				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians)
+				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
+
+				CommonTradeValue = 68,
+				CommonProductionCost = 26.25
 			};
 
 			Mosaic = new ConstructionMaterial
 			{
 				Key = "Mosaic",
 				DisplayName = "Mosaik",
-				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads)
+				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads),
+
+				CommonTradeValue = 46,
+				CommonProductionCost = 32.5
 			};
 		}
 

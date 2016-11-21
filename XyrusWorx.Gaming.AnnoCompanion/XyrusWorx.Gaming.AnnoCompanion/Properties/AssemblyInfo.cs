@@ -11,9 +11,9 @@ using System.Windows;
 [assembly: AssemblyCulture("")]
 
 #if DEBUG
-[assembly: AssemblyConfiguration("Debug")]
+	[assembly: AssemblyConfiguration("Debug")]
 #else
-[assembly: AssemblyConfiguration("")]
+	[assembly: AssemblyConfiguration("")]
 #endif
 
 [assembly: ThemeInfo(

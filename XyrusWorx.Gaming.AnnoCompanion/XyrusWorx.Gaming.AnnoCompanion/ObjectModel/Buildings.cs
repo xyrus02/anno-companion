@@ -84,7 +84,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Coast,
 
 				Input = new Good[0],
-				Output = ConsumableGoods.Fishes
+				Output = ConsumableGoods.Fishes,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 5,
+
+				ProductionPerMinute = 2
 			};
 
 			SpiceFarm = new Building
@@ -93,7 +98,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Gewürzplantage",
 
 				Input = new Good[0],
-				Output = ConsumableGoods.Fishes
+				Output = ConsumableGoods.Spices,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 
 			Bakery = new Building
@@ -105,7 +115,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Flour
 				},
-				Output = ConsumableGoods.Bread
+				Output = ConsumableGoods.Bread,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 4
 			};
 
 			ButchersShop = new Building
@@ -117,7 +132,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Cattle
 				},
-				Output = ConsumableGoods.Meat
+				Output = ConsumableGoods.Meat,
+
+				ActiveCostPerMinute = 50,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 2.5
 			};
 
 			CiderFarm = new Building
@@ -126,7 +146,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Mosthof",
 
 				Input = new Good[0],
-				Output = ConsumableGoods.Cider
+				Output = ConsumableGoods.Cider,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 5,
+
+				ProductionPerMinute = 1.5
 			};
 
 			MonasteryBrewery = new Building
@@ -135,7 +160,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Klosterbrauerei",
 
 				Input = new Good[0],
-				Output = RawMaterials.Herbs
+				Output = RawMaterials.Herbs,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 1.5
 			};
 
 			WinePress = new Building
@@ -148,7 +178,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Barrels,
 					RawMaterials.Grapes
 				},
-				Output = ConsumableGoods.Wine
+				Output = ConsumableGoods.Wine,
+
+				ActiveCostPerMinute = 50,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 2
 			};
 
 			WeaversHut = new Building
@@ -160,7 +195,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Hemp
 				},
-				Output = ConsumableGoods.LinenGarments
+				Output = ConsumableGoods.LinenGarments,
+
+				ActiveCostPerMinute = 25,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 2
 			};
 
 			Tannery = new Building
@@ -174,7 +214,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Salt,
 					RawMaterials.AnimalHides
 				},
-				Output = ConsumableGoods.LeatherJerkins
+				Output = ConsumableGoods.LeatherJerkins,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 4
 			};
 
 			FurriersWorkshop = new Building
@@ -188,7 +233,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Furs,
 					RawMaterials.Salt
 				},
-				Output = ConsumableGoods.FurCoats
+				Output = ConsumableGoods.FurCoats,
+
+				ActiveCostPerMinute = 90,
+				InactiveCostPerMinute = 45,
+
+				ProductionPerMinute = 2.5
 			};
 
 			SilkWeavingMill = new Building
@@ -201,7 +251,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Silk,
 					RawMaterials.Gold
 				},
-				Output = ConsumableGoods.BrocadeCoats
+				Output = ConsumableGoods.BrocadeCoats,
+
+				ActiveCostPerMinute = 80,
+				InactiveCostPerMinute = 40,
+
+				ProductionPerMinute = 3
 			};
 
 			PrintingHouse = new Building
@@ -213,7 +268,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Paper
 				},
-				Output = ConsumableGoods.Books
+				Output = ConsumableGoods.Books,
+
+				ActiveCostPerMinute = 50,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 3
 			};
 
 			RedsmithsWorkshop = new Building
@@ -226,7 +286,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Brass,
 					RawMaterials.Candles
 				},
-				Output = ConsumableGoods.Candlesticks
+				Output = ConsumableGoods.Candlesticks,
+
+				ActiveCostPerMinute = 60,
+				InactiveCostPerMinute = 30,
+
+				ProductionPerMinute = 2
 			};
 
 			OpticiansWorkshop = new Building
@@ -239,7 +304,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Quartz,
 					RawMaterials.Brass
 				},
-				Output = ConsumableGoods.Cider
+				Output = ConsumableGoods.Glasses,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 20,
+
+				ProductionPerMinute = 2
 			};
 
 			DatePlantation = new Building
@@ -248,7 +318,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Dattelplantage",
 
 				Input = new Good[0],
-				Output = ConsumableGoods.Dates
+				Output = ConsumableGoods.Dates,
+
+				ActiveCostPerMinute = 45,
+				InactiveCostPerMinute = 20,
+
+				ProductionPerMinute = 3
 			};
 
 			GoatFarm = new Building
@@ -257,7 +332,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Ziegenfarm",
 
 				Input = new Good[0],
-				Output = ConsumableGoods.Milk
+				Output = ConsumableGoods.Milk,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1.5
 			};
 
 			CarpetWorkshop = new Building
@@ -270,7 +350,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Indigo,
 					RawMaterials.Silk
 				},
-				Output = ConsumableGoods.Carpets
+				Output = ConsumableGoods.Carpets,
+
+				ActiveCostPerMinute = 60,
+				InactiveCostPerMinute = 30,
+
+				ProductionPerMinute = 1.5
 			};
 
 			RoastingHouse = new Building
@@ -282,7 +367,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.CoffeeBeans
 				},
-				Output = ConsumableGoods.Coffee
+				Output = ConsumableGoods.Coffee,
+
+				ActiveCostPerMinute = 45,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 1
 			};
 
 			PearlWorkshop = new Building
@@ -294,7 +384,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Pearls
 				},
-				Output = ConsumableGoods.PearlNecklaces
+				Output = ConsumableGoods.PearlNecklaces,
+
+				ActiveCostPerMinute = 70,
+				InactiveCostPerMinute = 35,
+
+				ProductionPerMinute = 1
 			};
 
 			Perfumery = new Building
@@ -306,7 +401,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.RoseOil
 				},
-				Output = ConsumableGoods.Perfume
+				Output = ConsumableGoods.Perfume,
+
+				ActiveCostPerMinute = 60,
+				InactiveCostPerMinute = 30,
+
+				ProductionPerMinute = 1
 			};
 
 			ConfectionersWorkshop = new Building
@@ -319,7 +419,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Sugar,
 					RawMaterials.Almonds
 				},
-				Output = ConsumableGoods.Marzipan
+				Output = ConsumableGoods.Marzipan,
+
+				ActiveCostPerMinute = 100,
+				InactiveCostPerMinute = 50,
+
+				ProductionPerMinute = 4
 			};
 
 			Mill = new Building
@@ -331,7 +436,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Wheat
 				},
-				Output = RawMaterials.Flour
+				Output = RawMaterials.Flour,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 4
 			};
 
 			CropFarm = new Building
@@ -340,7 +450,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Weizenfarm",
 
 				Input = new Good[0],
-				Output = RawMaterials.Wheat
+				Output = RawMaterials.Wheat,
+
+				ActiveCostPerMinute = 5,
+				InactiveCostPerMinute = 0,
+
+				ProductionPerMinute = 2
 			};
 
 			CattleFarm = new Building
@@ -349,7 +464,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Rindefarm",
 
 				Input = new Good[0],
-				Output = RawMaterials.Cattle
+				Output = RawMaterials.Cattle,
+
+				ActiveCostPerMinute = 25,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1.25
 			};
 
 			MonasteryGarden = new Building
@@ -358,7 +478,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Klostergarten",
 
 				Input = new Good[0],
-				Output = RawMaterials.Herbs
+				Output = RawMaterials.Herbs,
+
+				ActiveCostPerMinute = 10,
+				InactiveCostPerMinute = 0,
+
+				ProductionPerMinute = 2
 			};
 
 			Vineyard = new Building
@@ -367,7 +492,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Weingut",
 
 				Input = new Good[0],
-				Output = RawMaterials.Grapes
+				Output = RawMaterials.Grapes,
+
+				ActiveCostPerMinute = 25,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 0.66
 			};
 
 			BarrelCooperage = new Building
@@ -380,7 +510,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Iron,
 					ConstructionMaterials.Wood
 				},
-				Output = RawMaterials.Wheat
+				Output = RawMaterials.Wheat,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 
 			HempPlantation = new Building
@@ -389,7 +524,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Hanfplantage",
 
 				Input = new Good[0],
-				Output = RawMaterials.Hemp
+				Output = RawMaterials.Hemp,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1
 			};
 
 			PigFarm = new Building
@@ -398,7 +538,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Schweinezucht",
 
 				Input = new Good[0],
-				Output = RawMaterials.AnimalHides
+				Output = RawMaterials.AnimalHides,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 2
 			};
 
 			TrappersLodge = new Building
@@ -408,7 +553,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Mountain,
 
 				Input = new Good[0],
-				Output = RawMaterials.Furs
+				Output = RawMaterials.Furs,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2.50
 			};
 
 			SilkPlantation = new Building
@@ -417,7 +567,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Seidenplantage",
 
 				Input = new Good[0],
-				Output = RawMaterials.Silk
+				Output = RawMaterials.Silk,
+
+				ActiveCostPerMinute = 25,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1.5
 			};
 
 			IndigoFarm = new Building
@@ -426,7 +581,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Indigoplantage",
 
 				Input = new Good[0],
-				Output = RawMaterials.Indigo
+				Output = RawMaterials.Indigo,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1.5
 			};
 
 			PaperMill = new Building
@@ -439,7 +599,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					ConstructionMaterials.Wood
 				},
-				Output = RawMaterials.Paper
+				Output = RawMaterials.Paper,
+
+				ActiveCostPerMinute = 50,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 3
 			};
 
 			SaltWorks = new Building
@@ -451,7 +616,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Brine
 				},
-				Output = RawMaterials.Salt
+				Output = RawMaterials.Salt,
+
+				ActiveCostPerMinute = 25,
+				InactiveCostPerMinute = 12,
+
+				ProductionPerMinute = 4
 			};
 
 			CandlemakersWorkshop = new Building
@@ -464,7 +634,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Beeswax,
 					RawMaterials.Hemp
 				},
-				Output = RawMaterials.Candles
+				Output = RawMaterials.Candles,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 20,
+
+				ProductionPerMinute = 1.33
 			};
 
 			Apiary = new Building
@@ -473,7 +648,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Imkerei",
 
 				Input = new Good[0],
-				Output = RawMaterials.Beeswax
+				Output = RawMaterials.Beeswax,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 0.67
 			};
 
 			CoffeePlantation = new Building
@@ -482,7 +662,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Kaffeeplantage",
 
 				Input = new Good[0],
-				Output = RawMaterials.CoffeeBeans
+				Output = RawMaterials.CoffeeBeans,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1
 			};
 
 			RoseNursery = new Building
@@ -491,7 +676,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Rosenplantage",
 
 				Input = new Good[0],
-				Output = RawMaterials.RoseOil
+				Output = RawMaterials.RoseOil,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 0.5
 			};
 
 			SugarCanePlantation = new Building
@@ -500,7 +690,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Zuckerrohrplantage",
 
 				Input = new Good[0],
-				Output = RawMaterials.SugarCane
+				Output = RawMaterials.SugarCane,
+
+				ActiveCostPerMinute = 35,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 
 			SugarMill = new Building
@@ -512,7 +707,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.SugarCane
 				},
-				Output = RawMaterials.Wheat
+				Output = RawMaterials.Wheat,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 20,
+
+				ProductionPerMinute = 4
 			};
 
 			AlmondPlantation = new Building
@@ -521,7 +721,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Mandelfarm",
 
 				Input = new Good[0],
-				Output = RawMaterials.Almonds
+				Output = RawMaterials.Almonds,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 5,
+
+				ProductionPerMinute = 2
 			};
 
 			ClayPit = new Building
@@ -530,7 +735,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Tongrube",
 
 				Input = new Good[0],
-				Output = RawMaterials.Clay
+				Output = RawMaterials.Clay,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 5,
+
+				ProductionPerMinute = 1.2
 			};
 
 			MosaicWorkshop = new Building
@@ -543,7 +753,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Quartz,
 					RawMaterials.Clay
 				},
-				Output = ConstructionMaterials.Mosaic
+				Output = ConstructionMaterials.Mosaic,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2.4
 			};
 
 			ToolmakersWorkshop = new Building
@@ -555,7 +770,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Iron
 				},
-				Output = ConstructionMaterials.Tools
+				Output = ConstructionMaterials.Tools,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 
 			Ropeyard = new Building
@@ -567,7 +787,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Hemp
 				},
-				Output = RawMaterials.Ropes
+				Output = RawMaterials.Ropes,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 20,
+
+				ProductionPerMinute = 2
 			};
 
 			GlassSmelter = new Building
@@ -580,7 +805,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.Quartz,
 					RawMaterials.Potash
 				},
-				Output = ConstructionMaterials.Glass
+				Output = ConstructionMaterials.Glass,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 
 			IronSmelter = new Building
@@ -593,7 +823,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.IronOre,
 					RawMaterials.Coal
 				},
-				Output = RawMaterials.Iron
+				Output = RawMaterials.Iron,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 2
 			};
 
 			GoldSmelter = new Building
@@ -606,7 +841,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.GoldOre,
 					RawMaterials.Coal
 				},
-				Output = RawMaterials.Gold
+				Output = RawMaterials.Gold,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 1.5
 			};
 
 			CopperSmelter = new Building
@@ -619,7 +859,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					RawMaterials.CopperOre,
 					RawMaterials.Coal
 				},
-				Output = RawMaterials.Brass
+				Output = RawMaterials.Brass,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 1.33
 			};
 
 			SaltMine = new Building
@@ -629,7 +874,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Mountain,
 
 				Input = new Good[0],
-				Output = RawMaterials.Brine
+				Output = RawMaterials.Brine,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 4
 			};
 
 			OreMine = new Building
@@ -639,7 +889,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Mountain,
 
 				Input = new Good[0],
-				Output = RawMaterials.IronOre
+				Output = RawMaterials.IronOre,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 2
 			};
 
 			GoldMine = new Building
@@ -649,7 +904,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Mountain,
 
 				Input = new Good[0],
-				Output = RawMaterials.GoldOre
+				Output = RawMaterials.GoldOre,
+
+				ActiveCostPerMinute = 50,
+				InactiveCostPerMinute = 30,
+
+				ProductionPerMinute = 1.33
 			};
 
 			CopperMine = new Building
@@ -659,7 +919,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Mountain,
 
 				Input = new Good[0],
-				Output = RawMaterials.CopperOre
+				Output = RawMaterials.CopperOre,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 25,
+
+				ProductionPerMinute = 1.33
 			};
 
 			QuartzQuarry = new Building
@@ -668,7 +933,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Quarzbruch",
 
 				Input = new Good[0],
-				Output = RawMaterials.Quartz
+				Output = RawMaterials.Quartz,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 1.33
 			};
 
 			LumberjacksHut = new Building
@@ -677,7 +947,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Holzfällerhütte",
 
 				Input = new Good[0],
-				Output = ConstructionMaterials.Wood
+				Output = ConstructionMaterials.Wood,
+
+				ActiveCostPerMinute = 5,
+				InactiveCostPerMinute = 0,
+
+				ProductionPerMinute = 1.5
 			};
 
 			StonemasonsHut = new Building
@@ -686,7 +961,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Steinmetz",
 
 				Input = new Good[0],
-				Output = ConstructionMaterials.Stone
+				Output = ConstructionMaterials.Stone,
+
+				ActiveCostPerMinute = 20,
+				InactiveCostPerMinute = 10,
+
+				ProductionPerMinute = 2
 			};
 
 			CharcoalBurnersHut = new Building
@@ -695,7 +975,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Köhlerhütte",
 
 				Input = new Good[0],
-				Output = RawMaterials.Coal
+				Output = RawMaterials.Coal,
+
+				ActiveCostPerMinute = 10,
+				InactiveCostPerMinute = 0,
+
+				ProductionPerMinute = 2
 			};
 
 			PearlFishersHut = new Building
@@ -705,7 +990,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Location = BuildingLocation.Coast,
 
 				Input = new Good[0],
-				Output = RawMaterials.Pearls
+				Output = RawMaterials.Pearls,
+
+				ActiveCostPerMinute = 40,
+				InactiveCostPerMinute = 20,
+
+				ProductionPerMinute = 1
 			};
 
 			ForestGlassworks = new Building
@@ -714,7 +1004,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Waldglashütte",
 
 				Input = new Good[0],
-				Output = RawMaterials.Potash
+				Output = RawMaterials.Potash,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 
 			CannonFoundry = new Building
@@ -727,7 +1022,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					ConstructionMaterials.Wood,
 					RawMaterials.Iron
 				},
-				Output = WarfareMaterials.Cannons
+				Output = WarfareMaterials.Cannons,
+
+				ActiveCostPerMinute = 100,
+				InactiveCostPerMinute = 50,
+
+				ProductionPerMinute = 1
 			};
 
 			ProvisionHouse = new Building
@@ -736,7 +1036,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				DisplayName = "Proviantmagazin",
 
 				Input = new Good[0],
-				Output = WarfareMaterials.Provisions
+				Output = WarfareMaterials.Provisions,
+
+				ActiveCostPerMinute = 15,
+				InactiveCostPerMinute = 0,
+
+				ProductionPerMinute = 5.0 / 23.0 // Production cycle is 23 sec
 			};
 
 			WarMachinesWorkshop = new Building
@@ -749,7 +1054,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 					ConstructionMaterials.Wood,
 					RawMaterials.Ropes
 				},
-				Output = WarfareMaterials.WarMachines
+				Output = WarfareMaterials.WarMachines,
+
+				ActiveCostPerMinute = 60,
+				InactiveCostPerMinute = 30,
+
+				ProductionPerMinute = 1.5
 			};
 
 			WeaponSmithy = new Building
@@ -761,7 +1071,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				{
 					RawMaterials.Iron
 				},
-				Output = WarfareMaterials.Weapons
+				Output = WarfareMaterials.Weapons,
+
+				ActiveCostPerMinute = 30,
+				InactiveCostPerMinute = 15,
+
+				ProductionPerMinute = 2
 			};
 		}
 

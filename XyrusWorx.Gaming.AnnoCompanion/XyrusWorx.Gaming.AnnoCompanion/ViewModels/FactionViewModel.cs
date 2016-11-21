@@ -55,22 +55,22 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		}
 
 		public void UpdateValues() => Owner.UpdateValues();
-
-		public void UpdateTurnaroundThresholds([NotNull] IEnumerable<ProductionChainComponentViewModel> productionChainComponents)
+		public void UpdateTurnaroundThresholds([NotNull] IEnumerable<BuildingViewModel> buildings)
 		{
-			if (productionChainComponents == null)
+			if (buildings == null)
 			{
-				throw new ArgumentNullException(nameof(productionChainComponents));
+				throw new ArgumentNullException(nameof(buildings));
 			}
 
-			var componentArray = productionChainComponents.AsArray();
+			var componentArray = buildings.AsArray();
 
 			var allProductionChains = componentArray
-				.Select(x => x.ProductionChain)
-				.Distinct();
+				.Select(x => x.ProductionChain).Where(x => x != null)
+				.Distinct(new ExpressionComparer<ProductionChainViewModel>(x => x.Model))
+				.ToArray();
 
 			var factionGroups = Items.ToDictionary(x => x.Model);
-			var chainCounts = componentArray.Select(x => x.ProductionChain).Distinct().ToDictionary(x => x.Model, x => x.Count);
+			var chainCounts = allProductionChains.ToDictionary(x => x.Model, x => x.Count);
 
 			var capacities =
 				from populationGroup in PopulationGroups.GetAll()
@@ -124,7 +124,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			}
 
 		}
-		public IEnumerable<ProductionChainComponentViewModel> CollectRequiredProductionChainComponents()
+
+		public IEnumerable<BuildingViewModel> CollectBuildingRequirements()
 		{
 			var maximumTier = Items.Where(x => x.Count > 0).OrderByDescending(x => x.Model?.Tier ?? -1).FirstOrDefault()?.Model?.Tier ?? -1;
 			if (maximumTier < 0)
@@ -181,18 +182,18 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				foreach (var component in chain.Components)
 				{
-					var componentViewModel = new ProductionChainComponentViewModel
+					var buildingViewModel = new BuildingViewModel
 					{
-						Model = component,
+						Model = component.Building,
 						Count = component.Count * chainCount,
 						ProductionChain = chainViewModel
 					};
 
 					componentSortIndex += 1;
 
-					componentViewModel.SortIndex = chainSortIndex + componentSortIndex;
+					buildingViewModel.SortIndex = chainSortIndex + componentSortIndex;
 
-					yield return componentViewModel;
+					yield return buildingViewModel;
 				}
 			}
 		}

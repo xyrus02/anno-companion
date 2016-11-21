@@ -111,12 +111,14 @@
     <Compile Include="ObjectModel\WarfareMaterial.cs" />
     <Compile Include="ObjectModel\WarfareMaterials.cs" />
     <Compile Include="Components\PopulationGroupConverter.cs" />
+    <Compile Include="ViewModels\BuildingViewModel.cs" />
     <Compile Include="ViewModels\FactionViewModel.cs" />
     <Compile Include="ViewModels\PopulationGroupViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainViewModel.cs" />
+    <Compile Include="ViewModels\TradeCalculatorPageViewModel.cs" />
     <Compile Include="Views\GroupedProductionChainListView.xaml.cs">
       <DependentUpon>GroupedProductionChainListView.xaml</DependentUpon>
     </Compile>
@@ -137,6 +139,9 @@
     </Compile>
     <Compile Include="Views\ProductionChainComponentCalculatorView.xaml.cs">
       <DependentUpon>ProductionChainComponentCalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\TradeCalculatorPageView.xaml.cs">
+      <DependentUpon>TradeCalculatorPageView.xaml</DependentUpon>
     </Compile>
     <Page Include="Views\GroupedProductionChainListView.xaml">
       <SubType>Designer</SubType>
@@ -196,6 +201,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Views\ProductionChainComponentCalculatorView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\TradeCalculatorPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

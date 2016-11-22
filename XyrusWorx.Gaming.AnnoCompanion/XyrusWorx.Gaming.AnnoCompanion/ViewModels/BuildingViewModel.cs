@@ -1,4 +1,4 @@
-﻿using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+﻿using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.MVVM;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels

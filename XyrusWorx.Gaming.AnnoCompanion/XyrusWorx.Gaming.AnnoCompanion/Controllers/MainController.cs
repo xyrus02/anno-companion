@@ -1,5 +1,7 @@
 ﻿using System.IO;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
+using XyrusWorx.Gaming.AnnoCompanion.Models.Generator;
 using XyrusWorx.Gaming.AnnoCompanion.ViewModels;
 using XyrusWorx.Gaming.AnnoCompanion.Views;
 using XyrusWorx.Runtime;
@@ -11,8 +13,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 	{
 		public MainController()
 		{
+			var repository = new Repository(typeof(Depletable).Assembly);
+
 			ServiceLocator.Default.Register<ApplicationController>(this);
-			ServiceLocator.Default.Register<IDataProvider>(new Repository());
+
+			ServiceLocator.Default.Register<IDataProvider>(repository);
+			ServiceLocator.Default.Register<IIconResolverFactory>(repository);
+			ServiceLocator.Default.Register<IInstancePoolFactory>(repository);
 		}
 
 		public MainView View => GetView<MainView>();
@@ -21,22 +28,32 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 		protected override void OnInitialize()
 		{
 			const string dataDirectoryName = "Data";
+			const string iconsDirectoryName = "Icons";
 
-			var repository = (Repository)ServiceLocator.Default.Resolve<IDataProvider>();
+			var dataProvider = ServiceLocator.Default.Resolve<IDataProvider>();
+			var instancePoolFactory = ServiceLocator.Default.Resolve<IInstancePoolFactory>();
+			var iconResolverFactory = ServiceLocator.Default.Resolve<IIconResolverFactory>();
+
 			var shouldExport = !WorkingDirectory.HasChildStore(dataDirectoryName);
 			var dataDirectory = WorkingDirectory.GetChildStore(dataDirectoryName);
 
 			if (shouldExport)
 			{
-				repository.Clear();
-				repository.LoadStatic();
-				repository.Export(dataDirectory);
+				ModelGenerator.Generate(instancePoolFactory.GetInstancePool());
+				dataProvider.Export(dataDirectory);
 			}
-			
+
+			var iconResolver = iconResolverFactory.GetIconResolver();
+
+			iconResolver.AddExternalDataSource(new EmbeddedBlobStore(
+				typeof(Depletable).Assembly, 
+				new StringKeySequence("Resources", iconsDirectoryName)));
+			iconResolver.AddExternalDataSource(dataDirectory.GetChildStore(iconsDirectoryName));
+
 			try
 			{
-				repository.Clear();
-				repository.Import(dataDirectory);
+				dataProvider.Clear();
+				dataProvider.Import(dataDirectory);
 			}
 			catch (InvalidDataException exception)
 			{

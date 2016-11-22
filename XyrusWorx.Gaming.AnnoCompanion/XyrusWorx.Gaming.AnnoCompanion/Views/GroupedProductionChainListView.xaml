@@ -5,10 +5,10 @@
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:componentModel="clr-namespace:System.ComponentModel;assembly=WindowsBase"
 	xmlns:components="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Components"
-	xmlns:objectModel="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ObjectModel"
 	xmlns:components1="clr-namespace:XyrusWorx.UserExperience.Components;assembly=XyrusWorx.Foundation.UserExperience"
 	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
+	xmlns:models="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Models;assembly=acmodel"
 	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.GroupedProductionChainListView"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:ProductionChainListViewModel}"
 	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300">
@@ -58,7 +58,7 @@
 											</Binding>
 										</FrameworkElement.DataContext>
 
-										<Grid d:DataContext="{d:DesignInstance d:Type=objectModel:PopulationGroup}">
+										<Grid d:DataContext="{d:DesignInstance d:Type=models:PopulationGroup}">
 											<Grid.ColumnDefinitions>
 												<ColumnDefinition Width="Auto" />
 												<ColumnDefinition />

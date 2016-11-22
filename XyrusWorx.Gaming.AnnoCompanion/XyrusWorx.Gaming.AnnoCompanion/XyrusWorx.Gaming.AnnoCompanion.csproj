@@ -8,7 +8,7 @@
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>XyrusWorx.Gaming.AnnoCompanion</RootNamespace>
-    <AssemblyName>annocomp</AssemblyName>
+    <AssemblyName>ac</AssemblyName>
     <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -104,34 +104,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Components\IconKeyConverter.cs" />
-    <Compile Include="Data\Model.cs" />
-    <Compile Include="Static\Fertilities.cs" />
-    <Compile Include="Data\IDataProvider.cs" />
-    <Compile Include="Data\KeyClassAttribute.cs" />
-    <Compile Include="Static\MountainResources.cs" />
-    <Compile Include="Data\PersistedNode.cs" />
-    <Compile Include="Static\WaterResources.cs" />
-    <Compile Include="ObjectModel\BuildingInput.cs" />
-    <Compile Include="ObjectModel\BuildingOutput.cs" />
-    <Compile Include="ObjectModel\ConstructionMaterial.cs" />
-    <Compile Include="Static\ConstructionMaterials.cs" />
-    <Compile Include="Data\IInstancePool.cs" />
-    <Compile Include="ObjectModel\Depletable.cs" />
-    <Compile Include="ObjectModel\Fertility.cs" />
-    <Compile Include="ObjectModel\MountainResource.cs" />
-    <Compile Include="ObjectModel\ProductionBuilding.cs" />
-    <Compile Include="ObjectModel\Resource.cs" />
-    <Compile Include="ObjectModel\WaterResource.cs" />
-    <Compile Include="Serialization\JsonBuildingInputConverter.cs" />
-    <Compile Include="Serialization\JsonBuildingRestrictionsConverter.cs" />
-    <Compile Include="Serialization\JsonFactionConverter.cs" />
-    <Compile Include="Serialization\JsonIndexedObjectConverter.cs" />
-    <Compile Include="Serialization\JsonReferenceResolver.cs" />
-    <Compile Include="ObjectModel\RawMaterial.cs" />
-    <Compile Include="Static\RawMaterials.cs" />
-    <Compile Include="Data\Repository.cs" />
-    <Compile Include="ObjectModel\WarfareMaterial.cs" />
-    <Compile Include="Static\WarfareMaterials.cs" />
     <Compile Include="Components\PopulationGroupConverter.cs" />
     <Compile Include="ViewModels\BuildingViewModel.cs" />
     <Compile Include="ViewModels\FactionViewModel.cs" />
@@ -177,22 +149,7 @@
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="ObjectModel\Building.cs" />
-    <Compile Include="ObjectModel\BuildingRestrictions.cs" />
-    <Compile Include="Static\Buildings.cs" />
-    <Compile Include="ObjectModel\ConsumableGood.cs" />
-    <Compile Include="Static\ConsumableGoods.cs" />
-    <Compile Include="ObjectModel\Faction.cs" />
     <Compile Include="Controllers\MainController.cs" />
-    <Compile Include="ObjectModel\Good.cs" />
-    <Compile Include="Data\Persistable.cs" />
-    <Compile Include="ObjectModel\PopulationGroup.cs" />
-    <Compile Include="Static\PopulationGroups.cs" />
-    <Compile Include="ObjectModel\PopulationRequirement.cs" />
-    <Compile Include="ObjectModel\ProductionChain.cs" />
-    <Compile Include="ObjectModel\ProductionChainComponent.cs" />
-    <Compile Include="Static\ProductionChains.cs" />
-    <Compile Include="ObjectModel\ProvisionCapacity.cs" />
     <Compile Include="ViewModels\MainViewModel.cs" />
     <Compile Include="ViewModels\PageListViewModel.cs" />
     <Compile Include="ViewModels\PageViewModel.cs" />
@@ -242,158 +199,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\Buildings\AlmondPlantation.png" />
-    <Resource Include="Resources\Icons\Buildings\Apiary.png" />
-    <Resource Include="Resources\Icons\Buildings\Bakery.png" />
-    <Resource Include="Resources\Icons\Buildings\BarrelCooperage.png" />
-    <Resource Include="Resources\Icons\Buildings\ButchersShop.png" />
-    <Resource Include="Resources\Icons\Buildings\CandlemakersWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\CarpetWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\CattleFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\CharcoalBurnersHut.png" />
-    <Resource Include="Resources\Icons\Buildings\CiderFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\CoffeePlantation.png" />
-    <Resource Include="Resources\Icons\Buildings\ConfectionersWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\CopperMine.png" />
-    <Resource Include="Resources\Icons\Buildings\CopperSmelter.png" />
-    <Resource Include="Resources\Icons\Buildings\CropFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\DatePlantation.png" />
-    <Resource Include="Resources\Icons\Buildings\FishermansHut.png" />
-    <Resource Include="Resources\Icons\Buildings\FurriersWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\GoatFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\GoldMine.png" />
-    <Resource Include="Resources\Icons\Buildings\GoldSmelter.png" />
-    <Resource Include="Resources\Icons\Buildings\HempPlantation.png" />
-    <Resource Include="Resources\Icons\Buildings\IndigoFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\IronSmelter.png" />
-    <Resource Include="Resources\Icons\Buildings\LumberjacksHut.png" />
-    <Resource Include="Resources\Icons\Buildings\Mill.png" />
-    <Resource Include="Resources\Icons\Buildings\MonasteryBrewery.png" />
-    <Resource Include="Resources\Icons\Buildings\MonasteryGarden.png" />
-    <Resource Include="Resources\Icons\Buildings\OpticiansWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\OreMine.png" />
-    <Resource Include="Resources\Icons\Buildings\PaperMill.png" />
-    <Resource Include="Resources\Icons\Buildings\PearlFishersHut.png" />
-    <Resource Include="Resources\Icons\Buildings\PearlWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\Perfumery.png" />
-    <Resource Include="Resources\Icons\Buildings\PigFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\PrintingHouse.png" />
-    <Resource Include="Resources\Icons\Buildings\QuartzQuarry.png" />
-    <Resource Include="Resources\Icons\Buildings\RedsmithsWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\RoastingHouse.png" />
-    <Resource Include="Resources\Icons\Buildings\RoseNursery.png" />
-    <Resource Include="Resources\Icons\Buildings\SaltMine.png" />
-    <Resource Include="Resources\Icons\Buildings\SaltWorks.png" />
-    <Resource Include="Resources\Icons\Buildings\SilkPlantation.png" />
-    <Resource Include="Resources\Icons\Buildings\SilkWeavingMill.png" />
-    <Resource Include="Resources\Icons\Buildings\SpiceFarm.png" />
-    <Resource Include="Resources\Icons\Buildings\SugarCanePlantation.png" />
-    <Resource Include="Resources\Icons\Buildings\SugarMill.png" />
-    <Resource Include="Resources\Icons\Buildings\Tannery.png" />
-    <Resource Include="Resources\Icons\Buildings\TrappersLodge.png" />
-    <Resource Include="Resources\Icons\Buildings\Vineyard.png" />
-    <Resource Include="Resources\Icons\Buildings\WeaversHut.png" />
-    <Resource Include="Resources\Icons\Buildings\WinePress.png" />
-    <Resource Include="Resources\Icons\Goods\Beer.png" />
-    <Resource Include="Resources\Icons\Goods\Books.png" />
-    <Resource Include="Resources\Icons\Goods\Bread.png" />
-    <Resource Include="Resources\Icons\Goods\BrocadeCoats.png" />
-    <Resource Include="Resources\Icons\Goods\Candlesticks.png" />
-    <Resource Include="Resources\Icons\Goods\Carpets.png" />
-    <Resource Include="Resources\Icons\Goods\Cider.png" />
-    <Resource Include="Resources\Icons\Goods\Coffee.png" />
-    <Resource Include="Resources\Icons\Goods\Dates.png" />
-    <Resource Include="Resources\Icons\Goods\Fishes.png" />
-    <Resource Include="Resources\Icons\Goods\FurCoats.png" />
-    <Resource Include="Resources\Icons\Goods\Glasses.png" />
-    <Resource Include="Resources\Icons\Goods\LeatherJerkins.png" />
-    <Resource Include="Resources\Icons\Goods\LinenGarments.png" />
-    <Resource Include="Resources\Icons\Goods\Marzipan.png" />
-    <Resource Include="Resources\Icons\Goods\Meat.png" />
-    <Resource Include="Resources\Icons\Goods\Milk.png" />
-    <Resource Include="Resources\Icons\Goods\PearlNecklaces.png" />
-    <Resource Include="Resources\Icons\Goods\Perfume.png" />
-    <Resource Include="Resources\Icons\Goods\Spices.png" />
-    <Resource Include="Resources\Icons\Goods\Wine.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\PopulationGroups\Beggars.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\Citizens.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\Envoys.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\Noblemen.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\Nomads.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\Patricians.png" />
-    <Resource Include="Resources\Icons\PopulationGroups\Peasants.png" />
-  </ItemGroup>
-  <ItemGroup>
     <Resource Include="App.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Buildings\StonemasonsHut.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Buildings\ClayPit.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Buildings\ForestGlassworks.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Buildings\GlassSmelter.png" />
-    <Resource Include="Resources\Icons\Buildings\MosaicWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\Ropeyard.png" />
-    <Resource Include="Resources\Icons\Buildings\ToolmakersWorkshop.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Buildings\CannonFoundry.png" />
-    <Resource Include="Resources\Icons\Buildings\ProvisionHouse.png" />
-    <Resource Include="Resources\Icons\Buildings\WarMachinesWorkshop.png" />
-    <Resource Include="Resources\Icons\Buildings\WeaponSmithy.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Goods\Almonds.png" />
-    <Resource Include="Resources\Icons\Goods\AnimalHides.png" />
-    <Resource Include="Resources\Icons\Goods\Barrels.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\Goods\Beeswax.png" />
-    <Resource Include="Resources\Icons\Goods\Brass.png" />
-    <Resource Include="Resources\Icons\Goods\Brine.png" />
-    <Resource Include="Resources\Icons\Goods\Candles.png" />
-    <Resource Include="Resources\Icons\Goods\Cannons.png" />
-    <Resource Include="Resources\Icons\Goods\Cattle.png" />
-    <Resource Include="Resources\Icons\Goods\Clay.png" />
-    <Resource Include="Resources\Icons\Goods\Coal.png" />
-    <Resource Include="Resources\Icons\Goods\CoffeeBeans.png" />
-    <Resource Include="Resources\Icons\Goods\CopperOre.png" />
-    <Resource Include="Resources\Icons\Goods\Flour.png" />
-    <Resource Include="Resources\Icons\Goods\Furs.png" />
-    <Resource Include="Resources\Icons\Goods\Glass.png" />
-    <Resource Include="Resources\Icons\Goods\Gold.png" />
-    <Resource Include="Resources\Icons\Goods\GoldOre.png" />
-    <Resource Include="Resources\Icons\Goods\Grapes.png" />
-    <Resource Include="Resources\Icons\Goods\Hemp.png" />
-    <Resource Include="Resources\Icons\Goods\Herbs.png" />
-    <Resource Include="Resources\Icons\Goods\Indigo.png" />
-    <Resource Include="Resources\Icons\Goods\Iron.png" />
-    <Resource Include="Resources\Icons\Goods\IronOre.png" />
-    <Resource Include="Resources\Icons\Goods\Mosaic.png" />
-    <Resource Include="Resources\Icons\Goods\Paper.png" />
-    <Resource Include="Resources\Icons\Goods\Pearls.png" />
-    <Resource Include="Resources\Icons\Goods\Potash.png" />
-    <Resource Include="Resources\Icons\Goods\Provisions.png" />
-    <Resource Include="Resources\Icons\Goods\Quartz.png" />
-    <Resource Include="Resources\Icons\Goods\Ropes.png" />
-    <Resource Include="Resources\Icons\Goods\RoseOil.png" />
-    <Resource Include="Resources\Icons\Goods\Salt.png" />
-    <Resource Include="Resources\Icons\Goods\Silk.png" />
-    <Resource Include="Resources\Icons\Goods\Stone.png" />
-    <Resource Include="Resources\Icons\Goods\Sugar.png" />
-    <Resource Include="Resources\Icons\Goods\SugarCanes.png" />
-    <Resource Include="Resources\Icons\Goods\Tools.png" />
-    <Resource Include="Resources\Icons\Goods\WarMachines.png" />
-    <Resource Include="Resources\Icons\Goods\Weapons.png" />
-    <Resource Include="Resources\Icons\Goods\Wheat.png" />
-    <Resource Include="Resources\Icons\Goods\Wood.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\CommonGoods.png" />
@@ -408,34 +214,14 @@
     <Resource Include="Resources\Icons\SearchSmall.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Resources\Icons\ProductionChains\BeerProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\BookProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\BreadProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\BrocadeCoatProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\CandlestickProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\CannonProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\CarpetProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\CiderProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\CoffeeProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\DateProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\FishProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\FurCoatProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\GlassesProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\LeatherJerkinProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\LinenGarmentProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\MarzipanProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\MeatProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\MilkProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\PearlNecklaceProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\PerfumeProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\RopeProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\SpiceProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\StoneProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\ToolProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\WarMachineProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\WeaponProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\WineProduction.png" />
-    <Resource Include="Resources\Icons\ProductionChains\WoodProduction.png" />
+    <ProjectReference Include="..\XyrusWorx.Gaming.AnnoCompanion.Common\XyrusWorx.Gaming.AnnoCompanion.Common.csproj">
+      <Project>{414f935f-ad6e-4878-9f17-9d7b4d037f42}</Project>
+      <Name>XyrusWorx.Gaming.AnnoCompanion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XyrusWorx.Gaming.AnnoCompanion.Models\XyrusWorx.Gaming.AnnoCompanion.Models.csproj">
+      <Project>{5285a649-63cd-41f9-8f5c-8ead6c5eec22}</Project>
+      <Name>XyrusWorx.Gaming.AnnoCompanion.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

@@ -1,7 +1,7 @@
 ﻿using System.Windows.Input;
 using XyrusWorx.Collections;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
-using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.Windows.Input;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
@@ -14,10 +14,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public override string Header => "Produktionsketten";
 		public override int SortIndex => 1;
 
-		public ProductionChainOverviewPageViewModel() { }
-		public ProductionChainOverviewPageViewModel(IDataProvider repository) : this()
+		public ProductionChainOverviewPageViewModel() 
 		{
 			ResetAllCommand = new RelayCommand(ResetAll);
+		}
+		public ProductionChainOverviewPageViewModel(ProductionChainListViewModel list, IDataProvider repository) : this()
+		{
+			ProductionChains = list;
 			mRepository = repository;
 		}
 
@@ -25,11 +28,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public void ResetAll()
 		{
 			ProductionChains.Items.Foreach(x => x.Count = 1);
-		}
-
-		public ProductionChainOverviewPageViewModel(ProductionChainListViewModel list) : this()
-		{
-			ProductionChains = list;
 		}
 
 		public ProductionChainListViewModel ProductionChains { get; }

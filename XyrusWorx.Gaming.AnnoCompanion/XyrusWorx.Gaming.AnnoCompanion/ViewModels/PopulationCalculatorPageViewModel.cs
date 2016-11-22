@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
@@ -14,9 +15,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		{
 			Factions = new[]
 			{
-				new FactionViewModel(repository) {Faction = ObjectModel.Faction.Occident, Owner = this, DisplayName = "Okzident"},
-				new FactionViewModel(repository) {Faction = ObjectModel.Faction.Orient, Owner = this, DisplayName = "Orient"},
-				new FactionViewModel(repository) {Faction = ObjectModel.Faction.Lawless, Owner = this, DisplayName = "Gesetzlose"}
+				new FactionViewModel(repository) {Fraction = Fraction.Occident, Owner = this, DisplayName = "Okzident"},
+				new FactionViewModel(repository) {Fraction = Fraction.Orient, Owner = this, DisplayName = "Orient"},
+				new FactionViewModel(repository) {Fraction = Fraction.Lawless, Owner = this, DisplayName = "Gesetzlose"}
 			};
 		}
 

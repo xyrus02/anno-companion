@@ -1,7 +1,8 @@
 ﻿using System;
 using System.Globalization;
 using System.Windows.Data;
-using System.Windows.Media;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
+using XyrusWorx.Runtime;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.Components
 {
@@ -17,14 +18,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Components
 				return null;
 			}
 
-			try
-			{
-				return new ImageSourceConverter().ConvertFromString($"pack://application:,,,/Resources/Icons/{group}/{key}.png");
-			}
-			catch
-			{
-				return null;
-			}
+			var provider = ServiceLocator.Default.Resolve<IIconResolverFactory>().GetIconResolver();
+
+			return provider.GetIcon(key, group);
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

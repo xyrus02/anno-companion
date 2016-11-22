@@ -5,7 +5,7 @@ using System.Linq;
 using JetBrains.Annotations;
 using XyrusWorx.Collections;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
-using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.MVVM;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
@@ -14,7 +14,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	{
 		private readonly IDataProvider mRepository;
 
-		private Faction mFaction;
+		private Fraction mFraction;
 		private string mDisplayName;
 
 		public FactionViewModel() { }
@@ -37,18 +37,18 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				OnPropertyChanged();
 			}
 		}
-		public Faction Faction
+		public Fraction Fraction
 		{
-			get { return mFaction; }
+			get { return mFraction; }
 			set
 			{
-				mFaction = value;
+				mFraction = value;
 				OnPropertyChanged();
 
 				var groups =
 					from populationGroup in mRepository.GetAll<PopulationGroup>()
 					orderby populationGroup.Tier ascending 
-					where populationGroup.Faction == mFaction
+					where populationGroup.Fraction == mFraction
 					select new PopulationGroupViewModel()
 					{
 						Model = populationGroup,
@@ -79,7 +79,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 			var capacities =
 				from populationGroup in mRepository.GetAll<PopulationGroup>()
-				where populationGroup.Faction == Faction
+				where populationGroup.Fraction == Fraction
 
 				let groupChains = 
 					from chain in allProductionChains
@@ -89,7 +89,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 					let orderedConsumerGroups = 
 						from consumingGroup in consumingGroups
-						where consumingGroup.PopulationGroup.Faction == Faction
+						where consumingGroup.PopulationGroup.Fraction == Fraction
 						orderby consumingGroup.PopulationGroup.Tier
 						select consumingGroup.PopulationGroup
 
@@ -148,7 +148,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				let isProvisionedToCurrentTier = consumable.ProvisionCapacities.Any(x =>
 					x.PopulationGroup.Tier <= maximumTier &&
-					x.PopulationGroup.Faction == Faction)
+					x.PopulationGroup.Fraction == Fraction)
 
 				let isUnlockedWithCurrentPopulationCount =
 					groupCounts.GetValueByKeyOrDefault(chain.OutputBuilding.UnlockThreshold.PopulationGroup.Key) >=
@@ -156,7 +156,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				let wasUnlockedWithLowerThanCurrentTier = chain.OutputBuilding.UnlockThreshold.PopulationGroup.Tier < maximumTier
 
-				let isUnlockedImplicitly = Faction == Faction.Lawless
+				let isUnlockedImplicitly = Fraction == Models.Fraction.Lawless
 
 				where isProvisionedToCurrentTier
 				where isUnlockedWithCurrentPopulationCount || wasUnlockedWithLowerThanCurrentTier || isUnlockedImplicitly

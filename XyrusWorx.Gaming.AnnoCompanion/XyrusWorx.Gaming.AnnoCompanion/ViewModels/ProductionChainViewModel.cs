@@ -1,5 +1,5 @@
 ﻿using System.Linq;
-using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.MVVM;
 using XyrusWorx.Windows.ViewModels;
 
@@ -31,7 +31,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 		public int SortIndex =>
 			10000 * (Model?.OutputGood?.CastTo<ConsumableGood>() == null ? 1 : 2) +
-			1000 * ((int) (Model?.OutputBuilding?.UnlockThreshold.PopulationGroup.Faction ?? Faction.Occident) + 1) +
+			1000 * ((int) (Model?.OutputBuilding?.UnlockThreshold.PopulationGroup.Fraction ?? Fraction.Occident) + 1) +
 			100 * (Model?.OutputBuilding?.UnlockThreshold.PopulationGroup.Tier ?? 1) +
 			10 * (Model?.OutputBuilding?.UnlockThreshold.Count ?? 0);
 

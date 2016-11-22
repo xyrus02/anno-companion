@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using XyrusWorx.Collections;
-using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.MVVM;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels

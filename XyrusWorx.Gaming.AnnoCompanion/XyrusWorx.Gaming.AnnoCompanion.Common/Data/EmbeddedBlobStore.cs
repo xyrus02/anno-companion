@@ -47,8 +47,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 		private EmbeddedBlobStoreNamespace CreateHierarchicalStoreFromManifestResourceNames(Assembly assembly, StringKeySequence basePath)
 		{
-			var rootName = new StringKeySequence(new StringKey(assembly.FullName));
-
 			var resourceNames = assembly.GetManifestResourceNames();
 			var baseName = assembly.GetTypes().Select(x => x.Namespace).Distinct().Where(x => resourceNames.Any(y => y.StartsWith(x))).OrderBy(x => x.Length).FirstOrDefault();
 
@@ -57,10 +55,21 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				baseName += "." + basePath.ToString(".");
 			}
 
+			StringKeySequence rootName;
+
+			if (string.IsNullOrWhiteSpace(baseName))
+			{
+				rootName = new StringKeySequence();
+			}
+			else
+			{
+				rootName = new StringKeySequence(baseName.Split('.'));
+			}
+
 			var names = new HashSet<StringKeySequence>(resourceNames.Select(x => CreateKeySequence(baseName, x)).OrderBy(x => x.Segments.Length));
 			if (names.Count == 0)
 			{
-				return new EmbeddedBlobStoreNamespace(rootName, assembly, new Dictionary<StringKey, EmbeddedBlobStoreNamespace>(), new StringKey[0]);
+				return new EmbeddedBlobStoreNamespace(rootName, new StringKeySequence(),  assembly, new Dictionary<StringKey, EmbeddedBlobStoreNamespace>(), new StringKey[0]);
 			}
 
 			var leafNames = new HashSet<StringKeySequence>(
@@ -93,7 +102,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 			if (branchNames.Count == 0)
 			{
-				return new EmbeddedBlobStoreNamespace(rootName, assembly, new Dictionary<StringKey, EmbeddedBlobStoreNamespace>(), leafNames.Select(x => x.ToString(".").AsKey()));
+				return new EmbeddedBlobStoreNamespace(rootName, new StringKeySequence(),  assembly, new Dictionary<StringKey, EmbeddedBlobStoreNamespace>(), leafNames.Select(x => x.ToString(".").AsKey()));
 			}
 
 			var structure =
@@ -139,7 +148,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				var directChildren = element.Branches.ToDictionary(x => x.Segments.Last(), x => branchDictionary[x]);
 				var childLeaves = element.Leaves.Select(x => x.Segments.Last()).ToArray();
-				var container = new EmbeddedBlobStoreNamespace(element.Name, assembly, directChildren, childLeaves);
+				var container = new EmbeddedBlobStoreNamespace(rootName, element.Name, assembly, directChildren, childLeaves);
 
 				branchDictionary.Add(element.Name, container);
 			}
@@ -148,7 +157,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			var bottomLevelBranches = branchDictionary.Where(x => x.Key.Segments.Length == minLength);
 			var bottomLevelLeaves = leafNames.Where(x => x.Segments.Length == minLength);
 
-			return new EmbeddedBlobStoreNamespace(rootName,
+			return new EmbeddedBlobStoreNamespace(
+				rootName, 
+				new StringKeySequence(), 
 				assembly,
 				bottomLevelBranches.ToDictionary(x => x.Key.Segments.Last(), x => x.Value), 
 				bottomLevelLeaves.Select(x => x.Segments.Last()));

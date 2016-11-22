@@ -17,6 +17,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 		private readonly HashSet<StringKey> mNames;
 
 		internal EmbeddedBlobStoreNamespace(
+			StringKeySequence baseName, 
 			StringKeySequence name, 
 			[NotNull] Assembly assembly, 
 			[NotNull] IDictionary<StringKey, EmbeddedBlobStoreNamespace> children, 
@@ -38,7 +39,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			}
 
 			mAssembly = assembly;
-			mName = name;
+			mName = baseName.Concat(name);
 			mChildren = children;
 			mNames = new HashSet<StringKey>(names);
 		}

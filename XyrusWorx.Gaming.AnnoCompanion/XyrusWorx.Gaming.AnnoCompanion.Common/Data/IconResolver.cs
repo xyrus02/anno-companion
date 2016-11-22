@@ -64,14 +64,16 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				}
 
 				var categoryStore = store.GetChildStore(category, true);
-				if (!categoryStore.ContainsKey(key.RawData))
+				var elementKey = new StringKey(key.RawData + ".png");
+
+				if (!categoryStore.ContainsKey(elementKey.RawData))
 				{
 					continue;
 				}
 
 				try
 				{
-					using (var binaryData = categoryStore.Open(key).Read())
+					using (var binaryData = categoryStore.Open(elementKey).Read())
 					{
 						var decoder = new PngBitmapDecoder(binaryData.BaseStream, BitmapCreateOptions.None, BitmapCacheOption.OnLoad);
 						if (!decoder.Frames.Any())

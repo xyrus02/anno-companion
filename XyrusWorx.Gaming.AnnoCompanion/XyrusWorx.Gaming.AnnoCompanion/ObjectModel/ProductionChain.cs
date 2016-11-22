@@ -4,12 +4,13 @@ using System.IO;
 using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Structures;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	[DebuggerDisplay("{OutputGood.DisplayName}")]
-	class ProductionChain : IndexedObject
+	class ProductionChain : Persistable
 	{
 		private ProductionChainComponent[] mComponents;
 		private ObjectDependencyGraph<Good> mGraph;

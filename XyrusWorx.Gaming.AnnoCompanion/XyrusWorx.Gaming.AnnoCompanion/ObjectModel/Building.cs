@@ -1,9 +1,10 @@
 ﻿using System.Diagnostics;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	[DebuggerDisplay("{Key}")]
-	class Building : IndexedObject
+	class Building : Persistable
 	{
 		public string DisplayName { get; set; }
 

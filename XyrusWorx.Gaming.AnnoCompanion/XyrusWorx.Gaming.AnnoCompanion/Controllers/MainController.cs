@@ -1,7 +1,6 @@
-﻿using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
+﻿using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Gaming.AnnoCompanion.ViewModels;
 using XyrusWorx.Gaming.AnnoCompanion.Views;
-using XyrusWorx.IO;
 using XyrusWorx.Runtime;
 using XyrusWorx.Windows.Runtime;
 
@@ -24,7 +23,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 
 			repo.Clear();
 			repo.LoadStatic();
-			//repo.Export(@"D:\Code\XyrusWorx Collaboration\AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\Data");
+			repo.Export(@"D:\Code\XyrusWorx Collaboration\AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\Data");
+
+			repo.Clear();
+			repo.Import(@"D:\Code\XyrusWorx Collaboration\AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\Data");
 
 			ViewModel.Load();
 		}

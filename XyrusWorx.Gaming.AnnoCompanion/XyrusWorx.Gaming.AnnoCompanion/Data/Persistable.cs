@@ -4,11 +4,12 @@ using System.IO;
 using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using XyrusWorx.Gaming.AnnoCompanion.Serialization;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	[DebuggerDisplay("{Key}")]
-	abstract class IndexedObject
+	abstract class Persistable
 	{
 		[JsonIgnore]
 		public string Key { get; set; }
@@ -24,12 +25,20 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 
 			jsonSerializer.Serialize(target, this);
 		}
-
-		public static T Deserialize<T>(StringKey key, [NotNull] TextReader source, [NotNull] JsonReferenceResolver context) where T: IndexedObject
+		public static T Deserialize<T>(StringKey key, [NotNull] TextReader source, [NotNull] JsonReferenceResolver references) where T: Persistable
+		{
+			return (T) Deserialize(key, typeof(T), source, references);
+		}
+		public static Persistable Deserialize(StringKey key, [NotNull] Type type, [NotNull] TextReader source, [NotNull] JsonReferenceResolver references)
 		{
 			if (key.IsEmpty)
 			{
 				throw new ArgumentNullException(nameof(key));
+			}
+
+			if (type == null)
+			{
+				throw new ArgumentNullException(nameof(type));
 			}
 
 			if (source == null)
@@ -37,16 +46,21 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				throw new ArgumentNullException(nameof(source));
 			}
 
-			if (context == null)
+			if (references == null)
 			{
-				throw new ArgumentNullException(nameof(context));
+				throw new ArgumentNullException(nameof(references));
 			}
 
-			var jsonSerializer = GetSerializer(typeof(T));
+			if (!type.IsSubclassOf(typeof(Persistable)))
+			{
+				throw new ArgumentOutOfRangeException(nameof(type));
+			}
 
-			jsonSerializer.ReferenceResolver = context;
+			var jsonSerializer = GetSerializer(type);
 
-			var obj = jsonSerializer.Deserialize<T>(new JsonTextReader(source));
+			jsonSerializer.ReferenceResolver = references;
+
+			var obj = (Persistable)jsonSerializer.Deserialize(new JsonTextReader(source), type);
 
 			obj.Key = key.RawData;
 

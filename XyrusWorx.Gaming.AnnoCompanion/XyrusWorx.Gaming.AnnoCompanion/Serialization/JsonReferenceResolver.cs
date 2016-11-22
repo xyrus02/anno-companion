@@ -4,16 +4,17 @@ using System.Linq;
 using JetBrains.Annotations;
 using Newtonsoft.Json.Serialization;
 using XyrusWorx.Collections;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 {
 	class JsonReferenceResolver : IReferenceResolver
 	{
-		private readonly Dictionary<StringKey, IndexedObject> mObjects;
+		private readonly Dictionary<StringKey, Persistable> mObjects;
 
 		public JsonReferenceResolver()
 		{
-			mObjects = new Dictionary<StringKey, IndexedObject>();
+			mObjects = new Dictionary<StringKey, Persistable>();
 		}
 
 		public void Clear()
@@ -21,7 +22,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			mObjects.Clear();
 		}
 
-		public void Register([NotNull] IndexedObject obj)
+		public void Register([NotNull] Persistable obj)
 		{
 			if (obj == null)
 			{
@@ -32,15 +33,26 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		}
 
 		[CanBeNull]
-		public IndexedObject Resolve(StringKey key)
+		public Persistable Resolve(StringKey key)
 		{
 			return mObjects.GetValueByKeyOrDefault(key);
 		}
 
 		[NotNull]
-		public IEnumerable<T> GetAll<T>() where T : IndexedObject
+		public IEnumerable<T> GetAll<T>() where T : Persistable
 		{
 			return mObjects.Values.OfType<T>();
+		}
+
+		[NotNull]
+		public IEnumerable<Persistable> GetAll([NotNull] Type type)
+		{
+			if (type == null)
+			{
+				throw new ArgumentNullException(nameof(type));
+			}
+
+			return mObjects.Values.Where(type.IsInstanceOfType);
 		}
 
 		object IReferenceResolver.ResolveReference(object context, string reference)
@@ -54,11 +66,11 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		}
 		string IReferenceResolver.GetReference(object context, object value)
 		{
-			return value.CastTo<IndexedObject>()?.Key;
+			return value.CastTo<Persistable>()?.Key;
 		}
 		bool IReferenceResolver.IsReferenced(object context, object value)
 		{
-			var key = value.CastTo<IndexedObject>()?.Key;
+			var key = value.CastTo<Persistable>()?.Key;
 
 			if (string.IsNullOrWhiteSpace(key))
 			{
@@ -69,7 +81,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		}
 		void IReferenceResolver.AddReference(object context, string reference, object value)
 		{
-			var io = value as IndexedObject;
+			var io = value as Persistable;
 			if (io == null)
 			{
 				return;

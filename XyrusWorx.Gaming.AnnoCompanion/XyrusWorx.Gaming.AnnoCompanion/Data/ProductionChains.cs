@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Reflection;
 using JetBrains.Annotations;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	static class ProductionChains
 	{
@@ -377,29 +377,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				}
 			};
 
-		}
-
-		[CanBeNull]
-		public static ProductionChain GetByKey(string key)
-		{
-			if (string.IsNullOrWhiteSpace(key))
-			{
-				return null;
-			}
-
-			var field = typeof(ProductionChains).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
-			if (field == null)
-			{
-				return null;
-			}
-
-			return (ProductionChain)field.GetValue(null);
-		}
-
-		[CanBeNull]
-		public static ProductionChain GetByGood(ConsumableGood consumableGood)
-		{
-			return GetAll().FirstOrDefault(x => x.OutputGood == consumableGood);
 		}
 
 		[NotNull]

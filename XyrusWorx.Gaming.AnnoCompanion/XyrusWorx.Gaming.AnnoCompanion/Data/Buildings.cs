@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using JetBrains.Annotations;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	static class Buildings
 	{
@@ -1115,23 +1116,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 
 				ProductionPerMinute = 2
 			};
-		}
-
-		[CanBeNull]
-		public static Building GetByKey(string key)
-		{
-			if (string.IsNullOrWhiteSpace(key))
-			{
-				return null;
-			}
-
-			var field = typeof(Buildings).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
-			if (field == null)
-			{
-				return null;
-			}
-
-			return (Building)field.GetValue(null);
 		}
 
 		[NotNull]

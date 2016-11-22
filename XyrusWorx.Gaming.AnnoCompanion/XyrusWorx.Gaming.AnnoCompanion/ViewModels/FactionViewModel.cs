@@ -4,6 +4,7 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using JetBrains.Annotations;
 using XyrusWorx.Collections;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 using XyrusWorx.MVVM;
 
@@ -11,11 +12,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
 	class FactionViewModel : CollectionViewModel<PopulationGroupViewModel>
 	{
+		private readonly IDataProvider mRepository;
+
 		private Factions mFaction;
 		private string mDisplayName;
 
-		public FactionViewModel()
+		public FactionViewModel() { }
+		public FactionViewModel(IDataProvider repository) : this()
 		{
+			mRepository = repository;
 			Items = new ObservableCollection<PopulationGroupViewModel>();
 		}
 
@@ -41,7 +46,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				OnPropertyChanged();
 
 				var groups =
-					from populationGroup in PopulationGroups.GetAll()
+					from populationGroup in mRepository.GetAll<PopulationGroup>()
 					orderby populationGroup.Tier ascending 
 					where populationGroup.Faction == mFaction
 					select new PopulationGroupViewModel()
@@ -73,7 +78,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			var chainCounts = allProductionChains.ToDictionary(x => x.Model, x => x.Count);
 
 			var capacities =
-				from populationGroup in PopulationGroups.GetAll()
+				from populationGroup in mRepository.GetAll<PopulationGroup>()
 				where populationGroup.Faction == Faction
 
 				let groupChains = 
@@ -137,7 +142,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			var groupCounts = Items.ToDictionary(x => x.Key, x => x.Count);
 
 			var chains =
-				from chain in ProductionChains.GetAll()
+				from chain in mRepository.GetAll<ProductionChain>()
 
 				let consumable = chain.OutputGood as ConsumableGood where consumable != null
 

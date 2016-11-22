@@ -1,16 +1,17 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 {
-	class JsonFactionConverter : JsonConverter
+	class JsonBuildingRestrictionsConverter : JsonConverter
 	{
-		public override bool CanConvert(Type objectType) => objectType == typeof(Factions);
+		public override bool CanConvert(Type objectType) => objectType == typeof(BuildingRestrictions);
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 		{
-			var input = value as Factions?;
+			var input = value as BuildingRestrictions?;
 			var token = new JValue(input?.ToString());
 
 			token.WriteTo(writer);

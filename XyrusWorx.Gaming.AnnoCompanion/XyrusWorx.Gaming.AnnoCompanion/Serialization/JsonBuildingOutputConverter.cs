@@ -1,8 +1,9 @@
 ﻿using System;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 {
 	class JsonBuildingOutputConverter : JsonConverter
 	{
@@ -21,7 +22,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			var context = serializer.ReferenceResolver.CastTo<JsonReferenceResolver>();
 			if (context != null)
 			{
-				var good = context.Resolve(existingValue?.ToString().NormalizeNull().TryTransform(x => new StringKey(x)) ?? new StringKey());
+				var good = context.Resolve(reader.Value?.ToString().NormalizeNull().TryTransform(x => new StringKey(x)) ?? new StringKey());
 				return new BuildingOutput(good as Good);
 			}
 

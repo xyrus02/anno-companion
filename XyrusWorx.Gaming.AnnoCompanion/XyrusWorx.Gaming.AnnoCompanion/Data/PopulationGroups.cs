@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using JetBrains.Annotations;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	static class PopulationGroups
 	{
@@ -71,23 +72,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				Tier = 1,
 				Faction = Factions.Lawless
 			};
-		}
-
-		[CanBeNull]
-		public static PopulationGroup GetByKey(string key)
-		{
-			if (string.IsNullOrWhiteSpace(key))
-			{
-				return null;
-			}
-
-			var field = typeof(PopulationGroups).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
-			if (field == null)
-			{
-				return null;
-			}
-
-			return (PopulationGroup) field.GetValue(null);
 		}
 
 		[NotNull]

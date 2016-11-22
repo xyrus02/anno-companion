@@ -1,10 +1,11 @@
 ﻿using System.Diagnostics;
 using Newtonsoft.Json;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	[DebuggerDisplay("{DisplayName}")]
-	class PopulationGroup : IndexedObject
+	class PopulationGroup : Persistable
 	{
 		[JsonRequired]
 		public string DisplayName { get; set; }

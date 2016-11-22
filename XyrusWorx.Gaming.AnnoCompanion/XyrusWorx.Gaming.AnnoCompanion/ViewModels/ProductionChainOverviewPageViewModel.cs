@@ -1,5 +1,7 @@
 ﻿using System.Windows.Input;
 using XyrusWorx.Collections;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 using XyrusWorx.Windows.Input;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
@@ -7,13 +9,16 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	class ProductionChainOverviewPageViewModel : PageViewModel
 	{
 		private bool mIsGrouped = true;
+		private readonly Repository mRepository;
 
 		public override string Header => "Produktionsketten";
 		public override int SortIndex => 1;
 
-		public ProductionChainOverviewPageViewModel()
+		public ProductionChainOverviewPageViewModel() { }
+		public ProductionChainOverviewPageViewModel(Repository repository) : this()
 		{
 			ResetAllCommand = new RelayCommand(ResetAll);
+			mRepository = repository;
 		}
 
 		public ICommand ResetAllCommand { get; }
@@ -47,7 +52,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				return;
 			}
 
-			foreach (var productionChain in ObjectModel.ProductionChains.GetAll())
+			foreach (var productionChain in mRepository.GetAll<ProductionChain>())
 			{
 				ProductionChains.Items.Add(new ProductionChainViewModel
 				{

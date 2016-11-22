@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using JetBrains.Annotations;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	static class RawMaterials
 	{
@@ -371,23 +372,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				TradeValue = 24,
 				ProductionCost = 7.5
 			};
-		}
-
-		[CanBeNull]
-		public static RawMaterial GetByKey(string key)
-		{
-			if (string.IsNullOrWhiteSpace(key))
-			{
-				return null;
-			}
-
-			var field = typeof(RawMaterials).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
-			if (field == null)
-			{
-				return null;
-			}
-
-			return (RawMaterial)field.GetValue(null);
 		}
 
 		[NotNull]

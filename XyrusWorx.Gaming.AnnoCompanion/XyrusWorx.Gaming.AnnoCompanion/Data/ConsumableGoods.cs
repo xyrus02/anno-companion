@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Reflection;
 using JetBrains.Annotations;
+using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	static class ConsumableGoods
 	{
@@ -364,23 +365,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				TradeValue = 78,
 				ProductionCost = 60
 			};
-		}
-
-		[CanBeNull]
-		public static ConsumableGood GetByKey(string key)
-		{
-			if (string.IsNullOrWhiteSpace(key))
-			{
-				return null;
-			}
-
-			var field = typeof(ConsumableGoods).GetField(key, BindingFlags.Public | BindingFlags.Static | BindingFlags.IgnoreCase);
-			if (field == null)
-			{
-				return null;
-			}
-
-			return (ConsumableGood) field.GetValue(null);
 		}
 
 		[NotNull]

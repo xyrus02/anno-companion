@@ -1,5 +1,6 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
@@ -8,13 +9,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		private IEnumerable<BuildingViewModel> mRequirements;
 		private IEnumerable<FactionViewModel> mFactions;
 
-		public PopulationCalculatorPageViewModel()
+		public PopulationCalculatorPageViewModel() { }
+		public PopulationCalculatorPageViewModel(IDataProvider repository) : this()
 		{
 			Factions = new[]
 			{
-				new FactionViewModel {Faction = ObjectModel.Factions.Occident, Owner = this, DisplayName = "Okzident"},
-				new FactionViewModel {Faction = ObjectModel.Factions.Orient, Owner = this, DisplayName = "Orient"},
-				new FactionViewModel {Faction = ObjectModel.Factions.Lawless, Owner = this, DisplayName = "Gesetzlose"}
+				new FactionViewModel(repository) {Faction = ObjectModel.Factions.Occident, Owner = this, DisplayName = "Okzident"},
+				new FactionViewModel(repository) {Faction = ObjectModel.Factions.Orient, Owner = this, DisplayName = "Orient"},
+				new FactionViewModel(repository) {Faction = ObjectModel.Factions.Lawless, Owner = this, DisplayName = "Gesetzlose"}
 			};
 		}
 

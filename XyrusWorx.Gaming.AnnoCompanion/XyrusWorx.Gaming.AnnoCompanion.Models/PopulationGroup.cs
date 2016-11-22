@@ -12,8 +12,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Models
 		[JsonProperty(Required = Required.Always, Order = 1)]
 		public string DisplayName { get; set; }
 
-		[JsonProperty(Order = 2)]
-		public Fraction Fraction { get; set; } = Fraction.Unspecified;
+		[JsonProperty(Required = Required.Always, Order = 2)]
+		public Fraction Fraction { get; set; }
 
 		[JsonProperty(Required = Required.Always, Order = 3)]
 		public int Tier { get; set; }

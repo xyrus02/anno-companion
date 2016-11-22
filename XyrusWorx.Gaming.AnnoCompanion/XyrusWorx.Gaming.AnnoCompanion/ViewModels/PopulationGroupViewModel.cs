@@ -8,7 +8,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		private int mCount;
 		private int mTurnaroundThreshold;
 
-		public FactionViewModel Owner { get; set; }
+		public FractionViewModel Owner { get; set; }
 
 		public string Key => Model?.Key;
 		public string DisplayName => Model?.DisplayName;

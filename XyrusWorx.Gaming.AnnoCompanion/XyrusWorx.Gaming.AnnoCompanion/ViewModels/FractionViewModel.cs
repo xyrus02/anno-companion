@@ -10,15 +10,13 @@ using XyrusWorx.MVVM;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
-	class FactionViewModel : CollectionViewModel<PopulationGroupViewModel>
+	class FractionViewModel : CollectionViewModel<PopulationGroupViewModel>
 	{
 		private readonly IDataProvider mRepository;
+		private Fraction mModel;
 
-		private Fraction mFraction;
-		private string mDisplayName;
-
-		public FactionViewModel() { }
-		public FactionViewModel(IDataProvider repository) : this()
+		public FractionViewModel() { }
+		public FractionViewModel(IDataProvider repository) : this()
 		{
 			mRepository = repository;
 			Items = new ObservableCollection<PopulationGroupViewModel>();
@@ -27,28 +25,20 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public PopulationCalculatorPageViewModel Owner { get; set; }
 		public override IList<PopulationGroupViewModel> Items { get; }
 
-		public string DisplayName
+		public string DisplayName => Model?.DisplayName;
+
+		public Fraction Model
 		{
-			get { return mDisplayName; }
+			get { return mModel; }
 			set
 			{
-				if (value == mDisplayName) return;
-				mDisplayName = value;
-				OnPropertyChanged();
-			}
-		}
-		public Fraction Fraction
-		{
-			get { return mFraction; }
-			set
-			{
-				mFraction = value;
+				mModel = value;
 				OnPropertyChanged();
 
 				var groups =
-					from populationGroup in mRepository.GetAll<PopulationGroup>()
+					from populationGroup in mRepository?.GetAll<PopulationGroup>() ?? new PopulationGroup[0]
 					orderby populationGroup.Tier ascending 
-					where populationGroup.Fraction == mFraction
+					where populationGroup.Fraction == mModel
 					select new PopulationGroupViewModel()
 					{
 						Model = populationGroup,
@@ -79,7 +69,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 			var capacities =
 				from populationGroup in mRepository.GetAll<PopulationGroup>()
-				where populationGroup.Fraction == Fraction
+				where populationGroup.Fraction == Model
 
 				let groupChains = 
 					from chain in allProductionChains
@@ -89,7 +79,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 					let orderedConsumerGroups = 
 						from consumingGroup in consumingGroups
-						where consumingGroup.PopulationGroup.Fraction == Fraction
+						where consumingGroup.PopulationGroup.Fraction == Model
 						orderby consumingGroup.PopulationGroup.Tier
 						select consumingGroup.PopulationGroup
 
@@ -148,7 +138,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				let isProvisionedToCurrentTier = consumable.ProvisionCapacities.Any(x =>
 					x.PopulationGroup.Tier <= maximumTier &&
-					x.PopulationGroup.Fraction == Fraction)
+					x.PopulationGroup.Fraction == Model)
 
 				let isUnlockedWithCurrentPopulationCount =
 					groupCounts.GetValueByKeyOrDefault(chain.OutputBuilding.UnlockThreshold.PopulationGroup.Key) >=
@@ -156,10 +146,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				let wasUnlockedWithLowerThanCurrentTier = chain.OutputBuilding.UnlockThreshold.PopulationGroup.Tier < maximumTier
 
-				let isUnlockedImplicitly = Fraction == Models.Fraction.Lawless
-
 				where isProvisionedToCurrentTier
-				where isUnlockedWithCurrentPopulationCount || wasUnlockedWithLowerThanCurrentTier || isUnlockedImplicitly
+				where isUnlockedWithCurrentPopulationCount || wasUnlockedWithLowerThanCurrentTier || (Model?.Passive ?? false)
 
 				orderby chain.Components.Min(x => x.Building.UnlockThreshold.PopulationGroup.Tier)
 

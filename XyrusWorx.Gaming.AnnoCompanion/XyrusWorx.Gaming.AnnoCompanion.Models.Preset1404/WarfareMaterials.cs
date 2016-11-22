@@ -1,8 +1,4 @@
-﻿using System.Collections.Generic;
-using System.Reflection;
-using JetBrains.Annotations;
-
-namespace XyrusWorx.Gaming.AnnoCompanion.Models.Generator
+﻿namespace XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404
 {
 	static class WarfareMaterials
 	{

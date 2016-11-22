@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Gaming.AnnoCompanion.Models;
-using XyrusWorx.Gaming.AnnoCompanion.Models.Generator;
+using XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404;
 using XyrusWorx.Gaming.AnnoCompanion.ViewModels;
 using XyrusWorx.Gaming.AnnoCompanion.Views;
 using XyrusWorx.Runtime;
@@ -28,6 +28,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 		protected override void OnInitialize()
 		{
 			const string dataDirectoryName = "Data";
+			const string modelDirectoryName = "Descriptions";
 			const string iconsDirectoryName = "Icons";
 
 			var dataProvider = ServiceLocator.Default.Resolve<IDataProvider>();
@@ -36,24 +37,23 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 
 			var shouldExport = !WorkingDirectory.HasChildStore(dataDirectoryName);
 			var dataDirectory = WorkingDirectory.GetChildStore(dataDirectoryName);
+			var iconResolver = iconResolverFactory.GetIconResolver();
+
+			var preset = new Anno4ModelGenerator();
 
 			if (shouldExport)
 			{
-				ModelGenerator.Generate(instancePoolFactory.GetInstancePool());
-				dataProvider.Export(dataDirectory);
+				preset.Generate(instancePoolFactory.GetInstancePool());
+				dataProvider.Export(dataDirectory.GetChildStore(modelDirectoryName));
 			}
 
-			var iconResolver = iconResolverFactory.GetIconResolver();
-
-			iconResolver.AddExternalDataSource(new EmbeddedBlobStore(
-				typeof(Depletable).Assembly, 
-				new StringKeySequence("Resources", iconsDirectoryName)));
+			preset.AddToIconResolver(iconResolver);
 			iconResolver.AddExternalDataSource(dataDirectory.GetChildStore(iconsDirectoryName));
 
 			try
 			{
 				dataProvider.Clear();
-				dataProvider.Import(dataDirectory);
+				dataProvider.Import(dataDirectory.GetChildStore(modelDirectoryName, true));
 			}
 			catch (InvalidDataException exception)
 			{

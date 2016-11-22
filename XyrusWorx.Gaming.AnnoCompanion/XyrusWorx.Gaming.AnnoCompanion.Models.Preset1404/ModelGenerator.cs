@@ -4,12 +4,18 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Models.Generator
+namespace XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404
 {
 	[PublicAPI]
-	public static class ModelGenerator
+	public class Anno4ModelGenerator : IModelGenerator
 	{
-		public static void Generate([NotNull] IInstancePool instancePool)
+		public void AddToIconResolver(IIconResolver iconResolver)
+		{
+			iconResolver.AddExternalDataSource(new EmbeddedBlobStore(
+				typeof(Anno4ModelGenerator).Assembly, 
+				new StringKeySequence("Resources", "Icons")));
+		}
+		public void Generate(IInstancePool instancePool)
 		{
 			if (instancePool == null)
 			{
@@ -18,6 +24,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Models.Generator
 
 			var listingTypes = new List<Type>();
 
+			listingTypes.Add(typeof(Fractions));
+			listingTypes.Add(typeof(BuildingRestrictions));
 			listingTypes.Add(typeof(Fertilities));
 			listingTypes.Add(typeof(WaterResources));
 			listingTypes.Add(typeof(MountainResources));

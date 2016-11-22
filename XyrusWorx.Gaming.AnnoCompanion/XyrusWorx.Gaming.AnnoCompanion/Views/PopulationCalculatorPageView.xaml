@@ -23,14 +23,14 @@
 		<Border Grid.Row="1" VerticalAlignment="Top" Height="1" Background="{DynamicResource NormalBorderBrush}" />
 		
 		<ScrollViewer Grid.Row="0" HorizontalScrollBarVisibility="Auto" VerticalScrollBarVisibility="Disabled">
-			<ItemsControl ItemsSource="{Binding Factions}" Focusable="False">
+			<ItemsControl ItemsSource="{Binding Fractions}" Focusable="False">
 				<ItemsControl.ItemsPanel>
 					<ItemsPanelTemplate>
 						<StackPanel Orientation="Horizontal" />
 					</ItemsPanelTemplate>
 				</ItemsControl.ItemsPanel>
 				<ItemsControl.ItemTemplate>
-					<DataTemplate DataType="viewModels:FactionViewModel">
+					<DataTemplate DataType="viewModels:FractionViewModel">
 						<DataTemplate.Resources>
 							<Style x:Key="HeaderStyle" TargetType="Label">
 								<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />

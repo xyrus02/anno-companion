@@ -35,6 +35,11 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 		[CanBeNull]
 		public Persistable Resolve(StringKey key)
 		{
+			if (key.IsEmpty)
+			{
+				return null;
+			}
+
 			return mObjects.GetValueByKeyOrDefault(key);
 		}
 

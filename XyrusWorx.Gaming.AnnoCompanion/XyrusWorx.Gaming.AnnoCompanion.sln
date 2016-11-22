@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompan
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompanion.Models", "XyrusWorx.Gaming.AnnoCompanion.Models\XyrusWorx.Gaming.AnnoCompanion.Models.csproj", "{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404", "XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404\XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404.csproj", "{15A58CE6-7D35-48C3-9EF1-3473F3E48697}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

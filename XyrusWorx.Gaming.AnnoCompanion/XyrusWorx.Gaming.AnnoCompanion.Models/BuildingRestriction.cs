@@ -7,15 +7,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Models
 {
 	[PublicAPI]
 	[DebuggerDisplay("{DisplayName,nq}")]
-	public class Fraction : Persistable
+	public class BuildingRestriction : Persistable
 	{
 		[JsonProperty(Required = Required.Always, Order = 2)]
 		public string DisplayName { get; set; }
-
-		[JsonProperty(Order = 3)]
-		public bool Passive { get; set; }
-
-		[JsonProperty(Order = 4)]
-		public int SortOrder { get; set; }
 	}
 }

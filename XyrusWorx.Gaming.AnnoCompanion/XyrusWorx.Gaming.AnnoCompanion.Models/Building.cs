@@ -14,7 +14,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Models
 		public string DisplayName { get; set; }
 
 		[JsonProperty(Order = 2)]
-		public BuildingRestrictions Restrictions { get; set; } = BuildingRestrictions.None;
+		public BuildingRestriction Restrictions { get; set; }
 
 		[JsonProperty(Required = Required.Always, Order = 3)]
 		public PopulationRequirement UnlockThreshold { get; set; }

@@ -106,7 +106,7 @@
     <Compile Include="Components\IconKeyConverter.cs" />
     <Compile Include="Components\PopulationGroupConverter.cs" />
     <Compile Include="ViewModels\BuildingViewModel.cs" />
-    <Compile Include="ViewModels\FactionViewModel.cs" />
+    <Compile Include="ViewModels\FractionViewModel.cs" />
     <Compile Include="ViewModels\PopulationGroupViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
@@ -217,6 +217,10 @@
     <ProjectReference Include="..\XyrusWorx.Gaming.AnnoCompanion.Common\XyrusWorx.Gaming.AnnoCompanion.Common.csproj">
       <Project>{414f935f-ad6e-4878-9f17-9d7b4d037f42}</Project>
       <Name>XyrusWorx.Gaming.AnnoCompanion.Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404\XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404.csproj">
+      <Project>{15a58ce6-7d35-48c3-9ef1-3473f3e48697}</Project>
+      <Name>XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404</Name>
     </ProjectReference>
     <ProjectReference Include="..\XyrusWorx.Gaming.AnnoCompanion.Models\XyrusWorx.Gaming.AnnoCompanion.Models.csproj">
       <Project>{5285a649-63cd-41f9-8f5c-8ead6c5eec22}</Project>

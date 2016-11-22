@@ -8,29 +8,32 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	class PopulationCalculatorPageViewModel : PageViewModel
 	{
 		private IEnumerable<BuildingViewModel> mRequirements;
-		private IEnumerable<FactionViewModel> mFactions;
+		private IEnumerable<FractionViewModel> mFractions;
 
 		public PopulationCalculatorPageViewModel() { }
 		public PopulationCalculatorPageViewModel(IDataProvider repository) : this()
 		{
-			Factions = new[]
-			{
-				new FactionViewModel(repository) {Fraction = Fraction.Occident, Owner = this, DisplayName = "Okzident"},
-				new FactionViewModel(repository) {Fraction = Fraction.Orient, Owner = this, DisplayName = "Orient"},
-				new FactionViewModel(repository) {Fraction = Fraction.Lawless, Owner = this, DisplayName = "Gesetzlose"}
-			};
+			Fractions = new List<FractionViewModel>(
+				from fraction in repository?.GetAll<Fraction>() ?? new Fraction[0]
+				orderby fraction.SortOrder ascending 
+				let viewModel = new FractionViewModel(repository)
+				{
+					Model = fraction,
+					Owner = this
+				}
+				select viewModel);
 		}
 
 		public override string Header => "Bevölkerungsrechner";
 		public override int SortIndex => 2;
 
-		public IEnumerable<FactionViewModel> Factions
+		public IEnumerable<FractionViewModel> Fractions
 		{
-			get { return mFactions; }
+			get { return mFractions; }
 			private set
 			{
-				if (Equals(value, mFactions)) return;
-				mFactions = value;
+				if (Equals(value, mFractions)) return;
+				mFractions = value;
 				OnPropertyChanged();
 			}
 		}
@@ -47,12 +50,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 		public void UpdateValues()
 		{
-			Requirements = Factions
+			Requirements = Fractions
 				.SelectMany(x => x.CollectBuildingRequirements())
 				.OrderBy(x => x.SortIndex)
 				.ToArray();
 
-			foreach (var faction in Factions)
+			foreach (var faction in Fractions)
 			{
 				faction.UpdateTurnaroundThresholds(mRequirements);
 			}

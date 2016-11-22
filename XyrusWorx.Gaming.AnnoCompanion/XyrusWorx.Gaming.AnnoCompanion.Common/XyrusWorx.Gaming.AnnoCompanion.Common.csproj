@@ -69,6 +69,7 @@
     <Compile Include="Data\IIconResolverFactory.cs" />
     <Compile Include="Data\IInstancePool.cs" />
     <Compile Include="Data\IInstancePoolFactory.cs" />
+    <Compile Include="Data\IModelGenerator.cs" />
     <Compile Include="Data\KeyClassAttribute.cs" />
     <Compile Include="Data\Model.cs" />
     <Compile Include="Data\Persistable.cs" />

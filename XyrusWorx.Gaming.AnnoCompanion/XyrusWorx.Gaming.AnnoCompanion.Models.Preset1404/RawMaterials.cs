@@ -1,4 +1,4 @@
-﻿namespace XyrusWorx.Gaming.AnnoCompanion.Models.Generator
+﻿namespace XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404
 {
 	static class RawMaterials
 	{

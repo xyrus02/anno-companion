@@ -7,7 +7,7 @@
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
 	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.FactionPopulationGroupCountEditorListView"
 	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
-	d:DataContext="{d:DesignInstance d:Type=viewModels:FactionViewModel}">
+	d:DataContext="{d:DesignInstance d:Type=viewModels:FractionViewModel}">
 
 	<ItemsControl ItemsSource="{Binding Items}" Focusable="False">
 		<ItemsControl.ItemTemplate>

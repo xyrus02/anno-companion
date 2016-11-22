@@ -1,10 +1,12 @@
 ﻿using System;
+using JetBrains.Annotations;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.Models.Serialization
 {
+	[UsedImplicitly]
 	class JsonBuildingInputConverter : JsonConverter
 	{
 		public override bool CanConvert(Type objectType) => objectType == typeof(BuildingInput);

@@ -3,7 +3,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Data
+namespace XyrusWorx.Gaming.AnnoCompanion.Static
 {
 	static class WarfareMaterials
 	{
@@ -18,7 +18,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Weapons",
 				DisplayName = "Waffen",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 
 				TradeValue = 52,
 				ProductionCost = 40
@@ -28,7 +27,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "WarMachines",
 				DisplayName = "Kriegsmaschinen",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
 
 				TradeValue = 119,
 				ProductionCost = 106.66
@@ -38,7 +36,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Cannons",
 				DisplayName = "Kanonen",
-				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 
 				TradeValue = 169,
 				ProductionCost = 155
@@ -48,7 +45,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Provisions",
 				DisplayName = "Proviant",
-				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 
 				TradeValue = 168,
 				ProductionCost = 150 // Production I,II,III = 150,100,148.5 => 112%,168%,113%

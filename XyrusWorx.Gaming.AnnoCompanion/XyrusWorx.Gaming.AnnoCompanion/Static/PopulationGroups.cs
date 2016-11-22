@@ -3,7 +3,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Data
+namespace XyrusWorx.Gaming.AnnoCompanion.Static
 {
 	static class PopulationGroups
 	{
@@ -22,7 +22,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Nomads",
 				DisplayName = "Nomaden",
 				Tier = 1,
-				Faction = Factions.Orient
+				Faction = Faction.Orient
 			};
 
 			Envoys = new PopulationGroup
@@ -30,7 +30,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Envoys",
 				DisplayName = "Gesandte",
 				Tier = 2,
-				Faction = Factions.Orient
+				Faction = Faction.Orient
 			};
 			
 			Noblemen = new PopulationGroup
@@ -38,7 +38,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Noblemen",
 				DisplayName = "Adlige",
 				Tier = 4,
-				Faction = Factions.Occident
+				Faction = Faction.Occident
 			};
 
 			Patricians = new PopulationGroup
@@ -46,7 +46,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Patricians",
 				DisplayName = "Patrizier",
 				Tier = 3,
-				Faction = Factions.Occident
+				Faction = Faction.Occident
 			};
 
 			Citizens = new PopulationGroup
@@ -54,7 +54,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Citizens",
 				DisplayName = "Bürger",
 				Tier = 2,
-				Faction = Factions.Occident
+				Faction = Faction.Occident
 			};
 
 			Peasants = new PopulationGroup
@@ -62,7 +62,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Peasants",
 				DisplayName = "Bauern",
 				Tier = 1,
-				Faction = Factions.Occident
+				Faction = Faction.Occident
 			};
 
 			Beggars = new PopulationGroup
@@ -70,7 +70,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Beggars",
 				DisplayName = "Bettler",
 				Tier = 1,
-				Faction = Factions.Lawless
+				Faction = Faction.Lawless
 			};
 		}
 

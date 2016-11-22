@@ -11,8 +11,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		private double mCount;
 		private int mSortIndex;
 
-		public string ProductionBuildingKey => Model?.Building?.Key;
-		public string ProductionBuildingDisplayName => Model?.Building?.DisplayName;
+		public string ProductionBuildingKey => Model?.Building.Key;
+		public string ProductionBuildingDisplayName => Model?.Building.DisplayName;
 
 		public ProductionChainComponentListViewModel Owner
 		{

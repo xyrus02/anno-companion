@@ -1,20 +1,20 @@
 ﻿using System.Diagnostics;
+using Newtonsoft.Json;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	[DebuggerDisplay("{Key}")]
-	class Building : Persistable
+	[KeyClass]
+	[DebuggerDisplay("{DisplayName,nq}")]
+	abstract class Building : Persistable
 	{
+		[JsonProperty(Required = Required.Always, Order = 1)]
 		public string DisplayName { get; set; }
 
+		[JsonProperty(Order = 2)]
 		public BuildingRestrictions Restrictions { get; set; } = BuildingRestrictions.None;
 
-		public BuildingInput[] Input { get; set; }
-		public BuildingOutput Output { get; set; }
-
-		public double ActiveCostPerMinute { get; set; }
-		public double InactiveCostPerMinute { get; set; }
-		public double ProductionPerMinute { get; set; }
+		[JsonProperty(Required = Required.Always, Order = 3)]
+		public PopulationRequirement UnlockThreshold { get; set; }
 	}
 }

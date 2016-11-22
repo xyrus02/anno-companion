@@ -3,7 +3,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Data
+namespace XyrusWorx.Gaming.AnnoCompanion.Static
 {
 	static class ConsumableGoods
 	{
@@ -36,7 +36,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Fishes",
 				DisplayName = "Fische",
 
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(285, PopulationGroups.Beggars),
@@ -55,7 +54,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Spices",
 				DisplayName = "Gewürze",
 
-				UnlockThreshold = new PopulationRequirement(145, PopulationGroups.Nomads),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(500, PopulationGroups.Citizens),
@@ -72,7 +70,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Bread",
 				DisplayName = "Brot",
 
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(727, PopulationGroups.Patricians),
@@ -87,8 +84,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Meat",
 				DisplayName = "Fleisch",
-
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
+				
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1136, PopulationGroups.Noblemen)
@@ -103,7 +99,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Cider",
 				DisplayName = "Most",
 
-				UnlockThreshold = new PopulationRequirement(60, PopulationGroups.Peasants),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(500, PopulationGroups.Beggars),
@@ -122,7 +117,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Beer",
 				DisplayName = "Bier",
 
-				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
+				
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(625, PopulationGroups.Patricians),
@@ -138,7 +133,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Wine",
 				DisplayName = "Wein",
 
-				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1000, PopulationGroups.Noblemen)
@@ -153,7 +147,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "LinenGarments",
 				DisplayName = "Leinenkutten",
 
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Citizens),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(476, PopulationGroups.Citizens),
@@ -170,7 +163,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "LeatherJerkins",
 				DisplayName = "Lederwämser",
 
-				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1428, PopulationGroups.Patricians),
@@ -186,7 +178,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "FurCoats",
 				DisplayName = "Pelzmäntel",
 
-				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1562, PopulationGroups.Noblemen)
@@ -201,7 +192,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "BrocadeCoats",
 				DisplayName = "Brokatgewänder",
 
-				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(2112, PopulationGroups.Noblemen)
@@ -216,7 +206,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Books",
 				DisplayName = "Bücher",
 
-				UnlockThreshold = new PopulationRequirement(940, PopulationGroups.Patricians),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1875, PopulationGroups.Patricians),
@@ -232,7 +221,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Candlesticks",
 				DisplayName = "Kerzenleuchter",
 
-				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(2500, PopulationGroups.Patricians),
@@ -248,7 +236,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Glasses",
 				DisplayName = "Brillen",
 
-				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1709, PopulationGroups.Noblemen)
@@ -263,7 +250,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Dates",
 				DisplayName = "Datteln",
 
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Nomads),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(450, PopulationGroups.Nomads),
@@ -279,7 +265,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Milk",
 				DisplayName = "Milch",
 
-				UnlockThreshold = new PopulationRequirement(145, PopulationGroups.Nomads),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(436, PopulationGroups.Nomads),
@@ -295,7 +280,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Carpets",
 				DisplayName = "Teppiche",
 
-				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(909, PopulationGroups.Nomads),
@@ -311,7 +295,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Coffee",
 				DisplayName = "Kaffee",
 
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Envoys),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1000, PopulationGroups.Envoys)
@@ -326,7 +309,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "PearlNecklaces",
 				DisplayName = "Perlenketten",
 
-				UnlockThreshold = new PopulationRequirement(1040, PopulationGroups.Envoys),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(751, PopulationGroups.Envoys)
@@ -341,7 +323,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Perfume",
 				DisplayName = "Parfüm",
 
-				UnlockThreshold = new PopulationRequirement(2600, PopulationGroups.Envoys),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(1250, PopulationGroups.Envoys)
@@ -356,7 +337,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				Key = "Marzipan",
 				DisplayName = "Marzipan",
 
-				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 				ProvisionCapacities = new[]
 				{
 					new ProvisionCapacity(2453, PopulationGroups.Envoys)

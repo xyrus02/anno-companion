@@ -1,4 +1,5 @@
-﻿using XyrusWorx.Gaming.AnnoCompanion.Data;
+﻿using System.IO;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Gaming.AnnoCompanion.ViewModels;
 using XyrusWorx.Gaming.AnnoCompanion.Views;
 using XyrusWorx.Runtime;
@@ -11,7 +12,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 		public MainController()
 		{
 			ServiceLocator.Default.Register<ApplicationController>(this);
-			ServiceLocator.Default.Register(new Repository());
+			ServiceLocator.Default.Register<IDataProvider>(new Repository());
 		}
 
 		public MainView View => GetView<MainView>();
@@ -19,14 +20,29 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 
 		protected override void OnInitialize()
 		{
-			var repo = new Repository();
+			const string dataDirectoryName = "Data";
 
-			repo.Clear();
-			repo.LoadStatic();
-			repo.Export(@"D:\Code\XyrusWorx Collaboration\AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\Data");
+			var repository = (Repository)ServiceLocator.Default.Resolve<IDataProvider>();
+			var shouldExport = !WorkingDirectory.HasChildStore(dataDirectoryName);
+			var dataDirectory = WorkingDirectory.GetChildStore(dataDirectoryName);
 
-			repo.Clear();
-			repo.Import(@"D:\Code\XyrusWorx Collaboration\AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion\Data");
+			if (shouldExport)
+			{
+				repository.Clear();
+				repository.LoadStatic();
+				repository.Export(dataDirectory);
+			}
+			
+			try
+			{
+				repository.Clear();
+				repository.Import(dataDirectory);
+			}
+			catch (InvalidDataException exception)
+			{
+				Dialog.Error(exception).Display();
+				Shutdown(1);
+			}
 
 			ViewModel.Load();
 		}

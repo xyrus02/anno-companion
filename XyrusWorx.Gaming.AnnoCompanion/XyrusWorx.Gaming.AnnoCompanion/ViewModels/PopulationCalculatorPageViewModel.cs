@@ -14,9 +14,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		{
 			Factions = new[]
 			{
-				new FactionViewModel(repository) {Faction = ObjectModel.Factions.Occident, Owner = this, DisplayName = "Okzident"},
-				new FactionViewModel(repository) {Faction = ObjectModel.Factions.Orient, Owner = this, DisplayName = "Orient"},
-				new FactionViewModel(repository) {Faction = ObjectModel.Factions.Lawless, Owner = this, DisplayName = "Gesetzlose"}
+				new FactionViewModel(repository) {Faction = ObjectModel.Faction.Occident, Owner = this, DisplayName = "Okzident"},
+				new FactionViewModel(repository) {Faction = ObjectModel.Faction.Orient, Owner = this, DisplayName = "Orient"},
+				new FactionViewModel(repository) {Faction = ObjectModel.Faction.Lawless, Owner = this, DisplayName = "Gesetzlose"}
 			};
 		}
 

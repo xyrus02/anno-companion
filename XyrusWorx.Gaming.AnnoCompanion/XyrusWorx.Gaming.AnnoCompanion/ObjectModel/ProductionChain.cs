@@ -9,12 +9,12 @@ using XyrusWorx.Structures;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	[DebuggerDisplay("{OutputGood.DisplayName}")]
+	[DebuggerDisplay("{OutputGood.DisplayName,nq}")]
 	class ProductionChain : Persistable
 	{
 		private ProductionChainComponent[] mComponents;
 		private ObjectDependencyGraph<Good> mGraph;
-		private Good mOutput;
+		private ProductionBuilding mOutputBuilding;
 
 		public ProductionChain()
 		{
@@ -22,9 +22,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 		}
 
 		[JsonIgnore]
-		public Good OutputGood => mOutput;
+		public Good OutputGood => OutputBuilding?.Output.Good;
 
-		[JsonRequired]
+		[JsonIgnore]
+		public ProductionBuilding OutputBuilding => mOutputBuilding;
+
+		[JsonProperty(Required = Required.Always, Order = 2)]
 		public ProductionChainComponent[] Components
 		{
 			get { return mComponents; }
@@ -51,7 +54,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			{
 				foreach (var input in component.Building.Input)
 				{
-					graph.Register(input.Good);
+					var good = input.Input as Good;
+					if (good == null)
+					{
+						continue;
+					}
+
+					graph.Register(good);
 				}
 
 				graph.Register(component.Building.Output.Good);
@@ -59,21 +68,38 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 				var output = graph.Element(component.Building.Output.Good);
 				foreach (var input in component.Building.Input)
 				{
-					output.DependsOn(input.Good);
+					var good = input.Input as Good;
+					if (good == null)
+					{
+						continue;
+					}
+
+					output.DependsOn(good);
 				}
 			}
 
 			mGraph = graph;
 
+			Good outputGood;
+
 			try
 			{
-				mOutput = graph.GetPartitionsByDependencyDepth().Last().Single();
+				outputGood = graph.GetPartitionsByDependencyDepth().Last().Single();
 			}
 			catch (Exception exception)
 			{
 				var outputs = string.Join(", ", graph.GetPartitionsByDependencyDepth().Last().Select(x => x.Key));
 
 				throw new InvalidDataException($"A production chain contains multiple outputs: {outputs}", exception);
+			}
+
+			try
+			{
+				mOutputBuilding = Components.Single(x => x.Building.Output.Good == outputGood).Building;
+			}
+			catch (Exception exception)
+			{
+				throw new InvalidDataException($"Can't find production building for output good: {outputGood.DisplayName}", exception);
 			}
 		}
 	}

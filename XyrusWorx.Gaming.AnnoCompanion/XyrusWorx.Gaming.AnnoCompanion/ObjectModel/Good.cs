@@ -1,19 +1,15 @@
-﻿using System.Diagnostics;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	[DebuggerDisplay("{DisplayName}")]
-	abstract class Good : Persistable
+	[KeyClass]
+	abstract class Good : Depletable
 	{
-		[JsonRequired]
-		public string DisplayName { get; set; }
-
+		[JsonProperty(Order = 2)]
 		public double TradeValue { get; set; }
-		public double ProductionCost { get; set; }
 
-		[JsonRequired]
-		public PopulationRequirement UnlockThreshold { get; set; }
+		[JsonProperty(Order = 3)]
+		public double ProductionCost { get; set; }
 	}
 }

@@ -3,7 +3,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Data
+namespace XyrusWorx.Gaming.AnnoCompanion.Static
 {
 	static class ProductionChains
 	{

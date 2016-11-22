@@ -1,9 +1,7 @@
 ﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	enum Factions
+	class WaterResource : Resource
 	{
-		Occident,
-		Orient,
-		Lawless
+		
 	}
 }

@@ -2,7 +2,7 @@
 {
 	enum BuildingRestrictions
 	{
-		None,
+		None = 0,
 		Coast,
 		Mountain,
 		River

@@ -12,7 +12,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 		{
 			var input = value as BuildingInput;
-			var token = new JValue(input?.Good?.Key);
+			var token = new JValue(input?.Input?.Key);
 
 			token.WriteTo(writer);
 		}
@@ -22,8 +22,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 			var context = serializer.ReferenceResolver.CastTo<JsonReferenceResolver>();
 			if (context != null)
 			{
-				var good = context.Resolve(reader.Value?.ToString().NormalizeNull().TryTransform(x => new StringKey(x)) ?? new StringKey());
-				return new BuildingInput(good as Good);
+				var depletable = context.Resolve(reader.Value?.ToString().NormalizeNull().TryTransform(x => new StringKey(x)) ?? new StringKey());
+				return new BuildingInput(depletable as Depletable);
 			}
 
 			return existingValue;

@@ -8,7 +8,7 @@ using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 {
-	class JsonReferenceResolver : IReferenceResolver
+	class JsonReferenceResolver : IReferenceResolver, IInstancePool
 	{
 		private readonly Dictionary<StringKey, Persistable> mObjects;
 

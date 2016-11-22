@@ -1,22 +1,23 @@
 ﻿using System.Diagnostics;
 using Newtonsoft.Json;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	[DebuggerDisplay("{Good.DisplayName}")]
-	class BuildingInput
+	[DebuggerDisplay("{Input.DisplayName,nq}")]
+	class BuildingInput : Model
 	{
 		[JsonConstructor]
 		public BuildingInput()
 		{
 
 		}
-		public BuildingInput(Good good)
+		public BuildingInput(Depletable input)
 		{
-			Good = good;
+			Input = input;
 		}
 
-		[JsonRequired]
-		public Good Good { get; set; }
+		[JsonProperty(Required = Required.Always)]
+		public Depletable Input { get; set; }
 	}
 }

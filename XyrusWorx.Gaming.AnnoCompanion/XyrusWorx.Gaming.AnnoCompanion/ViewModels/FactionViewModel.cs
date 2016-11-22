@@ -14,7 +14,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	{
 		private readonly IDataProvider mRepository;
 
-		private Factions mFaction;
+		private Faction mFaction;
 		private string mDisplayName;
 
 		public FactionViewModel() { }
@@ -37,7 +37,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				OnPropertyChanged();
 			}
 		}
-		public Factions Faction
+		public Faction Faction
 		{
 			get { return mFaction; }
 			set
@@ -85,7 +85,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 					from chain in allProductionChains
 
 					let consumable = chain.OutputGood as ConsumableGood where consumable != null
-					let consumingGroups = consumable.ProvisionCapacities where consumingGroups != null
+					let consumingGroups = consumable.ProvisionCapacities
 
 					let orderedConsumerGroups = 
 						from consumingGroup in consumingGroups
@@ -101,7 +101,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 					from chain in groupChains
 
 					let consumable = chain.OutputGood as ConsumableGood where consumable != null
-					let provisionCapacities = consumable.ProvisionCapacities where provisionCapacities != null
+					let provisionCapacities = consumable.ProvisionCapacities
 
 					from provisionCapacity in provisionCapacities
 					select new
@@ -146,22 +146,22 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 				let consumable = chain.OutputGood as ConsumableGood where consumable != null
 
-				let isProvisionedToCurrentTier = consumable.ProvisionCapacities != null && consumable.ProvisionCapacities.Any(x =>
+				let isProvisionedToCurrentTier = consumable.ProvisionCapacities.Any(x =>
 					x.PopulationGroup.Tier <= maximumTier &&
 					x.PopulationGroup.Faction == Faction)
 
 				let isUnlockedWithCurrentPopulationCount =
-					groupCounts.GetValueByKeyOrDefault(chain.OutputGood.UnlockThreshold.PopulationGroup.Key) >=
-					chain.OutputGood.UnlockThreshold.Count
+					groupCounts.GetValueByKeyOrDefault(chain.OutputBuilding.UnlockThreshold.PopulationGroup.Key) >=
+					chain.OutputBuilding.UnlockThreshold.Count
 
-				let wasUnlockedWithLowerThanCurrentTier = chain.OutputGood.UnlockThreshold.PopulationGroup.Tier < maximumTier
+				let wasUnlockedWithLowerThanCurrentTier = chain.OutputBuilding.UnlockThreshold.PopulationGroup.Tier < maximumTier
 
-				let isUnlockedImplicitly = Faction == Factions.Lawless
+				let isUnlockedImplicitly = Faction == Faction.Lawless
 
 				where isProvisionedToCurrentTier
 				where isUnlockedWithCurrentPopulationCount || wasUnlockedWithLowerThanCurrentTier || isUnlockedImplicitly
 
-				orderby chain.Components.Min(x => x.Building.Output.Good.UnlockThreshold.PopulationGroup.Tier)
+				orderby chain.Components.Min(x => x.Building.UnlockThreshold.PopulationGroup.Tier)
 
 				select chain;
 

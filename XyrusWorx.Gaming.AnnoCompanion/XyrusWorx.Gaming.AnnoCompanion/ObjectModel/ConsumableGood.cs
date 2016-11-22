@@ -1,13 +1,10 @@
-﻿namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
+﻿using Newtonsoft.Json;
+
+namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
 	class ConsumableGood : Good
 	{
-		private ProvisionCapacity[] mProvisionCapacities;
-
-		public ProvisionCapacity[] ProvisionCapacities
-		{
-			get { return mProvisionCapacities ?? new ProvisionCapacity[0]; }
-			set { mProvisionCapacities = value; }
-		}
+		[JsonProperty(Required = Required.Always, Order = 4)]
+		public ProvisionCapacity[] ProvisionCapacities { get; set; }
 	}
 }

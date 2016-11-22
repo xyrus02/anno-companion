@@ -9,13 +9,13 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	class ProductionChainOverviewPageViewModel : PageViewModel
 	{
 		private bool mIsGrouped = true;
-		private readonly Repository mRepository;
+		private readonly IDataProvider mRepository;
 
 		public override string Header => "Produktionsketten";
 		public override int SortIndex => 1;
 
 		public ProductionChainOverviewPageViewModel() { }
-		public ProductionChainOverviewPageViewModel(Repository repository) : this()
+		public ProductionChainOverviewPageViewModel(IDataProvider repository) : this()
 		{
 			ResetAllCommand = new RelayCommand(ResetAll);
 			mRepository = repository;

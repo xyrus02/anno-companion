@@ -2,10 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Collections;
 using XyrusWorx.Gaming.AnnoCompanion.Serialization;
+using XyrusWorx.Gaming.AnnoCompanion.Static;
 using XyrusWorx.IO;
 using XyrusWorx.Structures;
 
@@ -13,84 +13,104 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	class Repository : IDataProvider
 	{
-		private readonly JsonReferenceResolver mData;
-		private readonly ObjectDependencyGraph mSchema;
+		private readonly ObjectDependencyGraph<PersistedNode> mSchema;
+		private readonly IInstancePool mInstancePool;
 
 		public Repository()
 		{
-			mData = new JsonReferenceResolver();
-			mSchema = GetSchema();
+			mInstancePool = new JsonReferenceResolver();
+			mSchema = PersistedNode.GetSchema(typeof(Persistable).Assembly);
 		}
 
 		[CanBeNull]
 		public T Get<T>(StringKey key) where T : Persistable
 		{
-			return mData.Resolve(key).CastTo<T>();
+			return mInstancePool.Resolve(key).CastTo<T>();
 		}
 
 		[NotNull]
 		public IEnumerable<T> GetAll<T>() where T : Persistable
 		{
-			return mData.GetAll<T>();
+			return mInstancePool.GetAll<T>();
+		}
+
+		[NotNull]
+		public IInstancePool InstancePool => mInstancePool;
+
+		[Obsolete]
+		public void LoadStatic()
+		{
+			Fertilities.GetAll().Foreach(x => mInstancePool.Register(x));
+			WaterResources.GetAll().Foreach(x => mInstancePool.Register(x));
+			MountainResources.GetAll().Foreach(x => mInstancePool.Register(x));
+			ConstructionMaterials.GetAll().Foreach(x => mInstancePool.Register(x));
+			WarfareMaterials.GetAll().Foreach(x => mInstancePool.Register(x));
+			RawMaterials.GetAll().Foreach(x => mInstancePool.Register(x));
+			ConsumableGoods.GetAll().Foreach(x => mInstancePool.Register(x));
+			Buildings.GetAll().Foreach(x => mInstancePool.Register(x));
+			ProductionChains.GetAll().Foreach(x => mInstancePool.Register(x));
+			PopulationGroups.GetAll().Foreach(x => mInstancePool.Register(x));
 		}
 
 		public void Clear()
 		{
-			mData.Clear();
-		}
-		public void LoadStatic()
-		{
-			ConstructionMaterials.GetAll().Foreach(x => mData.Register(x));
-			WarfareMaterials.GetAll().Foreach(x => mData.Register(x));
-			RawMaterials.GetAll().Foreach(x => mData.Register(x));
-			ConsumableGoods.GetAll().Foreach(x => mData.Register(x));
-			Buildings.GetAll().Foreach(x => mData.Register(x));
-			ProductionChains.GetAll().Foreach(x => mData.Register(x));
+			mInstancePool.Clear();
 		}
 
-		public void Import([NotNull] string sourcePath)
+		public void Import([NotNull] IBlobStore source)
 		{
-			if (sourcePath == null)
+			if (source == null)
 			{
-				throw new ArgumentNullException(nameof(sourcePath));
+				throw new ArgumentNullException(nameof(source));
 			}
 
-			var container = new FileSystemStore(sourcePath, isReadOnly: true);
-			var instancePool = mData;
+			var container = source;
+			var instancePool = mInstancePool;
 
-			foreach (var typePartition in mSchema.GetPartitionsByDependencyDepth())
+			foreach (var keyTypePartition in mSchema.GetPartitionsByDependencyDepth())
 			{
-				foreach (var type in typePartition.OfType<Type>())
+				foreach (var keyType in keyTypePartition)
 				{
-					var section = GetContainerKey(type);
-					var sectionContainer = container.GetChildStore(section);
-
-					foreach (var leaf in sectionContainer.Keys.Where(x => x.EndsWith(".json", StringComparison.InvariantCultureIgnoreCase)))
+					foreach (var implementation in keyType.ConcreteTypes)
 					{
-						using (var reader = sectionContainer.Open(leaf).AsText().Read())
-						{
-							var key = Path.GetFileNameWithoutExtension(leaf);
-							var instance = Persistable.Deserialize(key, type, reader, instancePool);
+						var section = PersistedNode.GetContainerKey(implementation);
+						var sectionContainer = container.GetChildStore(section);
 
-							mData.Register(instance);
+						foreach (var leaf in sectionContainer.Keys.Where(x => x.EndsWith(".json", StringComparison.InvariantCultureIgnoreCase)))
+						{
+							using (var reader = sectionContainer.Open(leaf).AsText().Read())
+							{
+								var key = Path.GetFileNameWithoutExtension(leaf);
+
+								try
+								{
+									var instance = Persistable.Deserialize(key, implementation, reader, instancePool);
+
+									mInstancePool.Register(instance);
+								}
+								catch (Exception exception)
+								{
+									throw new InvalidDataException($"Object \"{key}\" ({section}): {exception.Message}", exception);
+								}
+							}
 						}
 					}
 				}
 			}
 		}
-		public void Export([NotNull] string targetPath)
+		public void Export([NotNull] IBlobStore target)
 		{
-			if (targetPath == null)
+			if (target == null)
 			{
-				throw new ArgumentNullException(nameof(targetPath));
+				throw new ArgumentNullException(nameof(target));
 			}
 
-			var container = new FileSystemStore(targetPath);
-			var instancePool = mData;
+			var container = target;
+			var instancePool = mInstancePool;
 
-			foreach (var type in mSchema.GetKnownElements().OfType<Type>())
+			foreach (var type in mSchema.GetKnownElements().SelectMany(x => x.ConcreteTypes))
 			{
-				var section = GetContainerKey(type);
+				var section = PersistedNode.GetContainerKey(type);
 				var sectionContainer = container.GetChildStore(section);
 
 				foreach (var instance in instancePool.GetAll(type))
@@ -99,84 +119,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 					using (var writer = sectionContainer.Open(key).AsText().Write())
 					{
-						instance.Serialize(writer);
+						try
+						{
+							instance.Serialize(writer);
+						}
+						catch (Exception exception)
+						{
+							throw new InvalidDataException($"Object \"{instance.Key}\" ({section}): {exception.Message}", exception);
+						}
 					}
-				}
-			}
-		}
-
-		private static StringKey GetContainerKey(Type elementType)
-		{
-			return elementType.Name + "s"; // cheap ass pluralization :-)
-		}
-		private static ObjectDependencyGraph GetSchema()
-		{
-			var schema = new ObjectDependencyGraph();
-
-			var types =
-				from type in typeof(Persistable).Assembly.GetTypes()
-
-				where type.IsSubclassOf(typeof(Persistable))
-				where !type.IsAbstract && !type.IsInterface
-
-				let dependencies =
-					from property in type.GetProperties(BindingFlags.Public | BindingFlags.Instance | BindingFlags.NonPublic)
-					from dependency in GetTransientDependencies(property.PropertyType)
-					select dependency
-
-				select new
-				{
-					Type = type,
-					Dependencies = new HashSet<Type>(dependencies)
-				};
-
-			var composedTypeArray = types.ToArray();
-
-			foreach (var type in composedTypeArray)
-			{
-				schema.Register(type.Type);
-			}
-
-			foreach (var type in composedTypeArray)
-			{
-				var dep = schema.Element(type.Type);
-
-				foreach (var dependency in type.Dependencies)
-				{
-					dep.DependsOn(dependency);
-				}
-			}
-
-			return schema;
-		}
-		private static IEnumerable<Type> GetTransientDependencies(Type type)
-		{
-			if (type.IsPrimitive || type == typeof(string))
-			{
-				yield break;
-			}
-
-			if (type.IsSubclassOf(typeof(Persistable)) && !type.IsAbstract && !type.IsInterface)
-			{
-				yield return type;
-			}
-
-			var t = type;
-			var properties = new HashSet<PropertyInfo>(new ExpressionComparer<PropertyInfo>(x => x.Name));
-
-			while (t != null && t != typeof(object))
-			{
-				var typeProperties = t.GetProperties(BindingFlags.Instance | BindingFlags.Public | BindingFlags.NonPublic);
-
-				typeProperties.Foreach(x => properties.Add(x));
-				t = t.BaseType;
-			}
-
-			foreach (var property in properties)
-			{
-				foreach (var dependency in GetTransientDependencies(property.PropertyType))
-				{
-					yield return dependency;
 				}
 			}
 		}

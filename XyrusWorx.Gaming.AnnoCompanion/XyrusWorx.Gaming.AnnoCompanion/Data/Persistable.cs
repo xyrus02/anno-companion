@@ -9,7 +9,7 @@ using XyrusWorx.Gaming.AnnoCompanion.Serialization;
 namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	[DebuggerDisplay("{Key}")]
-	abstract class Persistable
+	abstract class Persistable : Model
 	{
 		[JsonIgnore]
 		public string Key { get; set; }
@@ -23,13 +23,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 			var jsonSerializer = GetSerializer(GetType());
 
+			jsonSerializer.ReferenceResolver = new JsonReferenceResolver();
 			jsonSerializer.Serialize(target, this);
 		}
-		public static T Deserialize<T>(StringKey key, [NotNull] TextReader source, [NotNull] JsonReferenceResolver references) where T: Persistable
+
+		internal static T Deserialize<T>(StringKey key, [NotNull] TextReader source, [NotNull] IInstancePool references) where T: Persistable
 		{
 			return (T) Deserialize(key, typeof(T), source, references);
 		}
-		public static Persistable Deserialize(StringKey key, [NotNull] Type type, [NotNull] TextReader source, [NotNull] JsonReferenceResolver references)
+		internal static Persistable Deserialize(StringKey key, [NotNull] Type type, [NotNull] TextReader source, [NotNull] IInstancePool references)
 		{
 			if (key.IsEmpty)
 			{
@@ -58,7 +60,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 			var jsonSerializer = GetSerializer(type);
 
-			jsonSerializer.ReferenceResolver = references;
+			jsonSerializer.ReferenceResolver = references as IReferenceResolver;
 
 			var obj = (Persistable)jsonSerializer.Deserialize(new JsonTextReader(source), type);
 
@@ -73,11 +75,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 			jsonSerializer.Converters.Add(new JsonIndexedObjectConverter(rootType));
 			jsonSerializer.Converters.Add(new JsonBuildingInputConverter());
-			jsonSerializer.Converters.Add(new JsonBuildingOutputConverter());
 			jsonSerializer.Converters.Add(new JsonBuildingRestrictionsConverter());
 			jsonSerializer.Converters.Add(new JsonFactionConverter());
 			jsonSerializer.ContractResolver = new CamelCasePropertyNamesContractResolver();
-			jsonSerializer.ReferenceResolver = new JsonReferenceResolver();
 			jsonSerializer.Formatting = Formatting.Indented;
 
 			return jsonSerializer;

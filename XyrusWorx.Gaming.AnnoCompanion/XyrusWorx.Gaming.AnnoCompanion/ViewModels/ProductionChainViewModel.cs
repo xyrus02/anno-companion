@@ -23,7 +23,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public string PrincipalPopulationGroup => Model?
 			.OutputGood?
 			.CastTo<ConsumableGood>()?
-			.ProvisionCapacities?
+			.ProvisionCapacities
 			.Select(x => x.PopulationGroup)
 			.OrderBy(x => x.Tier)
 			.FirstOrDefault()?
@@ -31,9 +31,9 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 		public int SortIndex =>
 			10000 * (Model?.OutputGood?.CastTo<ConsumableGood>() == null ? 1 : 2) +
-			1000 * ((int) (Model?.OutputGood?.UnlockThreshold?.PopulationGroup?.Faction ?? Factions.Occident) + 1) +
-			100 * (Model?.OutputGood?.UnlockThreshold?.PopulationGroup?.Tier ?? 1) +
-			10 * (Model?.OutputGood?.UnlockThreshold?.Count ?? 0);
+			1000 * ((int) (Model?.OutputBuilding?.UnlockThreshold.PopulationGroup.Faction ?? Faction.Occident) + 1) +
+			100 * (Model?.OutputBuilding?.UnlockThreshold.PopulationGroup.Tier ?? 1) +
+			10 * (Model?.OutputBuilding?.UnlockThreshold.Count ?? 0);
 
 		public Good OutputGood => Model?.OutputGood;
 

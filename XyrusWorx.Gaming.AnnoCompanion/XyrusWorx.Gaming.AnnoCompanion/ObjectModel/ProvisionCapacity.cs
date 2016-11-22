@@ -1,10 +1,13 @@
 ﻿using System.Diagnostics;
+using Newtonsoft.Json;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	[DebuggerDisplay("{Count} citizen(s) of {PopulationGroup}")]
-	class ProvisionCapacity
+	[DebuggerDisplay("{Count} {PopulationGroup.DisplayName,nq}")]
+	class ProvisionCapacity : Model
 	{
+		[JsonConstructor]
 		public ProvisionCapacity()
 		{
 
@@ -15,8 +18,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 			PopulationGroup = populationGroup;
 		}
 
-		public int Count { get; set; }
+		[JsonProperty(Order = 1)]
+		public int Count { get; set; } = 1;
 
+		[JsonProperty(Required = Required.Always, Order = 2)]
 		public PopulationGroup PopulationGroup { get; set; }
 	}
 }

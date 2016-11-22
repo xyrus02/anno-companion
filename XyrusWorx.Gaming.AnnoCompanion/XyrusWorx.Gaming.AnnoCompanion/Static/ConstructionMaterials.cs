@@ -3,7 +3,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Data
+namespace XyrusWorx.Gaming.AnnoCompanion.Static
 {
 	static class ConstructionMaterials
 	{
@@ -19,7 +19,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Wood",
 				DisplayName = "Holz",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Peasants),
 
 				TradeValue = 4,
 				ProductionCost = 3.33
@@ -29,7 +28,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Tools",
 				DisplayName = "Werkzeug",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
 				TradeValue = 36,
 				ProductionCost = 27.5
@@ -39,8 +37,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Stone",
 				DisplayName = "Steine",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Citizens),
-
+				
 				TradeValue = 8,
 				ProductionCost = 10
 			};
@@ -49,8 +46,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Glass",
 				DisplayName = "Glas",
-				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
-
+				
 				TradeValue = 68,
 				ProductionCost = 26.25
 			};
@@ -59,8 +55,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Mosaic",
 				DisplayName = "Mosaik",
-				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads),
-
+				
 				TradeValue = 46,
 				ProductionCost = 32.5
 			};

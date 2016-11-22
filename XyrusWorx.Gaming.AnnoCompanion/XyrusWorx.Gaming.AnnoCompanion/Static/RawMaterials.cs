@@ -3,7 +3,7 @@ using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.ObjectModel;
 
-namespace XyrusWorx.Gaming.AnnoCompanion.Data
+namespace XyrusWorx.Gaming.AnnoCompanion.Static
 {
 	static class RawMaterials
 	{
@@ -47,7 +47,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Salt",
 				DisplayName = "Salz",
-				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 
 				TradeValue = 9,
 				ProductionCost = 13.75
@@ -57,7 +56,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Hemp",
 				DisplayName = "Hemp",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
 				TradeValue = 24,
 				ProductionCost = 20
@@ -67,7 +65,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Brine",
 				DisplayName = "Sole",
-				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 
 				TradeValue = 6,
 				ProductionCost = 5
@@ -77,7 +74,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "IronOre",
 				DisplayName = "Eisenerz",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
 				TradeValue = 12,
 				ProductionCost = 10
@@ -87,7 +83,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Iron",
 				DisplayName = "Eisen",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
 				TradeValue = 33,
 				ProductionCost = 25
@@ -97,7 +92,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Flour",
 				DisplayName = "Mehl",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 
 				TradeValue = 16,
 				ProductionCost = 10
@@ -107,7 +101,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Coal",
 				DisplayName = "Kohle",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
 				TradeValue = 9,
 				ProductionCost = 5
@@ -117,7 +110,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Wheat",
 				DisplayName = "Weizen",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Patricians),
 
 				TradeValue = 3,
 				ProductionCost = 2.5
@@ -127,7 +119,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Herbs",
 				DisplayName = "Kräuter",
-				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
 
 				TradeValue = 6,
 				ProductionCost = 5
@@ -137,7 +128,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Potash",
 				DisplayName = "Pottasche",
-				UnlockThreshold = new PopulationRequirement(510, PopulationGroups.Patricians),
 
 				TradeValue = 20,
 				ProductionCost = 15
@@ -147,7 +137,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Paper",
 				DisplayName = "Papier",
-				UnlockThreshold = new PopulationRequirement(940, PopulationGroups.Patricians),
 
 				TradeValue = 24,
 				ProductionCost = 20
@@ -157,7 +146,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Furs",
 				DisplayName = "Pelze",
-				UnlockThreshold = new PopulationRequirement(950, PopulationGroups.Noblemen),
 
 				TradeValue = 19,
 				ProductionCost = 12
@@ -167,7 +155,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Barrels",
 				DisplayName = "Fässer",
-				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
 
 				TradeValue = 38,
 				ProductionCost = 29.17
@@ -177,7 +164,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "CopperOre",
 				DisplayName = "Kupfererz",
-				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
 
 				TradeValue = 36,
 				ProductionCost = 30
@@ -187,7 +173,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Brass",
 				DisplayName = "Messing",
-				UnlockThreshold = new PopulationRequirement(2200, PopulationGroups.Noblemen),
 
 				TradeValue = 84,
 				ProductionCost = 65
@@ -197,7 +182,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Grapes",
 				DisplayName = "Weintrauben",
-				UnlockThreshold = new PopulationRequirement(1500, PopulationGroups.Noblemen),
 
 				TradeValue = 45,
 				ProductionCost = 37.5
@@ -207,7 +191,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Cattle",
 				DisplayName = "Rinder",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Noblemen),
 
 				TradeValue = 9,
 				ProductionCost = 20
@@ -217,7 +200,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "RoseOil",
 				DisplayName = "Rosenöl",
-				UnlockThreshold = new PopulationRequirement(2600, PopulationGroups.Envoys),
 
 				TradeValue = 75,
 				ProductionCost = 60
@@ -227,7 +209,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Beeswax",
 				DisplayName = "Bienenwachs",
-				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
 
 				TradeValue = 27,
 				ProductionCost = 22.5
@@ -237,7 +218,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Candles",
 				DisplayName = "Kerzen",
-				UnlockThreshold = new PopulationRequirement(3000, PopulationGroups.Noblemen),
 
 				TradeValue = 87,
 				ProductionCost = 97.5
@@ -247,7 +227,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "CoffeeBeans",
 				DisplayName = "Kaffeebohnen",
-				UnlockThreshold = new PopulationRequirement(1, PopulationGroups.Envoys),
 
 				TradeValue = 50,
 				ProductionCost = 20
@@ -257,7 +236,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "GoldOre",
 				DisplayName = "Golderz",
-				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
 
 				TradeValue = 40,
 				ProductionCost = 37.5
@@ -267,7 +245,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Indigo",
 				DisplayName = "Indigo",
-				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
 
 				TradeValue = 19,
 				ProductionCost = 13.33
@@ -277,7 +254,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Gold",
 				DisplayName = "Gold",
-				UnlockThreshold = new PopulationRequirement(4000, PopulationGroups.Noblemen),
 
 				TradeValue = 40,
 				ProductionCost = 58.33
@@ -287,7 +263,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Sugar",
 				DisplayName = "Zucker",
-				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 
 				TradeValue = 26,
 				ProductionCost = 27.5
@@ -297,7 +272,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "SugarCane",
 				DisplayName = "Zuckerrohr",
-				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 
 				TradeValue = 13,
 				ProductionCost = 17.5
@@ -307,7 +281,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Almonds",
 				DisplayName = "Mandeln",
-				UnlockThreshold = new PopulationRequirement(4360, PopulationGroups.Envoys),
 
 				TradeValue = 9,
 				ProductionCost = 7.5
@@ -317,7 +290,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Clay",
 				DisplayName = "Ton",
-				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads),
 
 				TradeValue = 18,
 				ProductionCost = 12.5
@@ -327,7 +299,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Silk",
 				DisplayName = "Seide",
-				UnlockThreshold = new PopulationRequirement(295, PopulationGroups.Nomads),
 
 				TradeValue = 21,
 				ProductionCost = 16.67
@@ -337,7 +308,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Pearls",
 				DisplayName = "Perlen",
-				UnlockThreshold = new PopulationRequirement(1040, PopulationGroups.Envoys),
 
 				TradeValue = 48,
 				ProductionCost = 40
@@ -347,7 +317,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Quartz",
 				DisplayName = "Quarz",
-				UnlockThreshold = new PopulationRequirement(440, PopulationGroups.Nomads),
 
 				TradeValue = 18,
 				ProductionCost = 15
@@ -357,7 +326,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "Ropes",
 				DisplayName = "Seile",
-				UnlockThreshold = new PopulationRequirement(240, PopulationGroups.Citizens),
 
 				TradeValue = 39,
 				ProductionCost = 30
@@ -367,7 +335,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			{
 				Key = "AnimalHides",
 				DisplayName = "Tierhäute",
-				UnlockThreshold = new PopulationRequirement(690, PopulationGroups.Patricians),
 
 				TradeValue = 24,
 				ProductionCost = 7.5

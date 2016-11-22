@@ -1,24 +1,30 @@
 ﻿using System.Diagnostics;
+using Newtonsoft.Json;
+using XyrusWorx.Gaming.AnnoCompanion.Data;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ObjectModel
 {
-	[DebuggerDisplay("{Building}")]
-	class ProductionChainComponent
+	[DebuggerDisplay("{Building.DisplayName,nq}")]
+	class ProductionChainComponent : Model
 	{
+		[JsonConstructor]
 		public ProductionChainComponent()
 		{
 		}
-		public ProductionChainComponent(int count, Building building, double ratio = 1.0) : this()
+		public ProductionChainComponent(int count, ProductionBuilding building, double ratio = 1.0) : this()
 		{
 			Count = count;
 			Building = building;
 			Ratio = ratio;
 		}
 
-		public int Count { get; set; }
+		[JsonProperty(Required = Required.Always, Order = 1)]
+		public ProductionBuilding Building { get; set; }
 
-		public double Ratio { get; set; }
+		[JsonProperty(Order = 2)]
+		public int Count { get; set; } = 1;
 
-		public Building Building { get; set; }
+		[JsonProperty(Order = 3)]
+		public double Ratio { get; set; } = 1.0;
 	}
 }

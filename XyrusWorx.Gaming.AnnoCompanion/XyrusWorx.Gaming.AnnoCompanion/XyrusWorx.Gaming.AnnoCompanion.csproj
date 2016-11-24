@@ -104,6 +104,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Components\IconKeyConverter.cs" />
+    <Compile Include="Components\InputField.cs" />
     <Compile Include="Components\PopulationGroupConverter.cs" />
     <Compile Include="ViewModels\BuildingViewModel.cs" />
     <Compile Include="ViewModels\FractionViewModel.cs" />
@@ -112,6 +113,8 @@
     <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainViewModel.cs" />
+    <Compile Include="ViewModels\TradableGoodListViewModel.cs" />
+    <Compile Include="ViewModels\TradableGoodViewModel.cs" />
     <Compile Include="ViewModels\TradeCalculatorPageViewModel.cs" />
     <Compile Include="Views\GroupedProductionChainListView.xaml.cs">
       <DependentUpon>GroupedProductionChainListView.xaml</DependentUpon>
@@ -137,6 +140,10 @@
     <Compile Include="Views\TradeCalculatorPageView.xaml.cs">
       <DependentUpon>TradeCalculatorPageView.xaml</DependentUpon>
     </Compile>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="Views\GroupedProductionChainListView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -194,6 +201,7 @@
     </Compile>
     <None Include="packages.config" />
     <AppDesigner Include="Properties\" />
+    <Resource Include="Resources\Fonts\openSans.ttf" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />

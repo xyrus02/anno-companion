@@ -25,41 +25,23 @@
 					</Binding>
 				</Image.Source>
 			</Image>
-			<Border BorderBrush="{DynamicResource LightBorderBrush}" BorderThickness="1" HorizontalAlignment="Center">
-				<Grid Margin="3">
-					<Grid.ColumnDefinitions>
-						<ColumnDefinition MinWidth="5" Width="Auto" />
-						<ColumnDefinition Width="3" />
-						<ColumnDefinition Width="Auto" />
-					</Grid.ColumnDefinitions>
 
-					<TextBox TextAlignment="Center" BorderThickness="0" Padding="0" VerticalContentAlignment="Center" FontWeight="Bold">
-						<TextBox.Text>
-							<Binding Path="Count" Mode="TwoWay" ConverterCulture="{x:Static globalization:CultureInfo.InvariantCulture}" UpdateSourceTrigger="PropertyChanged" />
-						</TextBox.Text>
-						<Validation.ErrorTemplate>
-							<ControlTemplate>
-								<Border BorderThickness="0,0,0,3" Margin="0,5" BorderBrush="{DynamicResource FaultBrush}">
-									<AdornedElementPlaceholder />
-								</Border>
-							</ControlTemplate>
-						</Validation.ErrorTemplate>
-					</TextBox>
-					<Label HorizontalAlignment="Left" Grid.Column="2" Margin="0,0,3,0">
-						<Label.Content>
-							<MultiBinding>
-								<MultiBinding.Converter>
-									<components:StringConcatenationConverter />
-								</MultiBinding.Converter>
-								<Binding Source="(" />
-								<Binding Path="TurnaroundThreshold" />
-								<Binding Source=") " />
-								<Binding Path="DisplayName" />
-							</MultiBinding>
-						</Label.Content>
-					</Label>
-				</Grid>
-			</Border>
+			<localComponents:InputField>
+				<localComponents:InputField.Label>
+					<MultiBinding>
+						<MultiBinding.Converter>
+							<components:StringConcatenationConverter />
+						</MultiBinding.Converter>
+						<Binding Source="(" />
+						<Binding Path="TurnaroundThreshold" />
+						<Binding Source=") " />
+						<Binding Path="DisplayName" />
+					</MultiBinding>
+				</localComponents:InputField.Label>
+				<localComponents:InputField.Text>
+					<Binding Path="Count" Mode="TwoWay" ConverterCulture="{x:Static globalization:CultureInfo.InvariantCulture}" UpdateSourceTrigger="PropertyChanged" />
+				</localComponents:InputField.Text>
+			</localComponents:InputField>
 		</StackPanel>
 	</Grid>
 </UserControl>

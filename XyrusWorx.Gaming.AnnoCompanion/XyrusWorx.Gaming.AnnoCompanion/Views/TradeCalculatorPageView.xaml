@@ -4,11 +4,155 @@
 	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
 	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
+	xmlns:i="http://schemas.microsoft.com/expression/2010/interactivity"
+	xmlns:input="clr-namespace:XyrusWorx.Windows.Input;assembly=XyrusWorx.Foundation.Windows"
+	xmlns:localComponents="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Components"
+	xmlns:globalization="clr-namespace:System.Globalization;assembly=mscorlib"
+	xmlns:components="clr-namespace:XyrusWorx.UserExperience.Components;assembly=XyrusWorx.Foundation.UserExperience"
 	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.TradeCalculatorPageView"
 	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:TradeCalculatorPageViewModel}">
 	
 	<Grid>
-		
+		<Grid.RowDefinitions>
+			<RowDefinition Height="Auto" />
+			<RowDefinition />
+		</Grid.RowDefinitions>
+
+		<Border Background="{DynamicResource DimBackgroundBrush}" Panel.ZIndex="9998">
+			<StackPanel Orientation="Horizontal" Margin="5,5">
+				<StackPanel.Resources>
+					<Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
+						<Setter Property="BorderThickness" Value="0,1,1,1" />
+						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
+					</Style>
+
+					<Style TargetType="ToggleButton" BasedOn="{StaticResource {x:Type ToggleButton}}">
+						<Setter Property="BorderThickness" Value="0,1,1,1" />
+						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
+					</Style>
+				</StackPanel.Resources>
+
+				<Button BorderThickness="1" Command="{Binding ResetAllCommand}">
+					<Button.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/ResetSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Alle zurücksetzen" Grid.Column="1" />
+						</Grid>
+					</Button.Content>
+				</Button>
+
+				<TextBox Margin="5,0,0,0" Height="30" VerticalContentAlignment="Center" Text="{Binding TradeGoods.SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150">
+					<i:Interaction.Triggers>
+						<i:EventTrigger EventName="PreviewKeyUp">
+							<i:EventTrigger.Actions>
+								<input:EventToCommand Command="{Binding TradeGoods.SearchBoxKeyPressCommand}" PassEventArgsToCommand="True" />
+							</i:EventTrigger.Actions>
+						</i:EventTrigger>
+					</i:Interaction.Triggers>
+				</TextBox>
+				<Button BorderThickness="0,1,1,1" Command="{Binding TradeGoods.TriggerSearchCommand}">
+					<Button.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/SearchSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Suche" Grid.Column="1" />
+						</Grid>
+					</Button.Content>
+				</Button>
+			</StackPanel>
+		</Border>
+
+		<Border Grid.Row="1" Grid.Column="0" Panel.ZIndex="9997" Background="{DynamicResource NormalBorderBrush}" VerticalAlignment="Top" Height="1">
+			<Border.Effect>
+				<DropShadowEffect Direction="270" Color="#000000" Opacity="0.44" BlurRadius="10" ShadowDepth="2" />
+			</Border.Effect>
+		</Border>
+
+		<ContentControl Focusable="False" Panel.ZIndex="9999" Grid.Row="0" Content="{Binding TradeGoods}" HorizontalAlignment="Right" Margin="0,0,26,0">
+			<ContentControl.ContentTemplate>
+				<DataTemplate DataType="viewModels:TradableGoodListViewModel">
+					<Grid Height="40">
+						<TextBlock x:Name="profit" FontSize="16" Text="{Binding ProfitSum, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" VerticalAlignment="Center" FontWeight="Bold" />
+						<Border Grid.Column="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource NormalBorderBrush}" />
+					</Grid>
+					<DataTemplate.Triggers>
+						<DataTrigger Binding="{Binding IsProfitable}" Value="False">
+							<Setter TargetName="profit" Property="Foreground" Value="{DynamicResource ExclamationBrush}" />
+						</DataTrigger>
+					</DataTemplate.Triggers>
+				</DataTemplate>
+			</ContentControl.ContentTemplate>
+		</ContentControl>
+
+		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+			<ItemsControl ItemsSource="{Binding TradeGoods.VisibleItems}" Grid.IsSharedSizeScope="True">
+				<ItemsControl.ItemTemplate>
+					<DataTemplate DataType="viewModels:TradableGoodViewModel">
+						<Grid Height="40">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="4" />
+								<ColumnDefinition />
+								<ColumnDefinition Width="5" />
+								<ColumnDefinition Width="Auto" SharedSizeGroup="Balance"/>
+								<ColumnDefinition Width="Auto" SharedSizeGroup="Profit" />
+							</Grid.ColumnDefinitions>
+
+							<Image Width="16" Height="16" Grid.Column="0" VerticalAlignment="Center" HorizontalAlignment="Right">
+								<Image.Source>
+									<Binding Path="Key" ConverterParameter="Goods">
+										<Binding.Converter>
+											<localComponents:IconKeyConverter />
+										</Binding.Converter>
+									</Binding>
+								</Image.Source>
+							</Image>
+
+							<localComponents:InputField Grid.Column="2" BorderThickness="0" Background="Transparent" Height="40" HorizontalContentAlignment="Left">
+								<localComponents:InputField.Label>
+									<TextBlock TextTrimming="CharacterEllipsis">
+										<TextBlock.Text>
+											<MultiBinding>
+												<MultiBinding.Converter>
+													<components:StringConcatenationConverter />
+												</MultiBinding.Converter>
+
+												<Binding Source="t "/>
+												<Binding Path="DisplayName" />
+											</MultiBinding>
+										</TextBlock.Text>
+									</TextBlock>
+								</localComponents:InputField.Label>
+								<localComponents:InputField.Text>
+									<Binding Path="Count" Mode="TwoWay" ConverterCulture="{x:Static globalization:CultureInfo.InvariantCulture}" UpdateSourceTrigger="PropertyChanged" />
+								</localComponents:InputField.Text>
+							</localComponents:InputField>
+
+							<StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="0,0,15,0" Opacity="0.77">
+								<TextBlock FontSize="11" Text="{Binding UnitTradeValue, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" TextAlignment="Right" />
+								<TextBlock FontSize="11" Text="{Binding UnitProductionCost, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource ExclamationBrush}" TextAlignment="Right" />
+							</StackPanel>
+
+							<TextBlock x:Name="profit" Grid.Column="5" FontSize="16" Text="{Binding Profit, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" Margin="0,0,10,0" VerticalAlignment="Center" TextAlignment="Right" />
+
+							<Border Grid.Column="0" Grid.ColumnSpan="6" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource LightBorderBrush}" />
+						</Grid>
+						<DataTemplate.Triggers>
+							<DataTrigger Binding="{Binding IsProfitable}" Value="False">
+								<Setter TargetName="profit" Property="Foreground" Value="{DynamicResource ExclamationBrush}" />
+							</DataTrigger>
+						</DataTemplate.Triggers>
+					</DataTemplate>
+				</ItemsControl.ItemTemplate>
+			</ItemsControl>
+		</ScrollViewer>
 	</Grid>
 </UserControl>

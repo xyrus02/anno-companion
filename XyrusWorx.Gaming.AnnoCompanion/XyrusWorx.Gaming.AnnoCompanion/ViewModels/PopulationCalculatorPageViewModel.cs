@@ -1,7 +1,10 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using System.Windows.Input;
+using XyrusWorx.Collections;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Gaming.AnnoCompanion.Models;
+using XyrusWorx.Windows.Input;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
@@ -10,7 +13,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		private IEnumerable<BuildingViewModel> mRequirements;
 		private IEnumerable<FractionViewModel> mFractions;
 
-		public PopulationCalculatorPageViewModel() { }
+		public PopulationCalculatorPageViewModel()
+		{
+			ResetAllCommand = new RelayCommand(ResetAll);
+		}
 		public PopulationCalculatorPageViewModel(IDataProvider repository) : this()
 		{
 			Fractions = new List<FractionViewModel>(
@@ -22,6 +28,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 					Owner = this
 				}
 				select viewModel);
+		}
+
+		public ICommand ResetAllCommand { get; }
+		public void ResetAll()
+		{
+			Fractions?.Foreach(x => x.Items.Foreach(y => y.Count = 0));
 		}
 
 		public override string Header => "Bevölkerungsrechner";

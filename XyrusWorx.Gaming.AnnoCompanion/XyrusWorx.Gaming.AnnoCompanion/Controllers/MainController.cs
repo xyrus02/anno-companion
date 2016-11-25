@@ -16,7 +16,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 			var repository = new Repository(typeof(Depletable).Assembly);
 
 			ServiceLocator.Default.Register<ApplicationController>(this);
-
 			ServiceLocator.Default.Register<IDataProvider>(repository);
 			ServiceLocator.Default.Register<IIconResolverFactory>(repository);
 			ServiceLocator.Default.Register<IInstancePoolFactory>(repository);
@@ -40,6 +39,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 			var iconResolver = iconResolverFactory.GetIconResolver();
 
 			var preset = new Anno4ModelGenerator();
+
+			ServiceLocator.Default.Register(Definition.Dispatcher);
 
 			if (shouldExport)
 			{

@@ -118,7 +118,7 @@
 				</CollectionViewSource>
 			</ListView.Resources>
 			<ListView.ItemsSource>
-				<Binding Source="{StaticResource RequiredProductionChainComponents}" />
+				<Binding Source="{StaticResource RequiredProductionChainComponents}" IsAsync="True" />
 			</ListView.ItemsSource>
 			<ListView.View>
 				<GridView>

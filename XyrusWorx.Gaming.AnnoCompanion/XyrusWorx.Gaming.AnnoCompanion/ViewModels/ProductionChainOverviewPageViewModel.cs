@@ -1,4 +1,5 @@
-﻿using System.Windows.Input;
+﻿using System.Linq;
+using System.Windows.Input;
 using XyrusWorx.Collections;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
 using XyrusWorx.Gaming.AnnoCompanion.Models;
@@ -50,13 +51,20 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				return;
 			}
 
-			foreach (var productionChain in mRepository.GetAll<ProductionChain>())
-			{
-				ProductionChains.Items.Add(new ProductionChainViewModel
+			var productionChains =
+				from item in mRepository?.GetAll<ProductionChain>() ?? new ProductionChain[0]
+				let viewModel = new ProductionChainViewModel
 				{
-					Model = productionChain,
+					Model = item,
 					IsVisible = true
-				});
+				}
+				orderby string.IsNullOrWhiteSpace(viewModel.PrincipalPopulationGroup) ? 0 : 1 ascending
+				orderby viewModel.SortIndex ascending
+				select viewModel;
+
+			foreach (var productionChain in productionChains)
+			{
+				ProductionChains.Items.Add(productionChain);
 			}
 		}
 	}

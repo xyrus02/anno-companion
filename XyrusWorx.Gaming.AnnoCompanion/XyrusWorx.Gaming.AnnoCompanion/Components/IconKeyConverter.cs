@@ -18,9 +18,16 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Components
 				return null;
 			}
 
-			var provider = ServiceLocator.Default.Resolve<IIconResolverFactory>().GetIconResolver();
+			try
+			{
+				var provider = ServiceLocator.Default.Resolve<IIconResolverFactory>().GetIconResolver();
 
-			return provider.GetIcon(key, group);
+				return provider.GetIcon(key, group);
+			}
+			catch
+			{
+				return null;
+			}
 		}
 
 		public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)

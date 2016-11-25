@@ -1,6 +1,4 @@
 ﻿using System.Linq;
-using JetBrains.Annotations;
-using XyrusWorx.MVVM;
 using XyrusWorx.Windows.ViewModels;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
@@ -11,12 +9,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 		public ProductionChainListViewModel()
 		{
-			Selection = new SelectionViewModel<ProductionChainViewModel>(this);
 			AutomaticallyUpdateSearchResults = true;
 		}
-
-		[NotNull]
-		public SelectionViewModel<ProductionChainViewModel> Selection { get; }
 
 		public bool SearchComponents
 		{
@@ -26,7 +20,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				if (value == mSearchComponents) return;
 				mSearchComponents = value;
 				OnPropertyChanged();
-				UpdateVisibleItems();
+				BeginUpdate();
 			}
 		}
 
@@ -34,5 +28,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		{
 			return Expression.IsMatch(element.DisplayName) || (SearchComponents && element.Components.Items.Any(x => Expression.IsMatch(x.ProductionBuildingDisplayName)));
 		}
+		private async void BeginUpdate() => await UpdateVisibleItems();
 	}
 }

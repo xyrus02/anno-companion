@@ -81,20 +81,20 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="XyrusWorx.Foundation, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.1.7.3\lib\net462\XyrusWorx.Foundation.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.1.7.6\lib\net462\XyrusWorx.Foundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.Extensibility, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.Extensibility.1.7.3\lib\net462\XyrusWorx.Foundation.Extensibility.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.Extensibility, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.Extensibility.1.7.6\lib\net462\XyrusWorx.Foundation.Extensibility.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.UserExperience, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.UserExperience.1.7.3\lib\net462\XyrusWorx.Foundation.UserExperience.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.UserExperience, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.UserExperience.1.7.6\lib\net462\XyrusWorx.Foundation.UserExperience.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.Windows, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.Windows.1.7.3\lib\net462\XyrusWorx.Foundation.Windows.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.Windows, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.Windows.1.7.6\lib\net462\XyrusWorx.Foundation.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

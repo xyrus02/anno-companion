@@ -51,8 +51,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Xml" />
-    <Reference Include="XyrusWorx.Foundation, Version=1.7.3.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.1.7.3\lib\net462\XyrusWorx.Foundation.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.1.7.6\lib\net462\XyrusWorx.Foundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>

@@ -12,17 +12,12 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	{
 		private double mMultiplicator = 1;
 
-		public override IList<ProductionChainComponentViewModel> Items { get; } = new ObservableCollection<ProductionChainComponentViewModel>();
-
-		public double Multiplicator
+		public ProductionChainComponentListViewModel()
 		{
-			get { return mMultiplicator; }
-			set
-			{
-				if (value.Equals(mMultiplicator)) return;
-				UpdateMultiplicator(null, value);
-			}
+			Items = new ObservableCollection<ProductionChainComponentViewModel>();
 		}
+
+		public override IList<ProductionChainComponentViewModel> Items { get; }
 
 		public void Reset(ProductionChain productionChain)
 		{
@@ -38,6 +33,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			Items.AddRange(productionChain.Components.Select(x => new ProductionChainComponentViewModel { Owner = this, Model = x }));
 		}
 
+		public double Multiplicator
+		{
+			get { return mMultiplicator; }
+			set
+			{
+				if (value.Equals(mMultiplicator)) return;
+				UpdateMultiplicator(null, value);
+			}
+		}
 		public void UpdateMultiplicator(ProductionChainComponentViewModel sender, double value)
 		{
 			foreach (var item in Items)

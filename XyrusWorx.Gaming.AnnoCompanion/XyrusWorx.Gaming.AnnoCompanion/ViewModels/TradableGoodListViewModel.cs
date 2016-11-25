@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using System.Threading.Tasks;
 using XyrusWorx.Windows.ViewModels;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
@@ -55,11 +56,14 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 
 		public bool IsProfitable => ProfitSum >= 0;
 
-		public void UpdateValues()
+		public async void UpdateValues()
 		{
-			TradeValueSum = Items.Sum(x => x.TradeValue);
-			ProductionCostSum = Items.Sum(x => x.ProductionCost);
-			ProfitSum = Items.Sum(x => x.Profit);
+			await Task.Run(() =>
+			{
+				TradeValueSum = Items.Sum(x => x.TradeValue);
+				ProductionCostSum = Items.Sum(x => x.ProductionCost);
+				ProfitSum = Items.Sum(x => x.Profit);
+			});
 		}
 	}
 }

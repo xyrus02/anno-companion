@@ -93,7 +93,7 @@
 		</ContentControl>
 
 		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
-			<ItemsControl ItemsSource="{Binding TradeGoods.VisibleItems}" Grid.IsSharedSizeScope="True">
+			<ItemsControl ItemsSource="{Binding TradeGoods.VisibleItems, IsAsync=True}" Grid.IsSharedSizeScope="True">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="viewModels:TradableGoodViewModel">
 						<Grid Height="40">

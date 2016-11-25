@@ -22,7 +22,8 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				select new TradableGoodViewModel
 				{
 					Model = good,
-					Owner = TradeGoods
+					Owner = TradeGoods,
+					IsVisible = true
 				});
 		}
 

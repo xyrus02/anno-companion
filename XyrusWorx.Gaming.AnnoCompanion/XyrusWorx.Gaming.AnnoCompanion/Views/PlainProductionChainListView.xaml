@@ -9,10 +9,9 @@
 	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:ProductionChainListViewModel}">
 
-	<ListView
+	<ItemsControl
 		Background="Transparent" BorderThickness="0" Padding="0" 
-		SelectedItem="{Binding Selection.SelectedItem, Mode=TwoWay}"
-		ItemsSource="{Binding Path=VisibleItems}"
+		ItemsSource="{Binding VisibleItems}"
 		ScrollViewer.HorizontalScrollBarVisibility="Auto"
 		ScrollViewer.VerticalScrollBarVisibility="Auto"
 		Focusable="False" Margin="-1"
@@ -23,21 +22,10 @@
 				<views:ProductionChainComponentCalculatorView />
 			</DataTemplate>
 		</ItemsControl.ItemTemplate>
-		<ItemsControl.ItemContainerStyle>
-			<Style TargetType="ListViewItem">
-				<Setter Property="Template">
-					<Setter.Value>
-						<ControlTemplate TargetType="ListViewItem">
-							<ContentPresenter />
-						</ControlTemplate>
-					</Setter.Value>
-				</Setter>
-			</Style>
-		</ItemsControl.ItemContainerStyle>
 		<ItemsControl.ItemsPanel>
 			<ItemsPanelTemplate>
 				<StackPanel Orientation="Vertical" />
 			</ItemsPanelTemplate>
 		</ItemsControl.ItemsPanel>
-	</ListView>
+	</ItemsControl>
 </UserControl>

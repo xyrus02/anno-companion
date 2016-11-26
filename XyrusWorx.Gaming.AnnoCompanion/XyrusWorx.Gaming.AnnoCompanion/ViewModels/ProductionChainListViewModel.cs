@@ -20,7 +20,11 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				if (value == mSearchComponents) return;
 				mSearchComponents = value;
 				OnPropertyChanged();
-				BeginUpdate();
+
+				if (!string.IsNullOrWhiteSpace(SearchString))
+				{
+					BeginUpdateSearchResults();
+				}
 			}
 		}
 

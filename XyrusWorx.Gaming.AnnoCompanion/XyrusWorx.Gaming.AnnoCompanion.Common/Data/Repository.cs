@@ -57,6 +57,21 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			return mResolver ?? (mResolver = new IconResolver(mSchema));
 		}
 
+		public T Read<T>(BinaryContainer data) where T: Persistable
+		{
+			if (data == null)
+			{
+				throw new ArgumentNullException(nameof(data));
+			}
+
+			using (var reader = data.AsText().Read())
+			{
+				var instance = Persistable.Deserialize<T>(data.Identifier, reader, mInstancePool, mConverters);
+
+				return instance;
+			}
+		}
+
 		public void Clear()
 		{
 			mInstancePool.Clear();
@@ -78,7 +93,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 					foreach (var implementation in keyType.ConcreteTypes)
 					{
 						var section = PersistedNode.GetContainerKey(implementation);
-						var sectionContainer = container.GetChildStore(section);
+						var sectionContainer = container.GetChildStore(section, true);
 
 						foreach (var leaf in sectionContainer.Keys.Where(x => x.EndsWith(".json", StringComparison.InvariantCultureIgnoreCase)))
 						{

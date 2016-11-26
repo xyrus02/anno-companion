@@ -13,5 +13,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 		void Clear();
 		void Import([NotNull] IBlobStore source);
 		void Export([NotNull] IBlobStore target);
+
+		T Read<T>([NotNull] BinaryContainer data) where T : Persistable;
 	}
 }

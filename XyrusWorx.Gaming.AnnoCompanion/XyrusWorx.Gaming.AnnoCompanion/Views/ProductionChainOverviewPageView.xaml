@@ -22,17 +22,17 @@
 			<RowDefinition />
 		</Grid.RowDefinitions>
 
-		<Border Background="{DynamicResource DimBackgroundBrush}" Panel.ZIndex="9999">
+		<Border Panel.ZIndex="9999">
+			<Border.Background>
+				<SolidColorBrush Color="{DynamicResource NormalBackgroundColor}" Opacity="0.8" />
+			</Border.Background>
 			<StackPanel Orientation="Horizontal" Margin="5,5">
 				<StackPanel.Resources>
 					<Style TargetType="Button" BasedOn="{StaticResource {x:Type Button}}">
 						<Setter Property="BorderThickness" Value="0,1,1,1" />
-						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
 					</Style>
-
 					<Style TargetType="ToggleButton" BasedOn="{StaticResource {x:Type ToggleButton}}">
 						<Setter Property="BorderThickness" Value="0,1,1,1" />
-						<Setter Property="Background" Value="{DynamicResource NormalBackgroundBrush}" />
 					</Style>
 				</StackPanel.Resources>
 				

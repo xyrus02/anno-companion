@@ -78,7 +78,10 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 
 			var obj = (Persistable)jsonSerializer.Deserialize(new JsonTextReader(source), type);
 
-			obj.Key = key.RawData;
+			if (obj != null)
+			{
+				obj.Key = key.RawData;
+			}
 
 			return obj;
 		}

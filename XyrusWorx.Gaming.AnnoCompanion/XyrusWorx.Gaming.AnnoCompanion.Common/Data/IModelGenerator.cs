@@ -1,11 +1,16 @@
 ﻿using JetBrains.Annotations;
+using XyrusWorx.IO;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.Data
 {
 	[PublicAPI]
 	public interface IModelGenerator
 	{
+		string Key { get; }
+		string DisplayName { get; }
+
 		void Generate([NotNull] IInstancePool instancePool);
-		void AddToIconResolver([NotNull] IIconResolver iconResolver);
+
+		IBlobStore Icons { get; }
 	}
 }

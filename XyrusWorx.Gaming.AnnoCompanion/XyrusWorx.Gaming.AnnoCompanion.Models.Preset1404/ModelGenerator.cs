@@ -3,18 +3,20 @@ using System.Collections.Generic;
 using System.Reflection;
 using JetBrains.Annotations;
 using XyrusWorx.Gaming.AnnoCompanion.Data;
+using XyrusWorx.IO;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404
 {
 	[PublicAPI]
 	public class Anno4ModelGenerator : IModelGenerator
 	{
-		public void AddToIconResolver(IIconResolver iconResolver)
-		{
-			iconResolver.AddExternalDataSource(new EmbeddedBlobStore(
-				typeof(Anno4ModelGenerator).Assembly, 
-				new StringKeySequence("Resources", "Icons")));
-		}
+		public string Key => "Anno1404";
+		public string DisplayName => "ANNO 1404";
+
+		public IBlobStore Icons { get; } = new EmbeddedBlobStore(
+			typeof(Anno4ModelGenerator).Assembly,
+			new StringKeySequence("Resources", "Icons"));
+
 		public void Generate(IInstancePool instancePool)
 		{
 			if (instancePool == null)

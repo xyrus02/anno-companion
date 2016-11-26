@@ -134,7 +134,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				foreach (var dependency in info.Dependencies)
 				{
 					var dependencyInfo = typeToInfoDictionary.GetValueByKeyOrDefault(dependency);
-					if (dependencyInfo == null)
+					if (dependencyInfo == null || dependencyInfo.Key == dependency)
 					{
 						continue;
 					}
@@ -187,7 +187,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 			if (type.IsArray)
 			{
 				var elementType = type.GetElementType();
-				if (elementType != null)
+				if (elementType != null && elementType != type)
 				{
 					foreach (var dependency in GetTransientDependencies(elementType))
 					{
@@ -207,6 +207,11 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Data
 				foreach (var property in typeProperties)
 				{
 					if (property.GetCustomAttribute<JsonIgnoreAttribute>() != null)
+					{
+						continue;
+					}
+
+					if (property.PropertyType == type)
 					{
 						continue;
 					}

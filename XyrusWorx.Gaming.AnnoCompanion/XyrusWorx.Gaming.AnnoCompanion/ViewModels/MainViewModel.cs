@@ -1,5 +1,6 @@
 ﻿using System.Linq;
 using XyrusWorx.Collections;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.MVVM;
 using XyrusWorx.Runtime;
 
@@ -8,6 +9,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	class MainViewModel : ViewModel
 	{
 		private PageListViewModel mPages;
+		private ObjectStoreModel mProfile;
 
 		public MainViewModel()
 		{
@@ -33,6 +35,17 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 			{
 				if (Equals(value, mPages)) return;
 				mPages = value;
+				OnPropertyChanged();
+			}
+		}
+
+		public ObjectStoreModel Profile
+		{
+			get { return mProfile; }
+			set
+			{
+				if (Equals(value, mProfile)) return;
+				mProfile = value;
 				OnPropertyChanged();
 			}
 		}

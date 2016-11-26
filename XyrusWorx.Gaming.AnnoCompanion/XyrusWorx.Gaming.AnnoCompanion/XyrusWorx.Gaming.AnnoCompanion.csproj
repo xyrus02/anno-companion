@@ -81,20 +81,20 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="XyrusWorx.Foundation, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.1.7.6\lib\net462\XyrusWorx.Foundation.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.1.7.9\lib\net462\XyrusWorx.Foundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.Extensibility, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.Extensibility.1.7.6\lib\net462\XyrusWorx.Foundation.Extensibility.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.Extensibility, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.Extensibility.1.7.9\lib\net462\XyrusWorx.Foundation.Extensibility.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.UserExperience, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.UserExperience.1.7.6\lib\net462\XyrusWorx.Foundation.UserExperience.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.UserExperience, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.UserExperience.1.7.9\lib\net462\XyrusWorx.Foundation.UserExperience.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.Windows, Version=1.7.6.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.Windows.1.7.6\lib\net462\XyrusWorx.Foundation.Windows.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.Windows, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.Windows.1.7.9\lib\net462\XyrusWorx.Foundation.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -113,6 +113,7 @@
     <Compile Include="ViewModels\ProductionChainComponentViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainListViewModel.cs" />
     <Compile Include="ViewModels\ProductionChainViewModel.cs" />
+    <Compile Include="ViewModels\ProfileSelectionViewModel.cs" />
     <Compile Include="ViewModels\TradableGoodListViewModel.cs" />
     <Compile Include="ViewModels\TradableGoodViewModel.cs" />
     <Compile Include="ViewModels\TradeCalculatorPageViewModel.cs" />
@@ -136,6 +137,9 @@
     </Compile>
     <Compile Include="Views\ProductionChainComponentCalculatorView.xaml.cs">
       <DependentUpon>ProductionChainComponentCalculatorView.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\ProfileSelectionView.xaml.cs">
+      <DependentUpon>ProfileSelectionView.xaml</DependentUpon>
     </Compile>
     <Compile Include="Views\TradeCalculatorPageView.xaml.cs">
       <DependentUpon>TradeCalculatorPageView.xaml</DependentUpon>
@@ -190,6 +194,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="Views\ProfileSelectionView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\TradeCalculatorPageView.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -205,12 +213,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="App.ico" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Resources\Icons\CommonGoods.png" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Resources\Icons\ResetSmall.png" />
@@ -235,7 +237,9 @@
       <Name>XyrusWorx.Gaming.AnnoCompanion.Models</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Resource Include="App.ico" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

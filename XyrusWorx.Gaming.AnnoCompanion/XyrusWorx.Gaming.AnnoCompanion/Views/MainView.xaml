@@ -8,10 +8,19 @@
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
 	mc:Ignorable="d" x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.MainView"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:MainViewModel}"
-	Title="Anno 1404 Companion" Height="600" Width="800" MinWidth="720" MinHeight="240"
+	Height="600" Width="800" MinWidth="720" MinHeight="240"
 	Icon="/App.ico">
-	
-    <Grid>
+
+	<Window.Title>
+		<MultiBinding>
+			<MultiBinding.Converter>
+				<components:StringConcatenationConverter />
+			</MultiBinding.Converter>
+			<Binding Source="ANNO Companion - " />
+			<Binding Path="Profile.DisplayName" />
+		</MultiBinding>
+	</Window.Title>
+	<Grid>
 		<Grid.RowDefinitions>
 			<RowDefinition Height="50"/>
 			<RowDefinition/>

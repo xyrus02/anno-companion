@@ -1,9 +1,9 @@
 ﻿using System.Reflection;
 using System.Windows;
 
-[assembly: AssemblyTitle("Anno 1404 Companion")]
-[assembly: AssemblyDescription("Anno 1404 Companion")]
-[assembly: AssemblyProduct("Anno 1404 Companion")]
+[assembly: AssemblyTitle("ANNO Companion")]
+[assembly: AssemblyDescription("ANNO Companion")]
+[assembly: AssemblyProduct("ANNO Companion")]
 
 [assembly: AssemblyCompany("Georg Kiehne")]
 [assembly: AssemblyCopyright("Copyright © 2016 Georg Kiehne. All rights reserved.")]

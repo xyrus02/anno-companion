@@ -68,7 +68,7 @@
 												<RowDefinition Height="Auto"/>
 											</Grid.RowDefinitions>
 
-											<Image Grid.Row="1" Grid.Column="0" Stretch="Uniform" Width="32" x:Name="image" Margin="5,0,10,10">
+											<Image Grid.Row="1" Grid.Column="0" Stretch="Uniform" Width="32" x:Name="image" Margin="5,0,0,10">
 												<Image.Source>
 													<Binding Path="Key" ConverterParameter="PopulationGroups">
 														<Binding.Converter>
@@ -77,7 +77,7 @@
 													</Binding>
 												</Image.Source>
 											</Image>
-											<Label Grid.Row="1" Grid.Column="1" Padding="0" Margin="0,6,0,10" VerticalAlignment="Center">
+											<Label Grid.Row="1" Grid.Column="1" Padding="0" Margin="10,6,0,10" VerticalAlignment="Center">
 												<Label.Content>
 													<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
 													<Binding Path="DisplayName" FallbackValue="ALLGEMEIN" Mode="OneWay">
@@ -98,7 +98,7 @@
 									<ControlTemplate.Triggers>
 										<!-- ReSharper disable once Xaml.BindingWithContextNotResolved -->
 										<DataTrigger Binding="{Binding Name}" Value="{x:Null}">
-											<Setter TargetName="image" Property="Source" Value="/Resources/Icons/CommonGoods.png"/>
+											<Setter TargetName="image" Property="Visibility" Value="Collapsed"/>
 										</DataTrigger>
 									</ControlTemplate.Triggers>
 								</ControlTemplate>

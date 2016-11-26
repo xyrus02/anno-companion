@@ -14,7 +14,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Serialization
 			mRootType = rootType;
 		}
 
-		public override bool CanConvert(Type objectType) => objectType.IsSubclassOf(typeof(Persistable)) && mRootType != objectType;
+		public override bool CanConvert(Type objectType) => objectType.IsSubclassOf(typeof(Persistable)) && objectType != mRootType;
 
 		public override void WriteJson(JsonWriter writer, object value, JsonSerializer serializer)
 		{

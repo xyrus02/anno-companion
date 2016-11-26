@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using XyrusWorx.Windows.ViewModels;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
@@ -10,6 +11,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public ProductionChainListViewModel()
 		{
 			AutomaticallyUpdateSearchResults = true;
+			InputDelay = TimeSpan.FromMilliseconds(500);
 		}
 
 		public bool SearchComponents

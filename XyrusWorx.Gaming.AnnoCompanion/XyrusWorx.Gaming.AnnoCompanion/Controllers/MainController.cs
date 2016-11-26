@@ -32,8 +32,6 @@ namespace XyrusWorx.Gaming.AnnoCompanion.Controllers
 
 		protected override void OnInitialize()
 		{
-			ServiceLocator.Default.Register(Definition.Dispatcher);
-
 			var dataProvider = ServiceLocator.Default.Resolve<IDataProvider>();
 			var instancePoolFactory = ServiceLocator.Default.Resolve<IInstancePoolFactory>();
 			var iconResolverFactory = ServiceLocator.Default.Resolve<IIconResolverFactory>();

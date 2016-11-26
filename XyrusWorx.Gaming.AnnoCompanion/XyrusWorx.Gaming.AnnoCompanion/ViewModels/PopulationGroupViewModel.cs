@@ -1,5 +1,7 @@
-﻿using XyrusWorx.Gaming.AnnoCompanion.Models;
+﻿using System;
+using XyrusWorx.Gaming.AnnoCompanion.Models;
 using XyrusWorx.MVVM;
+using XyrusWorx.Threading;
 
 namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 {
@@ -7,6 +9,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 	{
 		private int mCount;
 		private int mTurnaroundThreshold;
+		private DelayAction mDelayAction;
 
 		public PopulationCalculatorPageViewModel Owner { get; set; }
 
@@ -22,7 +25,15 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 				if (value == mCount) return;
 				mCount = value;
 				OnPropertyChanged();
-				Owner?.UpdateValues();
+
+				mDelayAction?.CancelInvocation();
+				mDelayAction = new DelayAction(delay: TimeSpan.FromMilliseconds(500), action: () =>
+				{
+					mDelayAction = null;
+					Owner?.UpdateValues();
+				});
+
+				mDelayAction.QueueInvocation();
 			}
 		}
 

@@ -17,6 +17,7 @@
 		<Grid.RowDefinitions>
 			<RowDefinition Height="Auto" />
 			<RowDefinition />
+			<RowDefinition Height="40" />
 		</Grid.RowDefinitions>
 
 		<Border Panel.ZIndex="9998">
@@ -45,6 +46,31 @@
 						</Grid>
 					</Button.Content>
 				</Button>
+
+				<ToggleButton Margin="5,0,0,0" IsChecked="{Binding SortByTradeValue, Mode=TwoWay}">
+					<ToggleButton.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/SortValueSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Nach Handelswert sortieren" Grid.Column="1" />
+						</Grid>
+					</ToggleButton.Content>
+				</ToggleButton>
+				<ToggleButton IsChecked="{Binding SortByDisplayName, Mode=TwoWay}">
+					<ToggleButton.Content>
+						<Grid Height="Auto">
+							<Grid.ColumnDefinitions>
+								<ColumnDefinition Width="20" />
+								<ColumnDefinition Width="Auto" />
+							</Grid.ColumnDefinitions>
+							<Image Source="/Resources/Icons/SortNameSmall.png" Stretch="None" HorizontalAlignment="Left" />
+							<Label Content="Nach Name sortieren" Grid.Column="1" />
+						</Grid>
+					</ToggleButton.Content>
+				</ToggleButton>
 
 				<TextBox Margin="5,0,0,0" Height="30" VerticalContentAlignment="Center" Text="{Binding TradeGoods.SearchString, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="150">
 					<i:Interaction.Triggers>
@@ -76,12 +102,24 @@
 			</Border.Effect>
 		</Border>
 
-		<ContentControl Focusable="False" Panel.ZIndex="9999" Grid.Row="0" Content="{Binding TradeGoods}" HorizontalAlignment="Right" Margin="0,0,26,0">
+		<ContentControl Focusable="False" Panel.ZIndex="9999" Grid.Row="2" Content="{Binding TradeGoods}">
 			<ContentControl.ContentTemplate>
 				<DataTemplate DataType="viewModels:TradableGoodListViewModel">
 					<Grid Height="40">
-						<TextBlock x:Name="profit" FontSize="16" Text="{Binding ProfitSum, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" VerticalAlignment="Center" FontWeight="Bold" />
-						<Border Grid.Column="0" BorderThickness="0,0,0,1" BorderBrush="{DynamicResource NormalBorderBrush}" />
+						<Grid.ColumnDefinitions>
+							<ColumnDefinition  />
+							<ColumnDefinition Width="Auto" />
+							<ColumnDefinition Width="Auto" />
+						</Grid.ColumnDefinitions>
+
+						<StackPanel Grid.Column="1" VerticalAlignment="Center" Margin="0,0,12,0" Opacity="0.77">
+							<TextBlock FontSize="11" Text="{Binding TradeValueSum, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" TextAlignment="Right" />
+							<TextBlock FontSize="11" Text="{Binding ProductionCostSum, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource ExclamationBrush}" TextAlignment="Right" />
+						</StackPanel>
+
+						<TextBlock x:Name="profit" Grid.Column="2" FontSize="16" Text="{Binding ProfitSum, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" VerticalAlignment="Center" FontWeight="Bold" Margin="0,0,26,0" />
+						
+						<Border Grid.Column="0" Grid.ColumnSpan="3" BorderThickness="0,1,0,0" BorderBrush="{DynamicResource NormalBorderBrush}" />
 					</Grid>
 					<DataTemplate.Triggers>
 						<DataTrigger Binding="{Binding IsProfitable}" Value="False">
@@ -92,7 +130,7 @@
 			</ContentControl.ContentTemplate>
 		</ContentControl>
 
-		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto">
+		<ScrollViewer Grid.Row="1" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto" PanningMode="VerticalOnly">
 			<ItemsControl ItemsSource="{Binding TradeGoods.VisibleItems, IsAsync=True}" Grid.IsSharedSizeScope="True">
 				<ItemsControl.ItemTemplate>
 					<DataTemplate DataType="viewModels:TradableGoodViewModel">
@@ -116,7 +154,7 @@
 								</Image.Source>
 							</Image>
 
-							<localComponents:InputField Grid.Column="2" BorderThickness="0" Background="Transparent" Height="40" HorizontalContentAlignment="Left">
+							<localComponents:InputField Grid.Column="2" BorderThickness="0" Background="Transparent" Height="40" HorizontalContentAlignment="Left" HorizontalAlignment="Left">
 								<localComponents:InputField.Label>
 									<TextBlock TextTrimming="CharacterEllipsis">
 										<TextBlock.Text>
@@ -137,8 +175,8 @@
 							</localComponents:InputField>
 
 							<StackPanel Grid.Column="4" VerticalAlignment="Center" Margin="0,0,15,0" Opacity="0.77">
-								<TextBlock FontSize="11" Text="{Binding UnitTradeValue, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" TextAlignment="Right" />
-								<TextBlock FontSize="11" Text="{Binding UnitProductionCost, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource ExclamationBrush}" TextAlignment="Right" />
+								<TextBlock FontSize="11" x:Name="tradeValue" Text="{Binding TradeValue, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" TextAlignment="Right" />
+								<TextBlock FontSize="11" x:Name="productionCost" Text="{Binding ProductionCost, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource ExclamationBrush}" TextAlignment="Right" />
 							</StackPanel>
 
 							<TextBlock x:Name="profit" Grid.Column="5" FontSize="16" Text="{Binding Profit, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}" Foreground="{DynamicResource SuccessBrush}" Margin="0,0,10,0" VerticalAlignment="Center" TextAlignment="Right" />
@@ -148,6 +186,10 @@
 						<DataTemplate.Triggers>
 							<DataTrigger Binding="{Binding IsProfitable}" Value="False">
 								<Setter TargetName="profit" Property="Foreground" Value="{DynamicResource ExclamationBrush}" />
+							</DataTrigger>
+							<DataTrigger Binding="{Binding Count}" Value="0">
+								<Setter TargetName="tradeValue" Property="Text" Value="{Binding UnitTradeValue, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}"></Setter>
+								<Setter TargetName="productionCost" Property="Text" Value="{Binding UnitProductionCost, StringFormat='###,###,###,##0.00', ConverterCulture={x:Static globalization:CultureInfo.InvariantCulture}}"></Setter>
 							</DataTrigger>
 						</DataTemplate.Triggers>
 					</DataTemplate>

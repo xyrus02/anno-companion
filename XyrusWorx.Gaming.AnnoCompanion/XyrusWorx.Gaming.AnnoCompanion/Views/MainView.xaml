@@ -8,7 +8,7 @@
 	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
 	mc:Ignorable="d" x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.MainView"
 	d:DataContext="{d:DesignInstance d:Type=viewModels:MainViewModel}"
-	Height="600" Width="800" MinWidth="720" MinHeight="240"
+	Height="600" Width="800" MinWidth="800" MinHeight="240"
 	Icon="/App.ico">
 
 	<Window.Title>

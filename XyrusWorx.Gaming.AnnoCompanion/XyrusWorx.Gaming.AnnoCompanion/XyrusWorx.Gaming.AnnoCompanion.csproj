@@ -42,12 +42,16 @@
       <HintPath>..\packages\Microsoft.DotNet.InternalAbstractions.1.0.0\lib\net451\Microsoft.DotNet.InternalAbstractions.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Microsoft.DotNet.PlatformAbstractions, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.DotNet.PlatformAbstractions.1.1.0\lib\net451\Microsoft.DotNet.PlatformAbstractions.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="Microsoft.Expression.Interactions, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Expression.Interaction.3.0.40218.0\lib\net46\Microsoft.Expression.Interactions.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.Extensions.DependencyModel, Version=1.0.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.1.0.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
+    <Reference Include="Microsoft.Extensions.DependencyModel, Version=1.1.0.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Extensions.DependencyModel.1.1.0\lib\net451\Microsoft.Extensions.DependencyModel.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Newtonsoft.Json, Version=9.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
@@ -57,12 +61,16 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Data" />
-    <Reference Include="System.Runtime, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.4.1.0\lib\net462\System.Runtime.dll</HintPath>
+    <Reference Include="System.Reflection, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reflection.4.1.0\lib\net462\System.Reflection.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.0.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -81,20 +89,20 @@
     <Reference Include="WindowsBase" />
     <Reference Include="PresentationCore" />
     <Reference Include="PresentationFramework" />
-    <Reference Include="XyrusWorx.Foundation, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.1.7.9\lib\net462\XyrusWorx.Foundation.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation, Version=1.8.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.1.8.10\lib\net462\XyrusWorx.Foundation.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.Extensibility, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.Extensibility.1.7.9\lib\net462\XyrusWorx.Foundation.Extensibility.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.Extensibility, Version=1.8.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.Extensibility.1.8.10\lib\net462\XyrusWorx.Foundation.Extensibility.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.UserExperience, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.UserExperience.1.7.9\lib\net462\XyrusWorx.Foundation.UserExperience.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.UserExperience, Version=1.8.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.UserExperience.1.8.10\lib\net462\XyrusWorx.Foundation.UserExperience.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="XyrusWorx.Foundation.Windows, Version=1.7.9.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\XyrusWorx.Foundation.Windows.1.7.9\lib\net462\XyrusWorx.Foundation.Windows.dll</HintPath>
+    <Reference Include="XyrusWorx.Foundation.Windows, Version=1.8.10.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\XyrusWorx.Foundation.Windows.1.8.10\lib\net462\XyrusWorx.Foundation.Windows.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
@@ -239,6 +247,10 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="App.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Icons\SortNameSmall.png" />
+    <Resource Include="Resources\Icons\SortValueSmall.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

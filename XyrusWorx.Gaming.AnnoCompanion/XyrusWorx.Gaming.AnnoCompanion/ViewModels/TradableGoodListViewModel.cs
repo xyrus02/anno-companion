@@ -1,4 +1,5 @@
-﻿using System.Linq;
+﻿using System;
+using System.Linq;
 using System.Threading.Tasks;
 using XyrusWorx.Windows.ViewModels;
 
@@ -13,6 +14,7 @@ namespace XyrusWorx.Gaming.AnnoCompanion.ViewModels
 		public TradableGoodListViewModel()
 		{
 			AutomaticallyUpdateSearchResults = true;
+			InputDelay = TimeSpan.FromMilliseconds(500);
 		}
 
 		protected override bool IsVisible(TradableGoodViewModel element)

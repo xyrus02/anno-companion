@@ -1,0 +1,41 @@
+﻿<UserControl
+	xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+	xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+	xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+	xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+	xmlns:viewModels="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.ViewModels"
+	xmlns:views="clr-namespace:XyrusWorx.Gaming.AnnoCompanion.Views"
+	x:Class="XyrusWorx.Gaming.AnnoCompanion.Views.PlainProductionChainListView"
+	mc:Ignorable="d" d:DesignHeight="300" d:DesignWidth="300"
+	d:DataContext="{d:DesignInstance d:Type=viewModels:ProductionChainListViewModel}">
+
+	<FrameworkElement.Resources>
+		<ResourceDictionary>
+			<ResourceDictionary.MergedDictionaries>
+				<ResourceDictionary Source="pack://application:,,,/XyrusWorx.Theme;component/Themes/XyrusWorxV5.xaml" />
+			</ResourceDictionary.MergedDictionaries>
+		</ResourceDictionary>
+	</FrameworkElement.Resources>
+
+	<ScrollViewer VerticalScrollBarVisibility="Auto">
+		<ItemsControl
+			Background="Transparent" BorderThickness="0" Padding="0" 
+			ItemsSource="{Binding VisibleItems}"
+			ScrollViewer.HorizontalScrollBarVisibility="Auto"
+			ScrollViewer.VerticalScrollBarVisibility="Auto"
+			Focusable="False" Margin="-1"
+			Grid.IsSharedSizeScope="True">
+
+			<ItemsControl.ItemTemplate>
+				<DataTemplate DataType="viewModels:ProductionChainViewModel">
+					<views:ProductionChainComponentCalculatorView />
+				</DataTemplate>
+			</ItemsControl.ItemTemplate>
+			<ItemsControl.ItemsPanel>
+				<ItemsPanelTemplate>
+					<StackPanel Orientation="Vertical" />
+				</ItemsPanelTemplate>
+			</ItemsControl.ItemsPanel>
+		</ItemsControl>
+	</ScrollViewer>
+</UserControl>

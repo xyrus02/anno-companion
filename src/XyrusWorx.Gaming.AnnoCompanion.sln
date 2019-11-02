@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompanion", "app\XyrusWorx.Gaming.AnnoCompanion\XyrusWorx.Gaming.AnnoCompanion.csproj", "{4FDE06E9-1455-42B8-A411-F9DC3AE3B5A6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompanion.Common", "lib\XyrusWorx.Gaming.AnnoCompanion.Common\XyrusWorx.Gaming.AnnoCompanion.Common.csproj", "{414F935F-AD6E-4878-9F17-9D7B4D037F42}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompanion.Models", "lib\XyrusWorx.Gaming.AnnoCompanion.Models\XyrusWorx.Gaming.AnnoCompanion.Models.csproj", "{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404", "lib\XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404\XyrusWorx.Gaming.AnnoCompanion.Models.Preset1404.csproj", "{15A58CE6-7D35-48C3-9EF1-3473F3E48697}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4FDE06E9-1455-42B8-A411-F9DC3AE3B5A6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4FDE06E9-1455-42B8-A411-F9DC3AE3B5A6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4FDE06E9-1455-42B8-A411-F9DC3AE3B5A6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4FDE06E9-1455-42B8-A411-F9DC3AE3B5A6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{414F935F-AD6E-4878-9F17-9D7B4D037F42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{414F935F-AD6E-4878-9F17-9D7B4D037F42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{414F935F-AD6E-4878-9F17-9D7B4D037F42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{414F935F-AD6E-4878-9F17-9D7B4D037F42}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5285A649-63CD-41F9-8F5C-8EAD6C5EEC22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15A58CE6-7D35-48C3-9EF1-3473F3E48697}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
